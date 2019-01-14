@@ -8,5 +8,103 @@ namespace SetServer
 {
     class SetLogic
     {
+        public static void Main()
+        {
+            Card test = new Card();
+            test.setFeatures(0, 0, 0, 0);
+            test.showFeatures();
+        }
+    }
+    public class Card
+    {
+        public int colour; // 0=red, 1=green, 2=purple
+        public int symbol; // 0=oval, 1=squiggly, 3=diamond
+        public int number; // 0=1, 1=2, 2=3
+        public int shading; // 0=solid, 1=open, 2=striped
+
+        public void setFeatures (int length, int symbol, int number, int shading)
+        {
+            this.length = length;
+            this.symbol = symbol;
+            this.number = number;
+            this.shading = shading;
+        }
+
+        public int[] getFeatures ()
+        {
+            int[] features = { colour, symbol, number, shading };
+            return features;
+        }
+
+        public void showFeatures()
+        {
+            string[] features = new string[4];
+            switch (this.colour)
+            {
+                case 0:
+                    features[0] = "red";
+                    break;
+                case 1:
+                    features[0] = "green";
+                    break;
+                case 2:
+                    features[0] = "purple";
+                    break;
+                default:
+                    features[0] = "error";
+                    break;
+            }
+
+            switch (this.symbol)
+            {
+                case 0:
+                    features[1] = "oval";
+                    break;
+                case 1:
+                    features[1] = "squiggly";
+                    break;
+                case 2:
+                    features[1] = "diamond";
+                    break;
+                default:
+                    features[1] = "error";
+                    break;
+            }
+            switch (this.number)
+            {
+                case 0:
+                    features[2] = "1";
+                    break;
+                case 1:
+                    features[2] = "2";
+                    break;
+                case 2:
+                    features[2] = "3";
+                    break;
+                default:
+                    features[2] = "error";
+                    break;
+            }
+            switch (this.shading)
+            {
+                case 0:
+                    features[3] = "solid";
+                    break;
+                case 1:
+                    features[3] = "open";
+                    break;
+                case 2:
+                    features[3] = "striped";
+                    break;
+                default:
+                    features[3] = "error";
+                    break;
+            }
+
+            Console.Write("Colour: {0}, Symbol: {1}, Number {2}, Shading {3}", features[0], features[1], features[2], features[3]);
+            Console.ReadKey();
+        }
     }
 }
+
+
