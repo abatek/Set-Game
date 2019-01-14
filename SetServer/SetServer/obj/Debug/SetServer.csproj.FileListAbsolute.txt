@@ -1,0 +1,10 @@
+c:\users\tb\source\repos\SetServer\SetServer\bin\Debug\SetServer.exe.config
+c:\users\tb\source\repos\SetServer\SetServer\bin\Debug\SetServer.exe
+c:\users\tb\source\repos\SetServer\SetServer\bin\Debug\SetServer.pdb
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.MainForm.resources
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.Properties.Resources.resources
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.csproj.GenerateResource.cache
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.exe
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.pdb
+c:\users\tb\source\repos\SetServer\SetServer\obj\Debug\SetServer.csprojAssemblyReference.cache

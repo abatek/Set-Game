@@ -1,0 +1,10 @@
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.csprojAssemblyReference.cache
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.MainForm.resources
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.Properties.Resources.resources
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.csproj.GenerateResource.cache
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.csproj.CoreCompileInputs.cache
+c:\users\tb\source\repos\SetClient\SetClient\bin\Debug\SetClient.exe.config
+c:\users\tb\source\repos\SetClient\SetClient\bin\Debug\SetClient.exe
+c:\users\tb\source\repos\SetClient\SetClient\bin\Debug\SetClient.pdb
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.exe
+c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.pdb
