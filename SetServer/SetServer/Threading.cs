@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace SetServer
 {
-    //test commit
     class Threading
     {
         public Socket s;
@@ -60,6 +59,17 @@ namespace SetServer
                         {
                             //AddToListBox.UpdateListBox(output);
                             Console.WriteLine("Message: " + output);
+                            SetLogic test = new SetLogic();
+
+                            List<Card> cards = test.convertToCards(output);
+                            foreach (Card card in cards)
+                            {
+                                card.showFeatures();
+                            }
+
+                            bool checkedIsSet = test.isSet(cards[0], cards[1], cards[2]);
+                            Console.WriteLine("This is a set: {0}", checkedIsSet);
+                            WriteToClient("This is a set: " + Convert.ToString(checkedIsSet));
                             output = "";
                         }
                         else

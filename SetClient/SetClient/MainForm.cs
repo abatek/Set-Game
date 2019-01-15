@@ -32,15 +32,12 @@ namespace SetClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Card a = new Card();
-            Card b = new Card();
-            Card c = new Card();
+            //Sent cards - see card class for number value list
+            Card a = new Card(0, 0, 2, 0);
+            Card b = new Card(1, 2, 1, 0);
+            Card c = new Card(2, 1, 0, 0);
 
-            a.setFeatures(0, 0, 2, 0);
-            b.setFeatures(1, 2, 1, 0);
-            c.setFeatures(2, 1, 0, 0);
-
-            string str = a.toString() + ", " + b.toString() + ", " + c.toString();
+            string str = a.toString() + "," + b.toString() + "," + c.toString();
             client.WriteToServer(str);
         }
 

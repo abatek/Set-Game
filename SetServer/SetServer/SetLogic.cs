@@ -19,7 +19,25 @@ namespace SetServer
 
         }
 
-        public static bool isSet (Card a, Card b, Card c)
+        public List<Card> convertToCards (string str)
+        {
+            List <Card> ret = new List<Card>();
+            string[] rawCards = str.Split(',');
+            foreach (string s in rawCards)
+            {
+                int[] feats = new int[4];
+                
+                for (int i = 0; i < 4; i++)
+                {
+                    feats[i] = Convert.ToInt32(s.Split(' ')[i]);
+                }
+
+                ret.Add(new Card(feats[0], feats[1], feats[2], feats[3]));
+            }
+            return ret;
+        }
+
+        public bool isSet (Card a, Card b, Card c)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -54,22 +72,30 @@ namespace SetServer
     }
     public class Card
     {
-        private int colour; // 0=red, 1=green, 2=purple
-        private int symbol; // 0=oval, 1=squiggly, 3=diamond
-        private int number; // 0=1, 1=2, 2=3
-        private int shading; // 0=solid, 1=open, 2=striped
+        private int _colour; // 0=red, 1=green, 2=purple
+        private int _symbol; // 0=oval, 1=squiggly, 3=diamond
+        private int _number; // 0=1, 1=2, 2=3
+        private int _shading; // 0=solid, 1=open, 2=striped
+
+        public Card (int colour, int symbol, int number, int shading)
+        {
+            _colour = colour;
+            _symbol = symbol;
+            _number = number;
+            _shading = shading;
+        }
 
         public void setFeatures (int colour, int symbol, int number, int shading)
         {
-            this.colour = colour;
-            this.symbol = symbol;
-            this.number = number;
-            this.shading = shading;
+            _colour = colour;
+            _symbol = symbol;
+            _number = number;
+            _shading = shading;
         }
 
         public int[] getFeatures()
         {
-            int[] features = { colour, symbol, number, shading };
+            int[] features = { _colour, _symbol, _number, _shading };
             foreach (int i in features)
             {
                 //Console.Write(i);
@@ -81,7 +107,7 @@ namespace SetServer
         public void showFeatures()
         {
             string[] features = new string[4];
-            switch (this.colour)
+            switch (_colour)
             {
                 case 0:
                     features[0] = "red";
@@ -97,7 +123,7 @@ namespace SetServer
                     break;
             }
 
-            switch (this.symbol)
+            switch (_symbol)
             {
                 case 0:
                     features[1] = "oval";
@@ -112,7 +138,7 @@ namespace SetServer
                     features[1] = "error";
                     break;
             }
-            switch (this.number)
+            switch (_number)
             {
                 case 0:
                     features[2] = "1";
@@ -127,7 +153,7 @@ namespace SetServer
                     features[2] = "error";
                     break;
             }
-            switch (this.shading)
+            switch (_shading)
             {
                 case 0:
                     features[3] = "solid";
@@ -144,7 +170,10 @@ namespace SetServer
             }
 
             Console.WriteLine("Colour: {0}, Symbol: {1}, Number {2}, Shading {3}", features[0], features[1], features[2], features[3]);
-            
+        }
+        public string toString()
+        {
+            return Convert.ToString(_colour + " " + _symbol + " " + _number + " " + _shading);
         }
     }
 }

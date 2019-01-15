@@ -39,17 +39,17 @@ namespace SetClient
             {
                 //generate stream with server
                 Stream stm = TCP_clnt.GetStream();
-
+                
                 byte[] bb = new byte[100];
 
                 while (true) {
                     string output = "";
 
-                    int k = stm.Read(bb, 0, 100);
+                    int k = stm.Read(bb, 0, 100); // number of characters in 100 byte segment
                     for (int i = 0; i < k; ++i)
                     {
                         char c = Convert.ToChar(bb[i]);
-                        if (c.Equals('\n'))
+                        if (c.Equals('\n')) // newline character signals end of message
                         {
                             //AddToListBox.UpdateListBox(output);
                             Console.WriteLine("Message: " + output);
@@ -66,9 +66,10 @@ namespace SetClient
         public void WriteToServer(string str) {
             Stream stm = TCP_clnt.GetStream();
             ASCIIEncoding asen = new ASCIIEncoding();
-            byte[] ba = asen.GetBytes(str + "/n");
-
+            // sends encoded string followed by newline 
+            byte[] ba = asen.GetBytes(str + "\n"); 
             stm.Write(ba, 0, ba.Length);
+
             Console.WriteLine("Sent:{0}", str);
         }
     }
