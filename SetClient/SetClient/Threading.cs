@@ -19,11 +19,14 @@ namespace SetClient
         public void Connect() {
             try
             {
-                host = "192.168.1.135";
+                host = "127.0.0.1";
 
                 Console.Write("Attempting to connect...");
                 TCP_clnt.Connect(host, port);
                 Console.WriteLine("Connected to {0}", host);
+
+                Thread ThreadRead = ReadFromServer();
+                ThreadRead.Start();
             }
             catch (Exception e)
             {
@@ -31,45 +34,42 @@ namespace SetClient
             }
         }
 
-        public void ReadFromServer() {
-            Thread ThreadRead = new Thread(() =>
+        public Thread ReadFromServer() {
+            return new Thread(() =>
             {
-                string output = null;
-                
                 //generate stream with server
                 Stream stm = TCP_clnt.GetStream();
 
                 byte[] bb = new byte[100];
 
-                int k = stm.Read(bb, 0, 100);
+                while (true) {
+                    string output = "";
 
-                for (int i = 0; i < k; ++i) 
-                    output += Convert.ToChar(bb[i]);
-
-                MainForm form = new MainForm();
-                AddToListBox.UpdateListBox(output);
-                
+                    int k = stm.Read(bb, 0, 100);
+                    for (int i = 0; i < k; ++i)
+                    {
+                        char c = Convert.ToChar(bb[i]);
+                        if (c.Equals('\n'))
+                        {
+                            //AddToListBox.UpdateListBox(output);
+                            Console.WriteLine("Message: " + output);
+                            output = "";
+                        }
+                        else {
+                            output += c;
+                        }
+                    }
+                }
             });
-            ThreadRead.Start();
-            ThreadRead.Join();
-            
         }
 
         public void WriteToServer(string str) {
-            Thread ThreadWrite = new Thread(() => {
+            Stream stm = TCP_clnt.GetStream();
 
-                Stream stm = TCP_clnt.GetStream();
+            ASCIIEncoding asen = new ASCIIEncoding();
+            byte[] ba = asen.GetBytes(str + "\n");
 
-                ASCIIEncoding asen = new ASCIIEncoding();
-
-                byte[] ba = asen.GetBytes(str);
-
-                stm.Write(ba, 0, ba.Length);
-            });
-            
-            ThreadWrite.Start();
-            ThreadWrite.Join();
-
+            stm.Write(ba, 0, ba.Length);
         }
     }
 }

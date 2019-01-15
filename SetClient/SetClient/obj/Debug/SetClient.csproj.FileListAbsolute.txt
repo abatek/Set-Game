@@ -8,3 +8,12 @@ c:\users\tb\source\repos\SetClient\SetClient\bin\Debug\SetClient.exe
 c:\users\tb\source\repos\SetClient\SetClient\bin\Debug\SetClient.pdb
 c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.exe
 c:\users\tb\source\repos\SetClient\SetClient\obj\Debug\SetClient.pdb
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.exe.config
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.exe
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.pdb
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.MainForm.resources
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.Properties.Resources.resources
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csproj.GenerateResource.Cache
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csproj.CoreCompileInputs.cache
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.exe
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.pdb

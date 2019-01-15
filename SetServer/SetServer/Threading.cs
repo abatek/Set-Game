@@ -14,14 +14,12 @@ namespace SetServer
     class Threading
     {
         public Socket s;
-        public string ip = "192.168.1.135";
-        public IPAddress ipAd;
+        public string ip = "127.0.0.1";
         public int port = 8001;
+
         public void Connect() {
             try
             {
-                
-
                 IPAddress ipAd = IPAddress.Parse(ip);
                 TcpListener listener = new TcpListener(ipAd, port);
                 listener.Start();
@@ -32,52 +30,50 @@ namespace SetServer
 
                 s = listener.AcceptSocket();
                 Console.WriteLine("Connection accepted from {0}", s.RemoteEndPoint);
+
+                Thread ThreadRead = ReadFromClient();
+                ThreadRead.Start();
+
                 ASCIIEncoding msg = new ASCIIEncoding();
-                s.Send(msg.GetBytes("maybe this"));
+                s.Send(msg.GetBytes("Welcome to the server\n"));
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error..." + e.StackTrace);
             }
         }
-        public void ReadFromClient() {
-            Thread ThreadRead = new Thread(() => {
-                string output = null;
-                int k = 0;
-                byte[] b = new byte[100];
-                k = s.Receive(b);
 
-                for (int i = 0; i < k; ++i)
-                    output += Convert.ToChar(b[i]);
-
-                AddToListBox.UpdateListBox(output);
-            });
-            ThreadRead.Start();
-            ThreadRead.Join();
-        }
-        public void WriteToClient()
-        {
-            try
+        public Thread ReadFromClient() {
+            return new Thread(() =>
             {
-                Thread ThreadWrite = new Thread(() =>
+                byte[] bb = new byte[100];
+
+                while (true)
                 {
-                    TcpListener listener = new TcpListener(IPAddress.Parse("192.168.1.135"), port);
-                    listener.Start();
-                    s = listener.AcceptSocket();
-                    ASCIIEncoding msg = new ASCIIEncoding();
-                    TextBox t = Application.OpenForms["MainForm"].Controls["txtSend"] as TextBox;
-                    s.Send(msg.GetBytes("maybe this"));
-                    //ISSUES WITH NULL VALUE FROM S.SEND
-                    
-                });
+                    string output = "";
 
-                ThreadWrite.Start();
-                ThreadWrite.Join();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error..." + e.StackTrace);
-            }
+                    int k = s.Receive(bb, 100, SocketFlags.None);
+                    for (int i = 0; i < k; ++i)
+                    {
+                        char c = Convert.ToChar(bb[i]);
+                        if (c.Equals('\n'))
+                        {
+                            //AddToListBox.UpdateListBox(output);
+                            Console.WriteLine("Message: " + output);
+                            output = "";
+                        }
+                        else
+                        {
+                            output += c;
+                        }
+                    }
+                }
+            });
+        }
+        public void WriteToClient(string text)
+        {
+            ASCIIEncoding msg = new ASCIIEncoding();
+            s.Send(msg.GetBytes(text + "\n"));
         }
 
     }

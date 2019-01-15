@@ -17,3 +17,13 @@ C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServe
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csprojResolveAssemblyReference.cache
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.MainForm.resources
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.Properties.Resources.resources
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.GenerateResource.Cache
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe.config
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe
+C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.pdb

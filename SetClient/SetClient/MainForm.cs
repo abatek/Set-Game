@@ -13,6 +13,8 @@ namespace SetClient
 {
     public partial class MainForm : Form
     {
+        private Threading client = new Threading();
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,16 +32,13 @@ namespace SetClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Threading send = new Threading();
-            send.WriteToServer(txtSend.Text);
-            
+            client.WriteToServer(txtSend.Text);
         }
 
         private void txtConnect_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Attempting to load");
-            Threading connect = new Threading();
-            connect.Connect();
+            client.Connect();
         }
     }
 

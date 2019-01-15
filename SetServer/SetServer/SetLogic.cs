@@ -8,7 +8,7 @@ namespace SetServer
 {
     class SetLogic
     {
-        public static void Main()
+        public static void NotMain()
         {
             Card test = new Card();
             test.setFeatures(0, 0, 0, 0);
@@ -17,14 +17,14 @@ namespace SetServer
     }
     public class Card
     {
-        public int colour; // 0=red, 1=green, 2=purple
-        public int symbol; // 0=oval, 1=squiggly, 3=diamond
-        public int number; // 0=1, 1=2, 2=3
-        public int shading; // 0=solid, 1=open, 2=striped
+        private int colour; // 0=red, 1=green, 2=purple
+        private int symbol; // 0=oval, 1=squiggly, 3=diamond
+        private int number; // 0=1, 1=2, 2=3
+        private int shading; // 0=solid, 1=open, 2=striped
 
-        public void setFeatures (int length, int symbol, int number, int shading)
+        public void setFeatures (int colour, int symbol, int number, int shading)
         {
-            this.length = length;
+            this.colour = colour;
             this.symbol = symbol;
             this.number = number;
             this.shading = shading;

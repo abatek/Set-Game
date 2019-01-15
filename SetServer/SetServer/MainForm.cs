@@ -12,6 +12,8 @@ namespace SetServer
 {
     public partial class MainForm : Form
     {
+        private Threading server = new Threading();
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,14 +32,13 @@ namespace SetServer
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Threading send = new Threading();
-            send.WriteToClient();
+            server.WriteToClient(txtSend.Text);
         }
 
         private void txtConnect_Click(object sender, EventArgs e)
         {
-            Threading connect = new Threading();
-            connect.Connect();
+            
+            server.Connect();
         }
     }
 
