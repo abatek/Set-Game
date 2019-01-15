@@ -8,11 +8,50 @@ namespace SetServer
 {
     class SetLogic
     {
-        public static void NotMain()
+        public void NotMain()
         {
-            Card test = new Card();
-            test.setFeatures(0, 0, 0, 0);
-            test.showFeatures();
+            Card a = new Card();
+            a.setFeatures(0, 0, 2, 0);
+            Card b = new Card();
+            b.setFeatures(1, 2, 1, 0);
+            Card c = new Card();
+            c.setFeatures(2, 1, 0, 0);
+
+            Console.WriteLine(isSet(a, b, c));
+
+        }
+
+        public static bool isSet (Card a, Card b, Card c)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (a.getFeatures()[i] == b.getFeatures()[i])
+                {
+                    if (a.getFeatures()[i] != c.getFeatures()[i])
+                    {
+                        return false;
+                    }
+                }
+                else if (a.getFeatures()[i] != b.getFeatures()[i])
+                {
+                    if (a.getFeatures()[i] != c.getFeatures()[i])
+                    {
+                        if (b.getFeatures()[i] == c.getFeatures()[i])
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
     public class Card
@@ -30,10 +69,15 @@ namespace SetServer
             this.shading = shading;
         }
 
-        public int[] getFeatures ()
+        public int[] getFeatures()
         {
             int[] features = { colour, symbol, number, shading };
-            return features;
+            foreach (int i in features)
+            {
+                //Console.Write(i);
+            }
+            //Console.WriteLine();
+                return features;
         }
 
         public void showFeatures()
@@ -101,8 +145,8 @@ namespace SetServer
                     break;
             }
 
-            Console.Write("Colour: {0}, Symbol: {1}, Number {2}, Shading {3}", features[0], features[1], features[2], features[3]);
-            Console.ReadKey();
+            Console.WriteLine("Colour: {0}, Symbol: {1}, Number {2}, Shading {3}", features[0], features[1], features[2], features[3]);
+            
         }
     }
 }
