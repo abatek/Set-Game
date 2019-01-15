@@ -32,7 +32,16 @@ namespace SetClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            client.WriteToServer(txtSend.Text);
+            Card a = new Card();
+            Card b = new Card();
+            Card c = new Card();
+
+            a.setFeatures(0, 0, 2, 0);
+            b.setFeatures(1, 2, 1, 0);
+            c.setFeatures(2, 1, 0, 0);
+
+            string str = a.toString() + ", " + b.toString() + ", " + c.toString();
+            client.WriteToServer(str);
         }
 
         private void txtConnect_Click(object sender, EventArgs e)

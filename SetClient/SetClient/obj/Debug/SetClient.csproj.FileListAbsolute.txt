@@ -17,3 +17,6 @@ C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\Se
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csproj.CoreCompileInputs.cache
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.exe
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.pdb
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetClient\SetClient\bin\Debug\SetClient.exe.config
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetClient\SetClient\obj\Debug\SetClient.exe
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetClient\SetClient\obj\Debug\SetClient.pdb

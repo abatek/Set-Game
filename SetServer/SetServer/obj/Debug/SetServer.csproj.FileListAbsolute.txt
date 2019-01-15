@@ -27,3 +27,6 @@ C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\Se
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe.config
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.pdb
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe.config
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
+\\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb

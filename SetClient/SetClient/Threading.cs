@@ -65,11 +65,11 @@ namespace SetClient
 
         public void WriteToServer(string str) {
             Stream stm = TCP_clnt.GetStream();
-
             ASCIIEncoding asen = new ASCIIEncoding();
-            byte[] ba = asen.GetBytes(str + "\n");
+            byte[] ba = asen.GetBytes(str + "/n");
 
             stm.Write(ba, 0, ba.Length);
+            Console.WriteLine("Sent:{0}", str);
         }
     }
 }

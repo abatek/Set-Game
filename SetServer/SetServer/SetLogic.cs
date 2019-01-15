@@ -8,16 +8,14 @@ namespace SetServer
 {
     class SetLogic
     {
-        public void NotMain()
+        public void runLogic()
         {
-            Card a = new Card();
-            a.setFeatures(0, 0, 2, 0);
-            Card b = new Card();
-            b.setFeatures(1, 2, 1, 0);
-            Card c = new Card();
-            c.setFeatures(2, 1, 0, 0);
+            //a.setFeatures(0, 0, 2, 0);
+            //b.setFeatures(1, 2, 1, 0);
+            //c.setFeatures(2, 1, 0, 0);
 
-            Console.WriteLine(isSet(a, b, c));
+            //Console.WriteLine(isSet(a, b, c));
+
 
         }
 
