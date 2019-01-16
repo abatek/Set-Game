@@ -47,6 +47,20 @@ namespace SetServer
             test.generateDeck();
             test.shuffleDeck();
         }
+
+        private void pb1_1_Click(object sender, EventArgs e)
+        {
+            if (pb1_1_select.Visible == false) {
+                pb1_1_select.Visible = true;
+            }
+            else
+                pb1_1_select.Visible = false;
+        }
+
+        private void pb1_1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);

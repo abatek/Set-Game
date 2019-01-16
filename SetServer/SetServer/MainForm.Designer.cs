@@ -47,6 +47,7 @@
             this.btnGenerateDeck = new System.Windows.Forms.Button();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.pb1_1_select = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1)).BeginInit();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb3_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReceive
@@ -66,7 +68,7 @@
             this.lbReceive.FormattingEnabled = true;
             this.lbReceive.ItemHeight = 25;
             this.lbReceive.Location = new System.Drawing.Point(24, 98);
-            this.lbReceive.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lbReceive.Margin = new System.Windows.Forms.Padding(6);
             this.lbReceive.Name = "lbReceive";
             this.lbReceive.Size = new System.Drawing.Size(206, 329);
             this.lbReceive.TabIndex = 5;
@@ -74,7 +76,7 @@
             // txtSend
             // 
             this.txtSend.Location = new System.Drawing.Point(186, 27);
-            this.txtSend.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSend.Margin = new System.Windows.Forms.Padding(6);
             this.txtSend.Name = "txtSend";
             this.txtSend.Size = new System.Drawing.Size(196, 31);
             this.txtSend.TabIndex = 4;
@@ -82,7 +84,7 @@
             // btnSend
             // 
             this.btnSend.Location = new System.Drawing.Point(24, 23);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(6);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(150, 44);
             this.btnSend.TabIndex = 3;
@@ -93,7 +95,7 @@
             // txtConnect
             // 
             this.txtConnect.Location = new System.Drawing.Point(246, 98);
-            this.txtConnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtConnect.Margin = new System.Windows.Forms.Padding(6);
             this.txtConnect.Name = "txtConnect";
             this.txtConnect.Size = new System.Drawing.Size(150, 44);
             this.txtConnect.TabIndex = 6;
@@ -108,6 +110,8 @@
             this.pb1_1.Size = new System.Drawing.Size(238, 139);
             this.pb1_1.TabIndex = 7;
             this.pb1_1.TabStop = false;
+            this.pb1_1.Click += new System.EventHandler(this.pb1_1_Click);
+            this.pb1_1.Paint += new System.Windows.Forms.PaintEventHandler(this.pb1_1_Paint);
             // 
             // pb2_1
             // 
@@ -225,6 +229,16 @@
             this.button1.Text = "Select Set";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // pb1_1_select
+            // 
+            this.pb1_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb1_1_select.Location = new System.Drawing.Point(532, 25);
+            this.pb1_1_select.Name = "pb1_1_select";
+            this.pb1_1_select.Size = new System.Drawing.Size(242, 143);
+            this.pb1_1_select.TabIndex = 23;
+            this.pb1_1_select.TabStop = false;
+            this.pb1_1_select.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -244,12 +258,13 @@
             this.Controls.Add(this.pb1_2);
             this.Controls.Add(this.pb3_1);
             this.Controls.Add(this.pb2_1);
-            this.Controls.Add(this.pb1_1);
             this.Controls.Add(this.txtConnect);
             this.Controls.Add(this.lbReceive);
             this.Controls.Add(this.txtSend);
             this.Controls.Add(this.btnSend);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.pb1_1);
+            this.Controls.Add(this.pb1_1_select);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "Server";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -265,6 +280,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb3_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,6 +307,7 @@
         private System.Windows.Forms.Button btnGenerateDeck;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pb1_1_select;
     }
 }
 
