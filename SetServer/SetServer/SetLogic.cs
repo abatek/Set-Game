@@ -169,7 +169,7 @@ namespace SetServer
                     break;
             }
 
-            Console.WriteLine("Colour: {0}, Symbol: {1}, Number {2}, Shading {3}", features[0], features[1], features[2], features[3]);
+            Console.WriteLine("Colour: {0}, Symbol: {1}, Number: {2}, Shading: {3}", features[0], features[1], features[2], features[3]);
         }
         public string toString()
         {

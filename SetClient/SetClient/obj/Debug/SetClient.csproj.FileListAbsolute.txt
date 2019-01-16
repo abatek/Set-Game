@@ -21,3 +21,13 @@ C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\Se
 \\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetClient\SetClient\obj\Debug\SetClient.exe
 \\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetClient\SetClient\obj\Debug\SetClient.pdb
 C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.exe.config
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.exe
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\bin\Debug\SetClient.pdb
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csprojAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.MainForm.resources
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.Properties.Resources.resources
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csproj.GenerateResource.cache
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.exe
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetClient\SetClient\obj\Debug\SetClient.pdb
