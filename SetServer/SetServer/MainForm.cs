@@ -27,7 +27,7 @@ namespace SetServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace SetServer
 
         private void txtConnect_Click(object sender, EventArgs e)
         {
-            
+
             server.Connect();
         }
 
@@ -64,17 +64,7 @@ namespace SetServer
                 pb1_1_select.Visible = false;
         }
 
-
-        #endregion
-
-
-
-        private void pb3_1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb2_1_Click_1(object sender, EventArgs e)
+        private void pb2_1_Click(object sender, EventArgs e)
         {
             if (pb_2_1_select.Visible == false)
             {
@@ -83,6 +73,114 @@ namespace SetServer
             else
                 pb_2_1_select.Visible = false;
         }
+
+        private void pb3_1_Click(object sender, EventArgs e)
+        {
+            if (pb3_1_select.Visible == false)
+            {
+                pb3_1_select.Visible = true;
+            }
+            else
+                pb3_1_select.Visible = false;
+        }
+
+        private void pb1_2_Click(object sender, EventArgs e)
+        {
+            if (pb1_2_select.Visible == false)
+            {
+                pb1_2_select.Visible = true;
+            }
+            else
+                pb1_2_select.Visible = false;
+        }
+
+        private void pb2_2_Click(object sender, EventArgs e)
+        {
+            if (pb2_2_select.Visible == false)
+            {
+                pb2_2_select.Visible = true;
+            }
+            else
+                pb2_2_select.Visible = false;
+        }
+
+        private void pb3_2_Click(object sender, EventArgs e)
+        {
+            if (pb3_2_select.Visible == false)
+            {
+                pb3_2_select.Visible = true;
+            }
+            else
+                pb3_2_select.Visible = false;
+        }
+
+        private void pb1_3_Click(object sender, EventArgs e)
+        {
+            if (pb1_3_select.Visible == false)
+            {
+                pb1_3_select.Visible = true;
+            }
+            else
+                pb1_3_select.Visible = false;
+        }
+
+        private void pb2_3_Click(object sender, EventArgs e)
+        {
+            if (pb2_3_select.Visible == false)
+            {
+                pb2_3_select.Visible = true;
+            }
+            else
+                pb2_3_select.Visible = false;
+        }
+
+        private void pb3_3_Click(object sender, EventArgs e)
+        {
+            if (pb3_3_select.Visible == false)
+            {
+                pb3_3_select.Visible = true;
+            }
+            else
+                pb3_3_select.Visible = false;
+        }
+
+        private void pb1_4_Click(object sender, EventArgs e)
+        {
+            if (pb1_4_select.Visible == false)
+            {
+                pb1_4_select.Visible = true;
+            }
+            else
+                pb1_4_select.Visible = false;
+        }
+
+        private void pb2_4_Click(object sender, EventArgs e)
+        {
+            if (pb2_4_select.Visible == false)
+            {
+                pb2_4_select.Visible = true;
+            }
+            else
+                pb2_4_select.Visible = false;
+        }
+
+        private void pb3_4_Click(object sender, EventArgs e)
+        {
+            if (pb3_4_select.Visible == false)
+            {
+                pb3_4_select.Visible = true;
+            }
+            else
+                pb3_4_select.Visible = false;
+        }
+
+
+
+
+
+        #endregion
+
+
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
@@ -107,5 +205,5 @@ namespace SetServer
         }
     }
 
-    
+
 }

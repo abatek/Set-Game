@@ -30,3 +30,13 @@ C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServe
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
 C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe.config
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\SetServer.pdb
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csprojAssemblyReference.cache
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.MainForm.resources
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.Properties.Resources.resources
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.GenerateResource.cache
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
+C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
