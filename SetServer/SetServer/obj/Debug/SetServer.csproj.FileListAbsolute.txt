@@ -30,3 +30,4 @@ C:\Users\Ivan Yevenko\Documents\GitHub\Set-Game\SetServer\SetServer\bin\Debug\Se
 \\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\bin\Debug\SetServer.exe.config
 \\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
 \\2252-CMS-01\2252 Students$\689025\Documents\Github\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csprojAssemblyReference.cache

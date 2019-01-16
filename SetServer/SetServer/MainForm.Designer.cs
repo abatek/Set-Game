@@ -44,6 +44,9 @@
             this.pb3_4 = new System.Windows.Forms.PictureBox();
             this.pb2_4 = new System.Windows.Forms.PictureBox();
             this.pb1_4 = new System.Windows.Forms.PictureBox();
+            this.btnGenerateDeck = new System.Windows.Forms.Button();
+            this.btnStartGame = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1)).BeginInit();
@@ -194,11 +197,42 @@
             this.pb1_4.TabIndex = 16;
             this.pb1_4.TabStop = false;
             // 
+            // btnGenerateDeck
+            // 
+            this.btnGenerateDeck.Location = new System.Drawing.Point(44, 468);
+            this.btnGenerateDeck.Name = "btnGenerateDeck";
+            this.btnGenerateDeck.Size = new System.Drawing.Size(167, 74);
+            this.btnGenerateDeck.TabIndex = 19;
+            this.btnGenerateDeck.Text = "Generate Deck";
+            this.btnGenerateDeck.UseVisualStyleBackColor = true;
+            this.btnGenerateDeck.Click += new System.EventHandler(this.btnGenerateDeck_Click);
+            // 
+            // btnStartGame
+            // 
+            this.btnStartGame.Location = new System.Drawing.Point(44, 548);
+            this.btnStartGame.Name = "btnStartGame";
+            this.btnStartGame.Size = new System.Drawing.Size(167, 74);
+            this.btnStartGame.TabIndex = 20;
+            this.btnStartGame.Text = "Start Game";
+            this.btnStartGame.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(288, 302);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 74);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Select Set";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1470, 684);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnStartGame);
+            this.Controls.Add(this.btnGenerateDeck);
             this.Controls.Add(this.pb3_4);
             this.Controls.Add(this.pb2_4);
             this.Controls.Add(this.pb1_4);
@@ -254,6 +288,9 @@
         private System.Windows.Forms.PictureBox pb3_4;
         private System.Windows.Forms.PictureBox pb2_4;
         private System.Windows.Forms.PictureBox pb1_4;
+        private System.Windows.Forms.Button btnGenerateDeck;
+        private System.Windows.Forms.Button btnStartGame;
+        private System.Windows.Forms.Button button1;
     }
 }
 

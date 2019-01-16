@@ -40,6 +40,13 @@ namespace SetServer
             
             server.Connect();
         }
+
+        private void btnGenerateDeck_Click(object sender, EventArgs e)
+        {
+            SetLogic test = new SetLogic();
+            test.generateDeck();
+            test.shuffleDeck();
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);

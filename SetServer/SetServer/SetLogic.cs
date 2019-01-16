@@ -19,14 +19,60 @@ namespace SetServer
 
         }
 
-        public List<Card> convertToCards (string str)
+        public List<Card> deckOfCards = new List<Card>();
+
+        public void generateDeck()
         {
-            List <Card> ret = new List<Card>();
+            //i = colour
+            //k = symbol
+            //j = number
+            //l = shading
+
+            for (int i = 0; i < 3; ++i)
+            {
+                for (int k = 0; k < 3; ++k)
+                {
+                    for (int j = 0; j < 3; ++j)
+                    {
+                        for (int l = 0; l < 3; ++l)
+                        {
+                            deckOfCards.Add(new Card(i, j, k, l));
+                        }
+                    }
+                }
+            }
+
+        }
+
+        Random rnd = new Random();
+
+        public void shuffleDeck()
+        {
+            int firstSwap, secondSwap;
+            Card SwapCard = new Card(0, 0, 0, 0);
+
+            for (int i = 0; i < 500; ++i)
+            {
+                firstSwap = rnd.Next(0, 81);
+                secondSwap = rnd.Next(0, 81);
+                SwapCard = deckOfCards[firstSwap];
+                deckOfCards[firstSwap] = deckOfCards[secondSwap];
+                deckOfCards[secondSwap] = SwapCard;
+            }
+
+            for (int i = 0; i < 81; ++i) {
+                deckOfCards[i].showFeatures();
+            }
+        }
+
+        public List<Card> convertToCards(string str)
+        {
+            List<Card> ret = new List<Card>();
             string[] rawCards = str.Split(',');
             foreach (string s in rawCards)
             {
                 int[] feats = new int[4];
-                
+
                 for (int i = 0; i < 4; i++)
                 {
                     feats[i] = Convert.ToInt32(s.Split(' ')[i]);
@@ -37,7 +83,7 @@ namespace SetServer
             return ret;
         }
 
-        public bool isSet (Card a, Card b, Card c)
+        public bool isSet(Card a, Card b, Card c)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -77,7 +123,7 @@ namespace SetServer
         private int _number; // 0=1, 1=2, 2=3
         private int _shading; // 0=solid, 1=open, 2=striped
 
-        public Card (int colour, int symbol, int number, int shading)
+        public Card(int colour, int symbol, int number, int shading)
         {
             _colour = colour;
             _symbol = symbol;
@@ -85,7 +131,7 @@ namespace SetServer
             _shading = shading;
         }
 
-        public void setFeatures (int colour, int symbol, int number, int shading)
+        public void setFeatures(int colour, int symbol, int number, int shading)
         {
             _colour = colour;
             _symbol = symbol;
@@ -101,7 +147,7 @@ namespace SetServer
                 //Console.Write(i);
             }
             //Console.WriteLine();
-                return features;
+            return features;
         }
 
         public void showFeatures()
@@ -177,5 +223,6 @@ namespace SetServer
         }
     }
 }
+
 
 
