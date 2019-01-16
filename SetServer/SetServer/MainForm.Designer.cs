@@ -48,6 +48,9 @@
             this.btnStartGame = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pb1_1_select = new System.Windows.Forms.PictureBox();
+            this.pb3_1_select = new System.Windows.Forms.PictureBox();
+            this.pb_2_1_select = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1)).BeginInit();
@@ -61,6 +64,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb2_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_1_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_2_1_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReceive
@@ -120,6 +126,7 @@
             this.pb2_1.Size = new System.Drawing.Size(238, 139);
             this.pb2_1.TabIndex = 8;
             this.pb2_1.TabStop = false;
+            this.pb2_1.Click += new System.EventHandler(this.pb2_1_Click_1);
             // 
             // pb3_1
             // 
@@ -128,6 +135,7 @@
             this.pb3_1.Size = new System.Drawing.Size(238, 139);
             this.pb3_1.TabIndex = 9;
             this.pb3_1.TabStop = false;
+            this.pb3_1.Click += new System.EventHandler(this.pb3_1_Click);
             // 
             // pb3_2
             // 
@@ -239,11 +247,42 @@
             this.pb1_1_select.TabStop = false;
             this.pb1_1_select.Visible = false;
             // 
+            // pb3_1_select
+            // 
+            this.pb3_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb3_1_select.Location = new System.Drawing.Point(1097, 25);
+            this.pb3_1_select.Name = "pb3_1_select";
+            this.pb3_1_select.Size = new System.Drawing.Size(242, 143);
+            this.pb3_1_select.TabIndex = 25;
+            this.pb3_1_select.TabStop = false;
+            this.pb3_1_select.Visible = false;
+            // 
+            // pb_2_1_select
+            // 
+            this.pb_2_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb_2_1_select.Location = new System.Drawing.Point(821, 25);
+            this.pb_2_1_select.Name = "pb_2_1_select";
+            this.pb_2_1_select.Size = new System.Drawing.Size(242, 143);
+            this.pb_2_1_select.TabIndex = 26;
+            this.pb_2_1_select.TabStop = false;
+            this.pb_2_1_select.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pictureBox2.Location = new System.Drawing.Point(1154, 357);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(242, 143);
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1470, 684);
+            this.ClientSize = new System.Drawing.Size(1491, 730);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.btnGenerateDeck);
@@ -257,13 +296,15 @@
             this.Controls.Add(this.pb2_2);
             this.Controls.Add(this.pb1_2);
             this.Controls.Add(this.pb3_1);
-            this.Controls.Add(this.pb2_1);
             this.Controls.Add(this.txtConnect);
             this.Controls.Add(this.lbReceive);
             this.Controls.Add(this.txtSend);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.pb1_1);
             this.Controls.Add(this.pb1_1_select);
+            this.Controls.Add(this.pb3_1_select);
+            this.Controls.Add(this.pb2_1);
+            this.Controls.Add(this.pb_2_1_select);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "Server";
@@ -281,6 +322,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb2_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_1_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_2_1_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +352,9 @@
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pb1_1_select;
+        private System.Windows.Forms.PictureBox pb3_1_select;
+        private System.Windows.Forms.PictureBox pb_2_1_select;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

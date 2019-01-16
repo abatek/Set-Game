@@ -48,18 +48,40 @@ namespace SetServer
             test.shuffleDeck();
         }
 
+        private void pb1_1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+        }
+
+        #region select picturebox
         private void pb1_1_Click(object sender, EventArgs e)
         {
-            if (pb1_1_select.Visible == false) {
+            if (pb1_1_select.Visible == false)
+            {
                 pb1_1_select.Visible = true;
             }
             else
                 pb1_1_select.Visible = false;
         }
 
-        private void pb1_1_Paint(object sender, PaintEventArgs e)
+
+        #endregion
+
+
+
+        private void pb3_1_Click(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
+
+        }
+
+        private void pb2_1_Click_1(object sender, EventArgs e)
+        {
+            if (pb_2_1_select.Visible == false)
+            {
+                pb_2_1_select.Visible = true;
+            }
+            else
+                pb_2_1_select.Visible = false;
         }
     }
 
