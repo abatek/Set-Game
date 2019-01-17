@@ -20,6 +20,8 @@ namespace SetServer
         }
 
         public List<Card> deckOfCards = new List<Card>();
+        public List<Card> dealtCards = new List<Card>();
+        public int curIndexInDeck = 0;
 
         public void generateDeck()
         {
@@ -59,9 +61,39 @@ namespace SetServer
                 deckOfCards[firstSwap] = deckOfCards[secondSwap];
                 deckOfCards[secondSwap] = SwapCard;
             }
+        }
 
-            for (int i = 0; i < 81; ++i) {
-                deckOfCards[i].showFeatures();
+        public void dealCards()
+        {
+            while (curIndexInDeck < 12)
+            {
+                dealtCards.Add(deckOfCards[curIndexInDeck]);
+                ++curIndexInDeck;
+            }
+
+        }
+
+        public void checkForSets()
+        {
+            int cardsDealt = dealtCards.Count();
+            int[,] values = new int[3, 4];
+            List<string> sets = new List<string>();
+
+            for (int i = 0; i < cardsDealt - 2; ++i)
+            {
+                for (int j = i + 1; j < cardsDealt - 1; ++j)
+                {
+                    for (int k = j + 1; k < cardsDealt; ++k)
+                    {
+                        if (isSet(dealtCards[i], dealtCards[j], dealtCards[k])){
+                            Console.WriteLine("--------------------------------------");
+                            dealtCards[i].showFeatures();
+                            dealtCards[j].showFeatures();
+                            dealtCards[k].showFeatures();
+                        }
+                        
+                    }
+                }
             }
         }
 
