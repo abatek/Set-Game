@@ -47,12 +47,23 @@ namespace SetServer
         {
             deck.generateDeck();
             deck.shuffleDeck();
+            CardDisplay display = new CardDisplay();
+            
+            for (int i = 0; i < 3; ++i)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    //pbi_j_Paint();
+                }
+            }
             
         }
 
         private void pb1_1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            CardDisplay pb1 = new CardDisplay();
+            pb1.drawCard(g, deck.deckOfCards[1]);
         }
 
         #region select picturebox
