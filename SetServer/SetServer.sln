@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetServer", "SetServer\SetServer.csproj", "{D6D8B223-D549-4BBB-9912-6F22236C12E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{922316B6-1795-43A9-8270-4FB6C9AA2D3A}"
+	ProjectSection(SolutionItems) = preProject
+		SetServer\CardDisplay.cs = SetServer\CardDisplay.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

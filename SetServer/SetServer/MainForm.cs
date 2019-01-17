@@ -63,7 +63,7 @@ namespace SetServer
         {
             Graphics g = e.Graphics;
             CardDisplay pb1 = new CardDisplay();
-            pb1.drawCard(g, deck.deckOfCards[1]);
+            //pb1.drawCard(g, deck.deckOfCards[1]);
         }
 
         #region select picturebox
