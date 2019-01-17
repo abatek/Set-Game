@@ -61,8 +61,9 @@ namespace SetServer
 
         private void pb1_1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            CardDisplay pb1 = new CardDisplay();
+            //Figure out how to do this
+            //Graphics g = e.Graphics;
+            //CardDisplay pb1 = new CardDisplay();
             //pb1.drawCard(g, deck.deckOfCards[1]);
         }
 
@@ -207,6 +208,11 @@ namespace SetServer
         private void btnCheckForSets_Click(object sender, EventArgs e)
         {
             deck.checkForSets();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("It worked!");
         }
     }
 
