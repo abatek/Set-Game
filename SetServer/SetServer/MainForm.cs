@@ -41,11 +41,14 @@ namespace SetServer
             server.Connect();
         }
 
+        SetLogic deck = new SetLogic();
+
         private void btnGenerateDeck_Click(object sender, EventArgs e)
         {
             SetLogic test = new SetLogic();
-            test.generateDeck();
-            test.shuffleDeck();
+            deck.generateDeck();
+            deck.shuffleDeck();
+            
         }
 
         private void pb1_1_Paint(object sender, PaintEventArgs e)
