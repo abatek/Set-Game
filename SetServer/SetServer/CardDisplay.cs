@@ -12,11 +12,11 @@ namespace SetServer
     {
         public int rightOffset;
         public int leftOffset;
-        public const int pbWidth = 178;
-        public const int pbHeight = 110;
-        public static int shapeWidth = 30;
+        public const int pbWidth = 119;
+        public const int pbHeight = 71;
+        public static int shapeWidth = 25;
         public static int shapeHeight = pbHeight - 20;
-        public int x = pbWidth/2;
+        public int x = pbWidth/2 - shapeWidth/2;
         public int y = 10;
         public static int thick = 2;
         
@@ -35,15 +35,15 @@ namespace SetServer
             }
             else if (card.Number == 1)
             {
-                rightOffset = 30;
-                leftOffset = 30;
+                rightOffset = 20;
+                leftOffset = 20;
                 Shape shape1 = new Shape(colour, symbol, shading, x + rightOffset, y, g);
                 Shape shape2 = new Shape(colour, symbol, shading, x - leftOffset, y, g);
             }
             else
             {
-                rightOffset = 0;
-                leftOffset = 0;
+                rightOffset = 35;
+                leftOffset = 35;
                 Shape shape1 = new Shape(colour, symbol, shading, x, y, g);
                 Shape shape2 = new Shape(colour, symbol, shading, x + rightOffset, y, g);
                 Shape shape3 = new Shape(colour, symbol, shading, x - leftOffset, y, g);
@@ -143,7 +143,7 @@ namespace SetServer
                         blue = 255;
                     }
 
-                    SolidBrush p2 = new SolidBrush(Color.FromArgb(178, red, green, blue));
+                    SolidBrush p2 = new SolidBrush(Color.FromArgb(50, red, green, blue));
 
                     if (symbol == 0)//Rectangle
                     {

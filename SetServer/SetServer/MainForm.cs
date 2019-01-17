@@ -17,6 +17,8 @@ namespace SetServer
         public List<PictureBox> pBoxes = new List<PictureBox>();
         public Bitmap[] DrawAreas = new Bitmap[12];
 
+
+
         public MainForm()
         {
             InitializeComponent();
