@@ -45,7 +45,6 @@ namespace SetServer
 
         private void btnGenerateDeck_Click(object sender, EventArgs e)
         {
-            SetLogic test = new SetLogic();
             deck.generateDeck();
             deck.shuffleDeck();
             
