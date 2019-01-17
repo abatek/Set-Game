@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SetServer
 {
-    class SetLogic
+    public class SetLogic
     {
         public void runLogic()
         {
@@ -21,7 +21,6 @@ namespace SetServer
 
         public List<Card> deckOfCards = new List<Card>();
         public List<Card> dealtCards = new List<Card>();
-        public int curIndexInDeck = 0;
 
         public void generateDeck()
         {
@@ -65,6 +64,7 @@ namespace SetServer
 
         public void dealCards()
         {
+            int curIndexInDeck = 0;
             while (curIndexInDeck < 12)
             {
                 dealtCards.Add(deckOfCards[curIndexInDeck]);

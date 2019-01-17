@@ -14,10 +14,30 @@ namespace SetServer
     {
         private Threading server = new Threading();
 
+        public List<PictureBox> pBoxes = new List<PictureBox>();
+        public Bitmap[] DrawAreas = new Bitmap[12];
+
         public MainForm()
         {
             InitializeComponent();
             AddToListBox.AddItem += AddToListBox_AddItem;
+            pBoxes.Add(pb1_1);
+            pBoxes.Add(pb2_1);
+            pBoxes.Add(pb3_1);
+            pBoxes.Add(pb1_2);
+            pBoxes.Add(pb2_2);
+            pBoxes.Add(pb3_2);
+            pBoxes.Add(pb1_3);
+            pBoxes.Add(pb2_3);
+            pBoxes.Add(pb3_3);
+            pBoxes.Add(pb1_4);
+            pBoxes.Add(pb2_4);
+            pBoxes.Add(pb3_4);
+
+            for (int i = 0; i < 12; ++i)
+            {
+                pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
+            }
         }
 
         void AddToListBox_AddItem(string strItem)
@@ -27,7 +47,12 @@ namespace SetServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 12; ++i)
+            {
+                Graphics g = Graphics.FromImage(pBoxes[i].Image);
+                g.Clear(Color.White);
+                g.Dispose();
+            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -47,145 +72,10 @@ namespace SetServer
         {
             deck.generateDeck();
             deck.shuffleDeck();
-            CardDisplay display = new CardDisplay();
             
-            for (int i = 0; i < 3; ++i)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    //pbi_j_Paint();
-                }
-            }
-            
-        }
-
-        private void pb1_1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb1 = new CardDisplay();
-            //pb1.drawCard(g, deck.deckOfCards[1]);
         }
 
         #region select picturebox
-        private void pb1_1_Click(object sender, EventArgs e)
-        {
-            if (pb1_1_select.Visible == false)
-            {
-                pb1_1_select.Visible = true;
-            }
-            else
-                pb1_1_select.Visible = false;
-        }
-
-        private void pb2_1_Click(object sender, EventArgs e)
-        {
-            if (pb_2_1_select.Visible == false)
-            {
-                pb_2_1_select.Visible = true;
-            }
-            else
-                pb_2_1_select.Visible = false;
-        }
-
-        private void pb3_1_Click(object sender, EventArgs e)
-        {
-            if (pb3_1_select.Visible == false)
-            {
-                pb3_1_select.Visible = true;
-            }
-            else
-                pb3_1_select.Visible = false;
-        }
-
-        private void pb1_2_Click(object sender, EventArgs e)
-        {
-            if (pb1_2_select.Visible == false)
-            {
-                pb1_2_select.Visible = true;
-            }
-            else
-                pb1_2_select.Visible = false;
-        }
-
-        private void pb2_2_Click(object sender, EventArgs e)
-        {
-            if (pb2_2_select.Visible == false)
-            {
-                pb2_2_select.Visible = true;
-            }
-            else
-                pb2_2_select.Visible = false;
-        }
-
-        private void pb3_2_Click(object sender, EventArgs e)
-        {
-            if (pb3_2_select.Visible == false)
-            {
-                pb3_2_select.Visible = true;
-            }
-            else
-                pb3_2_select.Visible = false;
-        }
-
-        private void pb1_3_Click(object sender, EventArgs e)
-        {
-            if (pb1_3_select.Visible == false)
-            {
-                pb1_3_select.Visible = true;
-            }
-            else
-                pb1_3_select.Visible = false;
-        }
-
-        private void pb2_3_Click(object sender, EventArgs e)
-        {
-            if (pb2_3_select.Visible == false)
-            {
-                pb2_3_select.Visible = true;
-            }
-            else
-                pb2_3_select.Visible = false;
-        }
-
-        private void pb3_3_Click(object sender, EventArgs e)
-        {
-            if (pb3_3_select.Visible == false)
-            {
-                pb3_3_select.Visible = true;
-            }
-            else
-                pb3_3_select.Visible = false;
-        }
-
-        private void pb1_4_Click(object sender, EventArgs e)
-        {
-            if (pb1_4_select.Visible == false)
-            {
-                pb1_4_select.Visible = true;
-            }
-            else
-                pb1_4_select.Visible = false;
-        }
-
-        private void pb2_4_Click(object sender, EventArgs e)
-        {
-            if (pb2_4_select.Visible == false)
-            {
-                pb2_4_select.Visible = true;
-            }
-            else
-                pb2_4_select.Visible = false;
-        }
-
-        private void pb3_4_Click(object sender, EventArgs e)
-        {
-            if (pb3_4_select.Visible == false)
-            {
-                pb3_4_select.Visible = true;
-            }
-            else
-                pb3_4_select.Visible = false;
-        }
 
 
 
@@ -202,12 +92,110 @@ namespace SetServer
         private void btnDeal_Click(object sender, EventArgs e)
         {
             deck.dealCards();
+            refreshCards();
         }
 
         private void btnCheckForSets_Click(object sender, EventArgs e)
         {
             deck.checkForSets();
         }
+
+        private void refreshCards()
+        {
+            CardDisplay cardDisplay = new CardDisplay();
+            for (int i = 0; i < 12; ++i)
+            {
+
+                Graphics g = Graphics.FromImage(pBoxes[i].Image);
+                cardDisplay.drawCard(deck.dealtCards[i], g);
+                g.Dispose();
+                pBoxes[i].Refresh();
+            }
+            
+        }/*
+        private void pb1_1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb1_1 = new CardDisplay();
+            pb1_1.drawCard(g, deck.deckOfCards[0]);
+        }
+
+        private void pb2_1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb2_1 = new CardDisplay();
+            pb2_1.drawCard(g, deck.deckOfCards[1]);
+        }
+
+        private void pb3_1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb3_1 = new CardDisplay();
+            pb3_1.drawCard(g, deck.deckOfCards[2]);
+        }
+
+        private void pb1_2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb1_2 = new CardDisplay();
+            pb1_2.drawCard(g, deck.deckOfCards[3]);
+        }
+
+        private void pb2_2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb2_2 = new CardDisplay();
+            pb2_2.drawCard(g, deck.deckOfCards[4]);
+        }
+
+        private void pb3_2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb3_2 = new CardDisplay();
+            pb3_2.drawCard(g, deck.deckOfCards[5]);
+        }
+
+        private void pb1_3_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb1_3 = new CardDisplay();
+            pb1_3.drawCard(g, deck.deckOfCards[6]);
+        }
+
+        private void pb2_3_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb2_3 = new CardDisplay();
+            pb2_3.drawCard(g, deck.deckOfCards[7]);
+        }
+
+        private void pb3_3_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb3_3 = new CardDisplay();
+            pb3_3.drawCard(g, deck.deckOfCards[8]);
+        }
+
+        private void pb1_4_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb1_4 = new CardDisplay();
+            pb1_4.drawCard(g, deck.deckOfCards[9]);
+        }
+
+        private void pb2_4_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb2_4 = new CardDisplay();
+            pb2_4.drawCard(g, deck.deckOfCards[10]);
+        }
+
+        private void pb3_4_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            CardDisplay pb3_4 = new CardDisplay();
+            pb3_4.drawCard(g, deck.deckOfCards[11]);
+        }*/
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
