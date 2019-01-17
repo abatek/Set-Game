@@ -40,3 +40,4 @@ C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.cs
 C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csproj.CoreCompileInputs.cache
 C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.exe
 C:\Users\TB\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.pdb
+C:\Users\Andrew\Documents\GitHub\Set-Game\SetServer\SetServer\obj\Debug\SetServer.csprojAssemblyReference.cache

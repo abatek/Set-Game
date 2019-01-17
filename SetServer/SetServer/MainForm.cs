@@ -180,9 +180,23 @@ namespace SetServer
 
 
 
+
         #endregion
 
+        private void btnStartGame_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnDeal_Click(object sender, EventArgs e)
+        {
+            deck.dealCards();
+        }
+
+        private void btnCheckForSets_Click(object sender, EventArgs e)
+        {
+            deck.checkForSets();
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
