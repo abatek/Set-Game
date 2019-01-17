@@ -119,9 +119,9 @@ namespace SetServer
     public class Card
     {
         private int _colour; // 0=red, 1=green, 2=purple
-        private int _symbol; // 0=oval, 1=squiggly, 3=diamond
+        private int _symbol; // 0=rectangle, 1=oval, 3=triangle
         private int _number; // 0=1, 1=2, 2=3
-        private int _shading; // 0=solid, 1=open, 2=striped
+        private int _shading; // 0=solid, 1=open, 2=transparent
 
         public Card(int colour, int symbol, int number, int shading)
         {
@@ -172,13 +172,13 @@ namespace SetServer
             switch (_symbol)
             {
                 case 0:
-                    features[1] = "oval";
+                    features[1] = "rectangle";
                     break;
                 case 1:
-                    features[1] = "squiggly";
+                    features[1] = "oval";
                     break;
                 case 2:
-                    features[1] = "diamond";
+                    features[1] = "triangle";
                     break;
                 default:
                     features[1] = "error";
@@ -208,7 +208,7 @@ namespace SetServer
                     features[3] = "open";
                     break;
                 case 2:
-                    features[3] = "striped";
+                    features[3] = "transparent";
                     break;
                 default:
                     features[3] = "error";
