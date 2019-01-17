@@ -118,30 +118,22 @@ namespace SetServer
     }
     public class Card
     {
-        private int _colour; // 0=red, 1=green, 2=purple
-        private int _symbol; // 0=rectangle, 1=oval, 3=triangle
-        private int _number; // 0=1, 1=2, 2=3
-        private int _shading; // 0=solid, 1=open, 2=transparent
+        public int Colour { get; set; } // 0=red, 1=green, 2=purple
+        public int Symbol { get; set; } // 0=rectangle, 1=oval, 3=triangle
+        public int Number { get; set; } // 0=1, 1=2, 2=3
+        public int Shading { get; set; } // 0=solid, 1=open, 2=transparent
 
         public Card(int colour, int symbol, int number, int shading)
         {
-            _colour = colour;
-            _symbol = symbol;
-            _number = number;
-            _shading = shading;
-        }
-
-        public void setFeatures(int colour, int symbol, int number, int shading)
-        {
-            _colour = colour;
-            _symbol = symbol;
-            _number = number;
-            _shading = shading;
+            Colour = colour;
+            Symbol = symbol;
+            Number = number;
+            Shading = shading;
         }
 
         public int[] getFeatures()
         {
-            int[] features = { _colour, _symbol, _number, _shading };
+            int[] features = { Colour, Symbol, Number, Shading };
             foreach (int i in features)
             {
                 //Console.Write(i);
@@ -153,7 +145,7 @@ namespace SetServer
         public void showFeatures()
         {
             string[] features = new string[4];
-            switch (_colour)
+            switch (Colour)
             {
                 case 0:
                     features[0] = "red";
@@ -169,7 +161,7 @@ namespace SetServer
                     break;
             }
 
-            switch (_symbol)
+            switch (Symbol)
             {
                 case 0:
                     features[1] = "rectangle";
@@ -184,7 +176,7 @@ namespace SetServer
                     features[1] = "error";
                     break;
             }
-            switch (_number)
+            switch (Number)
             {
                 case 0:
                     features[2] = "1";
@@ -199,7 +191,7 @@ namespace SetServer
                     features[2] = "error";
                     break;
             }
-            switch (_shading)
+            switch (Shading)
             {
                 case 0:
                     features[3] = "solid";
@@ -219,7 +211,7 @@ namespace SetServer
         }
         public string toString()
         {
-            return Convert.ToString(_colour + " " + _symbol + " " + _number + " " + _shading);
+            return Convert.ToString(Colour + " " + Symbol + " " + Number + " " + Shading);
         }
     }
 }
