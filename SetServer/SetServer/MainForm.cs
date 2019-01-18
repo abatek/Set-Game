@@ -301,20 +301,9 @@ namespace SetServer
         private void btnSelectSet_Click(object sender, EventArgs e)
         {
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
-            if (deck.curIndexInDeck == 72) {
-                cardsOnTable = 9;
-            }
-            if (deck.curIndexInDeck == 75)
-            {
-                cardsOnTable = 6;
-            }
-            if (deck.curIndexInDeck == 78)
-            {
-                cardsOnTable = 3;
-            }
-            if (deck.curIndexInDeck == 81)
-            {
-                //implement game over
+
+            if (deck.curIndexInDeck > 69) {
+                endGame();
             }
 
 
@@ -384,6 +373,11 @@ namespace SetServer
             }
             else
                 MessageBox.Show("Not enough cards selected");
+        }
+
+        private void endGame()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnCheat_Click(object sender, EventArgs e)
