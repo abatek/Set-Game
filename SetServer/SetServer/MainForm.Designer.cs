@@ -70,6 +70,18 @@
             this.pb1_5 = new System.Windows.Forms.PictureBox();
             this.pb1_5_select = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pb3_6 = new System.Windows.Forms.PictureBox();
+            this.pb3_6_select = new System.Windows.Forms.PictureBox();
+            this.pb2_6 = new System.Windows.Forms.PictureBox();
+            this.pb2_6_select = new System.Windows.Forms.PictureBox();
+            this.pb1_6 = new System.Windows.Forms.PictureBox();
+            this.pb1_6_select = new System.Windows.Forms.PictureBox();
+            this.pb3_7 = new System.Windows.Forms.PictureBox();
+            this.pb3_7_select = new System.Windows.Forms.PictureBox();
+            this.pb2_7 = new System.Windows.Forms.PictureBox();
+            this.pb2_7_select = new System.Windows.Forms.PictureBox();
+            this.pb1_7 = new System.Windows.Forms.PictureBox();
+            this.pb1_7_select = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
@@ -100,6 +112,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb2_5_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_5_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_6_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_6_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_6_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_7_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_7_select)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReceive
@@ -537,11 +561,149 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pb3_6
+            // 
+            this.pb3_6.Location = new System.Drawing.Point(563, 463);
+            this.pb3_6.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_6.Name = "pb3_6";
+            this.pb3_6.Size = new System.Drawing.Size(119, 71);
+            this.pb3_6.TabIndex = 63;
+            this.pb3_6.TabStop = false;
+            this.pb3_6.Click += new System.EventHandler(this.pb_2_7_Click);
+            // 
+            // pb3_6_select
+            // 
+            this.pb3_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb3_6_select.Location = new System.Drawing.Point(561, 461);
+            this.pb3_6_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_6_select.Name = "pb3_6_select";
+            this.pb3_6_select.Size = new System.Drawing.Size(123, 76);
+            this.pb3_6_select.TabIndex = 64;
+            this.pb3_6_select.TabStop = false;
+            this.pb3_6_select.Visible = false;
+            // 
+            // pb2_6
+            // 
+            this.pb2_6.Location = new System.Drawing.Point(416, 461);
+            this.pb2_6.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_6.Name = "pb2_6";
+            this.pb2_6.Size = new System.Drawing.Size(119, 71);
+            this.pb2_6.TabIndex = 60;
+            this.pb2_6.TabStop = false;
+            this.pb2_6.Click += new System.EventHandler(this.pb_2_6_Click);
+            // 
+            // pb2_6_select
+            // 
+            this.pb2_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb2_6_select.Location = new System.Drawing.Point(414, 459);
+            this.pb2_6_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_6_select.Name = "pb2_6_select";
+            this.pb2_6_select.Size = new System.Drawing.Size(123, 76);
+            this.pb2_6_select.TabIndex = 62;
+            this.pb2_6_select.TabStop = false;
+            this.pb2_6_select.Visible = false;
+            // 
+            // pb1_6
+            // 
+            this.pb1_6.Location = new System.Drawing.Point(271, 461);
+            this.pb1_6.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_6.Name = "pb1_6";
+            this.pb1_6.Size = new System.Drawing.Size(119, 71);
+            this.pb1_6.TabIndex = 59;
+            this.pb1_6.TabStop = false;
+            this.pb1_6.Click += new System.EventHandler(this.pb1_6_Click);
+            // 
+            // pb1_6_select
+            // 
+            this.pb1_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb1_6_select.Location = new System.Drawing.Point(269, 459);
+            this.pb1_6_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_6_select.Name = "pb1_6_select";
+            this.pb1_6_select.Size = new System.Drawing.Size(123, 76);
+            this.pb1_6_select.TabIndex = 61;
+            this.pb1_6_select.TabStop = false;
+            this.pb1_6_select.Visible = false;
+            // 
+            // pb3_7
+            // 
+            this.pb3_7.Location = new System.Drawing.Point(563, 552);
+            this.pb3_7.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_7.Name = "pb3_7";
+            this.pb3_7.Size = new System.Drawing.Size(119, 71);
+            this.pb3_7.TabIndex = 69;
+            this.pb3_7.TabStop = false;
+            this.pb3_7.Click += new System.EventHandler(this.pb3_7_Click);
+            // 
+            // pb3_7_select
+            // 
+            this.pb3_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb3_7_select.Location = new System.Drawing.Point(561, 550);
+            this.pb3_7_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_7_select.Name = "pb3_7_select";
+            this.pb3_7_select.Size = new System.Drawing.Size(123, 76);
+            this.pb3_7_select.TabIndex = 70;
+            this.pb3_7_select.TabStop = false;
+            this.pb3_7_select.Visible = false;
+            // 
+            // pb2_7
+            // 
+            this.pb2_7.Location = new System.Drawing.Point(416, 550);
+            this.pb2_7.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_7.Name = "pb2_7";
+            this.pb2_7.Size = new System.Drawing.Size(119, 71);
+            this.pb2_7.TabIndex = 66;
+            this.pb2_7.TabStop = false;
+            this.pb2_7.Click += new System.EventHandler(this.pb2_7_Click);
+            // 
+            // pb2_7_select
+            // 
+            this.pb2_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb2_7_select.Location = new System.Drawing.Point(414, 548);
+            this.pb2_7_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_7_select.Name = "pb2_7_select";
+            this.pb2_7_select.Size = new System.Drawing.Size(123, 76);
+            this.pb2_7_select.TabIndex = 68;
+            this.pb2_7_select.TabStop = false;
+            this.pb2_7_select.Visible = false;
+            // 
+            // pb1_7
+            // 
+            this.pb1_7.Location = new System.Drawing.Point(271, 550);
+            this.pb1_7.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_7.Name = "pb1_7";
+            this.pb1_7.Size = new System.Drawing.Size(119, 71);
+            this.pb1_7.TabIndex = 65;
+            this.pb1_7.TabStop = false;
+            this.pb1_7.Click += new System.EventHandler(this.pb1_7_Click);
+            // 
+            // pb1_7_select
+            // 
+            this.pb1_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb1_7_select.Location = new System.Drawing.Point(269, 548);
+            this.pb1_7_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_7_select.Name = "pb1_7_select";
+            this.pb1_7_select.Size = new System.Drawing.Size(123, 76);
+            this.pb1_7_select.TabIndex = 67;
+            this.pb1_7_select.TabStop = false;
+            this.pb1_7_select.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 476);
+            this.ClientSize = new System.Drawing.Size(712, 649);
+            this.Controls.Add(this.pb3_7);
+            this.Controls.Add(this.pb3_7_select);
+            this.Controls.Add(this.pb2_7);
+            this.Controls.Add(this.pb2_7_select);
+            this.Controls.Add(this.pb1_7);
+            this.Controls.Add(this.pb1_7_select);
+            this.Controls.Add(this.pb3_6);
+            this.Controls.Add(this.pb3_6_select);
+            this.Controls.Add(this.pb2_6);
+            this.Controls.Add(this.pb2_6_select);
+            this.Controls.Add(this.pb1_6);
+            this.Controls.Add(this.pb1_6_select);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pb3_5);
             this.Controls.Add(this.pb3_5_select);
@@ -617,6 +779,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb2_5_select)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_5_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_6_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_6_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_6_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_7_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_7_select)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,6 +840,18 @@
         private System.Windows.Forms.PictureBox pb1_5;
         private System.Windows.Forms.PictureBox pb1_5_select;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pb3_6;
+        private System.Windows.Forms.PictureBox pb3_6_select;
+        private System.Windows.Forms.PictureBox pb2_6;
+        private System.Windows.Forms.PictureBox pb2_6_select;
+        private System.Windows.Forms.PictureBox pb1_6;
+        private System.Windows.Forms.PictureBox pb1_6_select;
+        private System.Windows.Forms.PictureBox pb3_7;
+        private System.Windows.Forms.PictureBox pb3_7_select;
+        private System.Windows.Forms.PictureBox pb2_7;
+        private System.Windows.Forms.PictureBox pb2_7_select;
+        private System.Windows.Forms.PictureBox pb1_7;
+        private System.Windows.Forms.PictureBox pb1_7_select;
     }
 }
 

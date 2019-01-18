@@ -39,6 +39,14 @@ namespace SetServer
             pBoxes.Add(pb1_5);
             pBoxes.Add(pb2_5);
             pBoxes.Add(pb3_5);
+            pBoxes.Add(pb1_6);
+            pBoxes.Add(pb2_6);
+            pBoxes.Add(pb3_6);
+            pBoxes.Add(pb1_7);
+            pBoxes.Add(pb2_7);
+            pBoxes.Add(pb3_7);
+
+
 
             pBoxesSelect.Add(pb1_1_select);
             pBoxesSelect.Add(pb_2_1_select);
@@ -55,8 +63,14 @@ namespace SetServer
             pBoxesSelect.Add(pb1_5_select);
             pBoxesSelect.Add(pb2_5_select);
             pBoxesSelect.Add(pb3_5_select);
+            pBoxesSelect.Add(pb1_6_select);
+            pBoxesSelect.Add(pb2_6_select);
+            pBoxesSelect.Add(pb3_6_select);
+            pBoxesSelect.Add(pb1_7_select);
+            pBoxesSelect.Add(pb2_7_select);
+            pBoxesSelect.Add(pb3_7_select);
 
-            for (int i = 0; i < 12; ++i)
+            for (int i = 0; i < 21; ++i)
             {
                 pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
                 pBoxes[i].Enabled = false;
@@ -70,13 +84,16 @@ namespace SetServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 12; ++i)
+            for (int i = 0; i < 21; ++i)
             {
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
                 g.Clear(Color.White);
                 g.Dispose();
             }
-            lblCurIndex.Text = "Current Card: 0";
+            for (int i = 12; i < 21; ++i) {
+                pBoxes[i].Visible = false;
+            }
+                lblCurIndex.Text = "Current Card: 0";
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -102,14 +119,17 @@ namespace SetServer
         }
 
         public void noSetFound() {
-            MessageBox.Show("No sets found, add more cards");
+            
             cardsAdded = true;
-            cardsOnTable = 15;
-            for (int i = 0; i < 15; ++i)
+            cardsOnTable = cardsOnTable+3;
+            for (int i = 0; i < cardsOnTable; ++i)
             {
-                pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
+                pBoxes[i].Visible = true;
+                pBoxesSelect[i].Visible = false;
                 pBoxes[i].Enabled = true;
             }
+
+            MessageBox.Show("No sets found, add more cards");
 
             for (int i = 0; i < 3; ++i)
             {
@@ -126,8 +146,9 @@ namespace SetServer
             refreshCards();
             if (deck.checkForSets() == 0)
             {
-                noSetFound();
-            }
+                while(deck.checkForSets() == 0)
+                    noSetFound();
+            } 
             else
             {
                 for (int i = 0; i < 12; ++i)
@@ -162,93 +183,7 @@ namespace SetServer
 
         }
 
-        #region hide commented code
-        /*
-        private void pb1_1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb1_1 = new CardDisplay();
-            pb1_1.drawCard(g, deck.deckOfCards[0]);
-        }
-
-        private void pb2_1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb2_1 = new CardDisplay();
-            pb2_1.drawCard(g, deck.deckOfCards[1]);
-        }
-
-        private void pb3_1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb3_1 = new CardDisplay();
-            pb3_1.drawCard(g, deck.deckOfCards[2]);
-        }
-
-        private void pb1_2_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb1_2 = new CardDisplay();
-            pb1_2.drawCard(g, deck.deckOfCards[3]);
-        }
-
-        private void pb2_2_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb2_2 = new CardDisplay();
-            pb2_2.drawCard(g, deck.deckOfCards[4]);
-        }
-
-        private void pb3_2_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb3_2 = new CardDisplay();
-            pb3_2.drawCard(g, deck.deckOfCards[5]);
-        }
-
-        private void pb1_3_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb1_3 = new CardDisplay();
-            pb1_3.drawCard(g, deck.deckOfCards[6]);
-        }
-
-        private void pb2_3_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb2_3 = new CardDisplay();
-            pb2_3.drawCard(g, deck.deckOfCards[7]);
-        }
-
-        private void pb3_3_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb3_3 = new CardDisplay();
-            pb3_3.drawCard(g, deck.deckOfCards[8]);
-        }
-
-        private void pb1_4_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb1_4 = new CardDisplay();
-            pb1_4.drawCard(g, deck.deckOfCards[9]);
-        }
-
-        private void pb2_4_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb2_4 = new CardDisplay();
-            pb2_4.drawCard(g, deck.deckOfCards[10]);
-        }
-
-        private void pb3_4_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            CardDisplay pb3_4 = new CardDisplay();
-            pb3_4.drawCard(g, deck.deckOfCards[11]);
-        }*/
-        #endregion
-
+       
         List<Card> selectedCards = new List<Card>();
         private int numCardsSelected = 0;
         private int[] selectedPositions = new int[3];
@@ -365,23 +300,42 @@ namespace SetServer
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
-                    //need to shift cards back into place once certain ones are selected
-                    MessageBox.Show("Set found");
-                    cardsOnTable = 12;
-                    for (int i = 12; i < 15; ++i)
+                    if (cardsAdded)
                     {
-                        pBoxes[i].Image = null;
-                        pBoxes[i].Enabled = false;
+                        deck.dealtCards[selectedPositions[0]] = null;
+                        deck.dealtCards[selectedPositions[1]] = null;
+                        deck.dealtCards[selectedPositions[2]] = null;
+
+                        
+                        deck.dealtCards.Remove(null);
+                        deck.dealtCards.Remove(null);
+                        deck.dealtCards.Remove(null);
+
+                        for (int i = cardsOnTable - 3; i < cardsOnTable; ++i)
+                        {
+                            pBoxes[i].Visible = false;
+                        }
+
+
+
+                        cardsOnTable -= 3;
+                        if (cardsOnTable == 12) {
+                            cardsAdded = false;
+                        }
                     }
-                    deck.dealtCards[selectedPositions[0]] = deck.deckOfCards[deck.curIndexInDeck];
-                    deck.curIndexInDeck++;
-                    deck.dealtCards[selectedPositions[1]] = deck.deckOfCards[deck.curIndexInDeck];
-                    deck.curIndexInDeck++;
-                    deck.dealtCards[selectedPositions[2]] = deck.deckOfCards[deck.curIndexInDeck];
-                    deck.curIndexInDeck++;
+                    else
+                    {
+                        deck.dealtCards[selectedPositions[0]] = deck.deckOfCards[deck.curIndexInDeck];
+                        deck.curIndexInDeck++;
+                        deck.dealtCards[selectedPositions[1]] = deck.deckOfCards[deck.curIndexInDeck];
+                        deck.curIndexInDeck++;
+                        deck.dealtCards[selectedPositions[2]] = deck.deckOfCards[deck.curIndexInDeck];
+                        deck.curIndexInDeck++;
+                    }
+
                     refreshCards();
 
-                    if (deck.checkForSets() == 0)
+                    while (deck.checkForSets() == 0)
                     {
                         noSetFound();
                     }
@@ -426,6 +380,38 @@ namespace SetServer
         {
             
         }
+
+        private void pb1_6_Click(object sender, EventArgs e)
+        {
+            selectImage(16);
+        }
+
+        private void pb_2_6_Click(object sender, EventArgs e)
+        {
+            selectImage(17);
+        }
+
+        private void pb_2_7_Click(object sender, EventArgs e)
+        {
+            selectImage(18);
+        }
+
+        private void pb1_7_Click(object sender, EventArgs e)
+        {
+            selectImage(19);
+        }
+
+        private void pb2_7_Click(object sender, EventArgs e)
+        {
+            selectImage(20);
+        }
+
+        private void pb3_7_Click(object sender, EventArgs e)
+        {
+            selectImage(21);
+        }
+
+        
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
