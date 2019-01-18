@@ -365,6 +365,7 @@ namespace SetServer
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
+                    //need to shift cards back into place once certain ones are selected
                     MessageBox.Show("Set found");
                     cardsOnTable = 12;
                     for (int i = 12; i < 15; ++i)
