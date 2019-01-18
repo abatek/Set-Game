@@ -62,9 +62,11 @@ namespace SetServer
             }
         }
 
+        public int curIndexInDeck = 0;
+
         public void dealCards()
         {
-            int curIndexInDeck = 0;
+            
             while (curIndexInDeck < 12)
             {
                 dealtCards.Add(deckOfCards[curIndexInDeck]);
@@ -73,10 +75,11 @@ namespace SetServer
 
         }
 
-        public void checkForSets()
+        public int checkForSets()
         {
             int cardsDealt = dealtCards.Count();
             List<string> sets = new List<string>();
+            int numOfSets = 0;
 
             for (int i = 0; i < cardsDealt - 2; ++i)
             {
@@ -85,19 +88,18 @@ namespace SetServer
                     for (int k = j + 1; k < cardsDealt; ++k)
                     {
                         if (isSet(dealtCards[i], dealtCards[j], dealtCards[k])){
-                            Console.WriteLine("--------------------------------------");
-                            dealtCards[i].showFeatures();
-                            dealtCards[j].showFeatures();
-                            dealtCards[k].showFeatures();
+                            numOfSets++;
                         }
                         
                     }
                 }
             }
+            return numOfSets;
         }
 
-        public void cheat() {
+        public string cheat() {
             int cardsDealt = dealtCards.Count();
+            string str = "";
             List<string> sets = new List<string>();
 
             for (int i = 0; i < cardsDealt - 2; ++i)
@@ -108,13 +110,14 @@ namespace SetServer
                     {
                         if (isSet(dealtCards[i], dealtCards[j], dealtCards[k]))
                         {
-                            Console.WriteLine(i.ToString() + " " + j.ToString() + " "+ k.ToString());
+                            str = ((i + 1).ToString() + " " + (j + 1).ToString() + " "+ (k + 1).ToString()) + "\n";
                             
                         }
 
                     }
                 }
             }
+            return str;
         }
 
         public List<Card> convertToCards(string str)

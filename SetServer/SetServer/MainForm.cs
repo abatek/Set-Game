@@ -70,6 +70,7 @@ namespace SetServer
                 g.Clear(Color.White);
                 g.Dispose();
             }
+            lblCurIndex.Text = "Current Card: 0";
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace SetServer
             deck.shuffleDeck();
             Console.WriteLine("Done generating");
             btnDeal.Enabled = true;
-            
+
         }
 
         #region select picturebox
@@ -112,10 +113,22 @@ namespace SetServer
         {
             deck.dealCards();
             refreshCards();
-            for (int i = 0; i < 12; ++i)
+            if (deck.checkForSets() == 0)
             {
-                pBoxes[i].Enabled = true;
+                MessageBox.Show("No sets found, add more cards");
+
             }
+            else
+            {
+                for (int i = 0; i < 12; ++i)
+                {
+                    pBoxes[i].Enabled = true;
+                    btnCheckForSets.Enabled = true;
+                    btnCheat.Enabled = true;
+                }
+            }
+            txtCheat.Text = deck.cheat();
+            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
         }
 
         private void btnCheckForSets_Click(object sender, EventArgs e)
@@ -134,7 +147,7 @@ namespace SetServer
                 g.Dispose();
                 pBoxes[i].Refresh();
             }
-            
+
         }
 
         #region hide commented code
@@ -226,15 +239,20 @@ namespace SetServer
 
         List<Card> selectedCards = new List<Card>();
         private int numCardsSelected = 0;
+        private int[] selectedPositions = new int[3];
 
         private void selectImage(int position)
         {
-
+            
+            
             if (!pBoxesSelect[position - 1].Visible && numCardsSelected < 3)
             {
                 pBoxesSelect[position - 1].Visible = true;
                 selectedCards.Add(deck.dealtCards[position - 1]);
+                selectedPositions[numCardsSelected] = position - 1;
                 numCardsSelected++;
+                if (numCardsSelected == 3)
+                    btnSelectSet.Enabled = true;
             }
             else if (numCardsSelected >= 3 && !pBoxesSelect[position - 1].Visible)
             {
@@ -245,13 +263,14 @@ namespace SetServer
                 pBoxesSelect[position - 1].Visible = false;
                 selectedCards.Remove(deck.dealtCards[position - 1]);
                 numCardsSelected--;
+                btnSelectSet.Enabled = false;
             }
         }
 
         private void pb1_1_Click(object sender, EventArgs e)
         {
             selectImage(1);
-            
+
         }
 
         private void pb2_1_Click(object sender, EventArgs e)
@@ -260,15 +279,11 @@ namespace SetServer
             selectImage(2);
         }
 
-
-
         private void pb3_1_Click(object sender, EventArgs e)
         {
 
             selectImage(3);
         }
-
-        
 
         private void pb1_2_Click(object sender, EventArgs e)
         {
@@ -318,10 +333,34 @@ namespace SetServer
 
         private void btnSelectSet_Click(object sender, EventArgs e)
         {
+            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
             if (selectedCards.Count == 3)
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
+                {
                     MessageBox.Show("Set found");
+
+                    deck.dealtCards[selectedPositions[0]] = deck.deckOfCards[deck.curIndexInDeck];
+                    deck.curIndexInDeck++;
+                    deck.dealtCards[selectedPositions[1]] = deck.deckOfCards[deck.curIndexInDeck];
+                    deck.curIndexInDeck++;
+                    deck.dealtCards[selectedPositions[2]] = deck.deckOfCards[deck.curIndexInDeck];
+                    deck.curIndexInDeck++;
+                    refreshCards();
+
+                    numCardsSelected = 0;
+                    selectedCards.Clear();
+                    btnSelectSet.Enabled = false;
+
+                    txtCheat.Clear();
+                    txtCheat.Text = deck.cheat();
+
+                    for (int i = 0; i < 12; ++i)
+                    {
+                        pBoxesSelect[i].Visible = false;
+                    }
+                }
+
                 else
                     MessageBox.Show("Not a set");
             }
@@ -332,7 +371,17 @@ namespace SetServer
         private void btnCheat_Click(object sender, EventArgs e)
         {
             deck.cheat();
+            Console.WriteLine("-----");
         }
+
+        private void btnPosSelected_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(selectedPositions[0].ToString());
+            Console.WriteLine(selectedPositions[1].ToString());
+            Console.WriteLine(selectedPositions[2].ToString());
+        }
+
+        
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);

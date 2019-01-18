@@ -35,7 +35,6 @@
             this.pb1_1 = new System.Windows.Forms.PictureBox();
             this.pb2_1 = new System.Windows.Forms.PictureBox();
             this.btnGenerateDeck = new System.Windows.Forms.Button();
-            this.btnStartGame = new System.Windows.Forms.Button();
             this.btnSelectSet = new System.Windows.Forms.Button();
             this.pb1_1_select = new System.Windows.Forms.PictureBox();
             this.pb_2_1_select = new System.Windows.Forms.PictureBox();
@@ -62,6 +61,8 @@
             this.btnDeal = new System.Windows.Forms.Button();
             this.btnCheckForSets = new System.Windows.Forms.Button();
             this.btnCheat = new System.Windows.Forms.Button();
+            this.lblCurIndex = new System.Windows.Forms.Label();
+            this.txtCheat = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
@@ -154,19 +155,9 @@
             this.btnGenerateDeck.UseVisualStyleBackColor = true;
             this.btnGenerateDeck.Click += new System.EventHandler(this.btnGenerateDeck_Click);
             // 
-            // btnStartGame
-            // 
-            this.btnStartGame.Location = new System.Drawing.Point(22, 285);
-            this.btnStartGame.Margin = new System.Windows.Forms.Padding(2);
-            this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(84, 38);
-            this.btnStartGame.TabIndex = 20;
-            this.btnStartGame.Text = "Start Game";
-            this.btnStartGame.UseVisualStyleBackColor = true;
-            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
-            // 
             // btnSelectSet
             // 
+            this.btnSelectSet.Enabled = false;
             this.btnSelectSet.Location = new System.Drawing.Point(144, 157);
             this.btnSelectSet.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectSet.Name = "btnSelectSet";
@@ -411,7 +402,7 @@
             // btnDeal
             // 
             this.btnDeal.Enabled = false;
-            this.btnDeal.Location = new System.Drawing.Point(22, 327);
+            this.btnDeal.Location = new System.Drawing.Point(22, 283);
             this.btnDeal.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeal.Name = "btnDeal";
             this.btnDeal.Size = new System.Drawing.Size(84, 38);
@@ -422,7 +413,8 @@
             // 
             // btnCheckForSets
             // 
-            this.btnCheckForSets.Location = new System.Drawing.Point(110, 327);
+            this.btnCheckForSets.Enabled = false;
+            this.btnCheckForSets.Location = new System.Drawing.Point(22, 325);
             this.btnCheckForSets.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckForSets.Name = "btnCheckForSets";
             this.btnCheckForSets.Size = new System.Drawing.Size(84, 38);
@@ -433,6 +425,7 @@
             // 
             // btnCheat
             // 
+            this.btnCheat.Enabled = false;
             this.btnCheat.Location = new System.Drawing.Point(123, 80);
             this.btnCheat.Name = "btnCheat";
             this.btnCheat.Size = new System.Drawing.Size(75, 23);
@@ -441,11 +434,30 @@
             this.btnCheat.UseVisualStyleBackColor = true;
             this.btnCheat.Click += new System.EventHandler(this.btnCheat_Click);
             // 
+            // lblCurIndex
+            // 
+            this.lblCurIndex.AutoSize = true;
+            this.lblCurIndex.Location = new System.Drawing.Point(141, 122);
+            this.lblCurIndex.Name = "lblCurIndex";
+            this.lblCurIndex.Size = new System.Drawing.Size(35, 13);
+            this.lblCurIndex.TabIndex = 50;
+            this.lblCurIndex.Text = "label1";
+            // 
+            // txtCheat
+            // 
+            this.txtCheat.Location = new System.Drawing.Point(128, 253);
+            this.txtCheat.Name = "txtCheat";
+            this.txtCheat.Size = new System.Drawing.Size(100, 96);
+            this.txtCheat.TabIndex = 51;
+            this.txtCheat.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 388);
+            this.Controls.Add(this.txtCheat);
+            this.Controls.Add(this.lblCurIndex);
             this.Controls.Add(this.btnCheat);
             this.Controls.Add(this.btnCheckForSets);
             this.Controls.Add(this.btnDeal);
@@ -470,7 +482,6 @@
             this.Controls.Add(this.pb1_2);
             this.Controls.Add(this.pb1_2_select);
             this.Controls.Add(this.btnSelectSet);
-            this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.btnGenerateDeck);
             this.Controls.Add(this.txtConnect);
             this.Controls.Add(this.lbReceive);
@@ -521,7 +532,6 @@
         private System.Windows.Forms.PictureBox pb1_1;
         private System.Windows.Forms.PictureBox pb2_1;
         private System.Windows.Forms.Button btnGenerateDeck;
-        private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button btnSelectSet;
         private System.Windows.Forms.PictureBox pb1_1_select;
         private System.Windows.Forms.PictureBox pb_2_1_select;
@@ -548,6 +558,8 @@
         private System.Windows.Forms.Button btnDeal;
         private System.Windows.Forms.Button btnCheckForSets;
         private System.Windows.Forms.Button btnCheat;
+        private System.Windows.Forms.Label lblCurIndex;
+        private System.Windows.Forms.RichTextBox txtCheat;
     }
 }
 
