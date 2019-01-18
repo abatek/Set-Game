@@ -124,10 +124,11 @@ namespace SetServer
         }
 
         public void noSetFound() {
-            
+            //cards have (are going to be) added
             cardsAdded = true;
-            deck.cardsOnTable = deck.cardsOnTable+3;
+            deck.cardsOnTable = deck.cardsOnTable + 3;
 
+            //enable and make visible extra picture boxes
             for (int i = 0; i < deck.cardsOnTable; ++i)
             {
                 pBoxes[i].Visible = true;
@@ -135,8 +136,10 @@ namespace SetServer
                 pBoxes[i].Enabled = true;
             }
 
+            //inform player
             MessageBox.Show("No sets found, adding more cards");
 
+            //add extra cards to dealt cards list
             for (int i = 0; i < 3; ++i)
             {
                 deck.dealtCards.Add(deck.deckOfCards[deck.curIndexInDeck]);
@@ -178,6 +181,7 @@ namespace SetServer
         private void refreshCards()
         {
             CardDisplay cardDisplay = new CardDisplay();
+            //draw cards on table
             for (int i = 0; i < deck.cardsOnTable; ++i)
             {
 
@@ -186,20 +190,19 @@ namespace SetServer
                 g.Dispose();
                 pBoxes[i].Refresh();
             }
+            //make sure all boxes are visible
             for (int i = deck.cardsOnTable; i < 21; ++i) {
                 pBoxes[i].Visible = false;
             }
 
         }
 
-       
         List<Card> selectedCards = new List<Card>();
         private int numCardsSelected = 0;
         private int[] selectedPositions = new int[3];
 
         private void selectImage(int position)
         {
-            
             
             if (!pBoxesSelect[position - 1].Visible && numCardsSelected < 3)
             {
@@ -309,7 +312,7 @@ namespace SetServer
         {
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
 
-            if (deck.curIndexInDeck > 69) {
+            if (deck.curIndexInDeck >= 69) {
                 endGame();
             }
 
@@ -318,17 +321,15 @@ namespace SetServer
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
-                    if (cardsAdded)
+                    if (cardsAdded) //if the cards dealt has expanded past 12 cards
                     {
-                        deck.dealtCards[selectedPositions[0]] = null;
-                        deck.dealtCards[selectedPositions[1]] = null;
-                        deck.dealtCards[selectedPositions[2]] = null;
+                        //remove the cards in the set taken   
+                        for (int i = 0; i < 3; ++i)
+                        {
+                            deck.dealtCards.Remove(deck.dealtCards[selectedPositions[i]]);
+                        }
 
-                        
-                        deck.dealtCards.Remove(null);
-                        deck.dealtCards.Remove(null);
-                        deck.dealtCards.Remove(null);
-
+                        //make extra row of cards not visible
                         for (int i = deck.cardsOnTable - 3; i < deck.cardsOnTable; ++i)
                         {
                             pBoxes[i].Visible = false;
@@ -336,24 +337,36 @@ namespace SetServer
                         }
 
 
-
+                        //remove cards from table
                         deck.cardsOnTable -= 3;
+
+                        //if you have returned to standard 12 cards no cards have been added
                         if (deck.cardsOnTable == 12) {
                             cardsAdded = false;
                         }
                     }
                     else
                     {
-                        deck.dealtCards[selectedPositions[0]] = deck.deckOfCards[deck.curIndexInDeck];
-                        deck.curIndexInDeck++;
-                        deck.dealtCards[selectedPositions[1]] = deck.deckOfCards[deck.curIndexInDeck];
-                        deck.curIndexInDeck++;
-                        deck.dealtCards[selectedPositions[2]] = deck.deckOfCards[deck.curIndexInDeck];
-                        deck.curIndexInDeck++;
+                        //add new cards in positions where cards used to be
+                        if (!isEndGame)
+                        {
+                            for (int i = 0; i < 3; ++i)
+                            {
+                                deck.dealtCards[selectedPositions[i]] = deck.deckOfCards[deck.curIndexInDeck];
+                                deck.curIndexInDeck++;
+                            }
+                        }
+                        else {
+                            for (int i = 0; i < 3; ++i) {
+                                deck.dealtCards.Remove(deck.dealtCards[selectedPositions[i]]);
+                            }
+                        }
                     }
-
+                    
+                    //update cards on table
                     refreshCards();
 
+                    //if no sets exist on the table 
                     while (deck.checkForSets() == 0)
                     {
                         noSetFound();
