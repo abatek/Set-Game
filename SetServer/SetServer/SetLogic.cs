@@ -21,6 +21,7 @@ namespace SetServer
 
         public List<Card> deckOfCards = new List<Card>();
         public List<Card> dealtCards = new List<Card>();
+        public int cardsOnTable = 9;
 
         public void generateDeck()
         {
@@ -63,11 +64,11 @@ namespace SetServer
         }
 
         public int curIndexInDeck = 0;
-
+        MainForm cards = new MainForm();
         public void dealCards()
         {
             
-            while (curIndexInDeck < 12)
+            while (curIndexInDeck < cardsOnTable)
             {
                 dealtCards.Add(deckOfCards[curIndexInDeck]);
                 ++curIndexInDeck;

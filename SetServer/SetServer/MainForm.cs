@@ -126,8 +126,8 @@ namespace SetServer
         public void noSetFound() {
             
             cardsAdded = true;
-            cardsOnTable = cardsOnTable+3;
-            for (int i = 0; i < cardsOnTable; ++i)
+            deck.cardsOnTable = deck.cardsOnTable+3;
+            for (int i = 0; i < deck.cardsOnTable; ++i)
             {
                 pBoxes[i].Visible = true;
                 pBoxesSelect[i].Visible = false;
@@ -156,7 +156,7 @@ namespace SetServer
             } 
             else
             {
-                for (int i = 0; i < 12; ++i)
+                for (int i = 0; i < deck.cardsOnTable; ++i)
                 {
                     pBoxes[i].Enabled = true;
                     btnCheckForSets.Enabled = true;
@@ -172,18 +172,21 @@ namespace SetServer
             Console.WriteLine(deck.checkForSets().ToString());
         }
 
-        private int cardsOnTable = 12;
+        
 
         private void refreshCards()
         {
             CardDisplay cardDisplay = new CardDisplay();
-            for (int i = 0; i < cardsOnTable; ++i)
+            for (int i = 0; i < deck.cardsOnTable; ++i)
             {
 
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
                 cardDisplay.drawCard(deck.dealtCards[i], g);
                 g.Dispose();
                 pBoxes[i].Refresh();
+            }
+            for (int i = deck.cardsOnTable; i < 21; ++i) {
+                pBoxes[i].Visible = false;
             }
 
         }
@@ -204,7 +207,10 @@ namespace SetServer
                 selectedPositions[numCardsSelected] = position - 1;
                 numCardsSelected++;
                 if (numCardsSelected == 3)
+                {
                     btnSelectSet.Enabled = true;
+                    btnSelectSet.Select();
+                }
             }
             else if (numCardsSelected >= 3 && !pBoxesSelect[position - 1].Visible)
             {
@@ -322,7 +328,7 @@ namespace SetServer
                         deck.dealtCards.Remove(null);
                         deck.dealtCards.Remove(null);
 
-                        for (int i = cardsOnTable - 3; i < cardsOnTable; ++i)
+                        for (int i = deck.cardsOnTable - 3; i < deck.cardsOnTable; ++i)
                         {
                             pBoxes[i].Visible = false;
                             pBoxesSelect[i].Visible = false;
@@ -330,8 +336,8 @@ namespace SetServer
 
 
 
-                        cardsOnTable -= 3;
-                        if (cardsOnTable == 12) {
+                        deck.cardsOnTable -= 3;
+                        if (deck.cardsOnTable == 12) {
                             cardsAdded = false;
                         }
                     }
@@ -359,7 +365,7 @@ namespace SetServer
                     txtCheat.Clear();
                     txtCheat.Text = deck.cheat();
 
-                    for (int i = 0; i < cardsOnTable; ++i)
+                    for (int i = 0; i < deck.cardsOnTable; ++i)
                     {
                         pBoxesSelect[i].Visible = false;
                     }
