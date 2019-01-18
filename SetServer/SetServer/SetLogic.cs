@@ -76,7 +76,6 @@ namespace SetServer
         public void checkForSets()
         {
             int cardsDealt = dealtCards.Count();
-            int[,] values = new int[3, 4];
             List<string> sets = new List<string>();
 
             for (int i = 0; i < cardsDealt - 2; ++i)
@@ -92,6 +91,27 @@ namespace SetServer
                             dealtCards[k].showFeatures();
                         }
                         
+                    }
+                }
+            }
+        }
+
+        public void cheat() {
+            int cardsDealt = dealtCards.Count();
+            List<string> sets = new List<string>();
+
+            for (int i = 0; i < cardsDealt - 2; ++i)
+            {
+                for (int j = i + 1; j < cardsDealt - 1; ++j)
+                {
+                    for (int k = j + 1; k < cardsDealt; ++k)
+                    {
+                        if (isSet(dealtCards[i], dealtCards[j], dealtCards[k]))
+                        {
+                            Console.WriteLine(i.ToString() + " " + j.ToString() + " "+ k.ToString());
+                            
+                        }
+
                     }
                 }
             }

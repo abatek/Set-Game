@@ -15,6 +15,7 @@ namespace SetServer
         private Threading server = new Threading();
 
         public List<PictureBox> pBoxes = new List<PictureBox>();
+        public List<PictureBox> pBoxesSelect = new List<PictureBox>();
         public Bitmap[] DrawAreas = new Bitmap[12];
 
 
@@ -36,9 +37,23 @@ namespace SetServer
             pBoxes.Add(pb2_4);
             pBoxes.Add(pb3_4);
 
+            pBoxesSelect.Add(pb1_1_select);
+            pBoxesSelect.Add(pb_2_1_select);
+            pBoxesSelect.Add(pb3_1_select);
+            pBoxesSelect.Add(pb1_2_select);
+            pBoxesSelect.Add(pb2_2_select);
+            pBoxesSelect.Add(pb3_2_select);
+            pBoxesSelect.Add(pb1_3_select);
+            pBoxesSelect.Add(pb2_3_select);
+            pBoxesSelect.Add(pb3_3_select);
+            pBoxesSelect.Add(pb1_4_select);
+            pBoxesSelect.Add(pb2_4_select);
+            pBoxesSelect.Add(pb3_4_select);
+
             for (int i = 0; i < 12; ++i)
             {
                 pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
+                pBoxes[i].Enabled = false;
             }
         }
 
@@ -74,6 +89,8 @@ namespace SetServer
         {
             deck.generateDeck();
             deck.shuffleDeck();
+            Console.WriteLine("Done generating");
+            btnDeal.Enabled = true;
             
         }
 
@@ -95,6 +112,10 @@ namespace SetServer
         {
             deck.dealCards();
             refreshCards();
+            for (int i = 0; i < 12; ++i)
+            {
+                pBoxes[i].Enabled = true;
+            }
         }
 
         private void btnCheckForSets_Click(object sender, EventArgs e)
@@ -114,7 +135,10 @@ namespace SetServer
                 pBoxes[i].Refresh();
             }
             
-        }/*
+        }
+
+        #region hide commented code
+        /*
         private void pb1_1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -198,6 +222,117 @@ namespace SetServer
             CardDisplay pb3_4 = new CardDisplay();
             pb3_4.drawCard(g, deck.deckOfCards[11]);
         }*/
+        #endregion
+
+        List<Card> selectedCards = new List<Card>();
+        private int numCardsSelected = 0;
+
+        private void selectImage(int position)
+        {
+
+            if (!pBoxesSelect[position - 1].Visible && numCardsSelected < 3)
+            {
+                pBoxesSelect[position - 1].Visible = true;
+                selectedCards.Add(deck.dealtCards[position - 1]);
+                numCardsSelected++;
+            }
+            else if (numCardsSelected >= 3 && !pBoxesSelect[position - 1].Visible)
+            {
+                MessageBox.Show("Too many cards selected. Select at most 3.");
+            }
+            else
+            {
+                pBoxesSelect[position - 1].Visible = false;
+                selectedCards.Remove(deck.dealtCards[position - 1]);
+                numCardsSelected--;
+            }
+        }
+
+        private void pb1_1_Click(object sender, EventArgs e)
+        {
+            selectImage(1);
+            
+        }
+
+        private void pb2_1_Click(object sender, EventArgs e)
+        {
+
+            selectImage(2);
+        }
+
+
+
+        private void pb3_1_Click(object sender, EventArgs e)
+        {
+
+            selectImage(3);
+        }
+
+        
+
+        private void pb1_2_Click(object sender, EventArgs e)
+        {
+
+            selectImage(4);
+        }
+
+        private void pb2_2_Click(object sender, EventArgs e)
+        {
+            selectImage(5);
+        }
+
+        private void pb3_2_Click(object sender, EventArgs e)
+        {
+            selectImage(6);
+        }
+
+        private void pb1_3_Click(object sender, EventArgs e)
+        {
+            selectImage(7);
+        }
+
+        private void pb2_3_Click(object sender, EventArgs e)
+        {
+            selectImage(8);
+        }
+
+        private void pb3_3_Click(object sender, EventArgs e)
+        {
+            selectImage(9);
+        }
+
+        private void pb1_4_Click(object sender, EventArgs e)
+        {
+            selectImage(10);
+        }
+
+        private void pb2_4_Click(object sender, EventArgs e)
+        {
+            selectImage(11);
+        }
+
+        private void pb3_4_Click(object sender, EventArgs e)
+        {
+            selectImage(12);
+        }
+
+        private void btnSelectSet_Click(object sender, EventArgs e)
+        {
+            if (selectedCards.Count == 3)
+            {
+                if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
+                    MessageBox.Show("Set found");
+                else
+                    MessageBox.Show("Not a set");
+            }
+            else
+                MessageBox.Show("Not enough cards selected");
+        }
+
+        private void btnCheat_Click(object sender, EventArgs e)
+        {
+            deck.cheat();
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
