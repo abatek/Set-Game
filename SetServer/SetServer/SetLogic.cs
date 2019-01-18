@@ -64,7 +64,7 @@ namespace SetServer
         }
 
         public int curIndexInDeck = 0;
-        MainForm cards = new MainForm();
+        
         public void dealCards()
         {
             
