@@ -127,6 +127,7 @@ namespace SetServer
             
             cardsAdded = true;
             deck.cardsOnTable = deck.cardsOnTable+3;
+
             for (int i = 0; i < deck.cardsOnTable; ++i)
             {
                 pBoxes[i].Visible = true;
@@ -134,7 +135,7 @@ namespace SetServer
                 pBoxes[i].Enabled = true;
             }
 
-            MessageBox.Show("No sets found, add more cards");
+            MessageBox.Show("No sets found, adding more cards");
 
             for (int i = 0; i < 3; ++i)
             {
@@ -381,9 +382,27 @@ namespace SetServer
                 MessageBox.Show("Not enough cards selected");
         }
 
+        public bool isEndGame = false;
+
         private void endGame()
         {
-            throw new NotImplementedException();
+            deck.cardsOnTable = 81 - deck.curIndexInDeck;
+
+            if (deck.cardsOnTable == 0) {
+                if (deck.serverSets > deck.clientSets)
+                {
+                    MessageBox.Show("Server Wins");
+                }
+                else if (deck.serverSets < deck.clientSets)
+                {
+                    MessageBox.Show("Client Wins");
+                }
+                else
+                {
+                    MessageBox.Show("Tie");
+                }
+
+            }
         }
 
         private void btnCheat_Click(object sender, EventArgs e)

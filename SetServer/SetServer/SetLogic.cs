@@ -21,7 +21,9 @@ namespace SetServer
 
         public List<Card> deckOfCards = new List<Card>();
         public List<Card> dealtCards = new List<Card>();
-        public int cardsOnTable = 9;
+        public int cardsOnTable = 12;
+        public int serverSets = 0;
+        public int clientSets = 0;
 
         public void generateDeck()
         {
