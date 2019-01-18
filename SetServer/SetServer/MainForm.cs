@@ -93,7 +93,11 @@ namespace SetServer
             for (int i = 12; i < 21; ++i) {
                 pBoxes[i].Visible = false;
             }
-                lblCurIndex.Text = "Current Card: 0";
+
+            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
+            
+            
+
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -115,6 +119,7 @@ namespace SetServer
             deck.shuffleDeck();
             Console.WriteLine("Done generating");
             btnDeal.Enabled = true;
+            Console.WriteLine(deck.deckOfCards.Count());
 
         }
 
@@ -296,6 +301,23 @@ namespace SetServer
         private void btnSelectSet_Click(object sender, EventArgs e)
         {
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
+            if (deck.curIndexInDeck == 72) {
+                cardsOnTable = 9;
+            }
+            if (deck.curIndexInDeck == 75)
+            {
+                cardsOnTable = 6;
+            }
+            if (deck.curIndexInDeck == 78)
+            {
+                cardsOnTable = 3;
+            }
+            if (deck.curIndexInDeck == 81)
+            {
+                //implement game over
+            }
+
+
             if (selectedCards.Count == 3)
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
@@ -314,6 +336,7 @@ namespace SetServer
                         for (int i = cardsOnTable - 3; i < cardsOnTable; ++i)
                         {
                             pBoxes[i].Visible = false;
+                            pBoxesSelect[i].Visible = false;
                         }
 
 
@@ -378,7 +401,8 @@ namespace SetServer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            deck.curIndexInDeck = 69;
+
         }
 
         private void pb1_6_Click(object sender, EventArgs e)
