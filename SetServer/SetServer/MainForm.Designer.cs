@@ -63,6 +63,13 @@
             this.btnCheat = new System.Windows.Forms.Button();
             this.lblCurIndex = new System.Windows.Forms.Label();
             this.txtCheat = new System.Windows.Forms.RichTextBox();
+            this.pb3_5 = new System.Windows.Forms.PictureBox();
+            this.pb3_5_select = new System.Windows.Forms.PictureBox();
+            this.pb2_5 = new System.Windows.Forms.PictureBox();
+            this.pb2_5_select = new System.Windows.Forms.PictureBox();
+            this.pb1_5 = new System.Windows.Forms.PictureBox();
+            this.pb1_5_select = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
@@ -87,6 +94,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb3_2_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_5_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_5_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_5_select)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReceive
@@ -451,11 +464,91 @@
             this.txtCheat.TabIndex = 51;
             this.txtCheat.Text = "";
             // 
+            // pb3_5
+            // 
+            this.pb3_5.Location = new System.Drawing.Point(563, 376);
+            this.pb3_5.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_5.Name = "pb3_5";
+            this.pb3_5.Size = new System.Drawing.Size(119, 71);
+            this.pb3_5.TabIndex = 56;
+            this.pb3_5.TabStop = false;
+            this.pb3_5.Click += new System.EventHandler(this.pb3_5_Click);
+            // 
+            // pb3_5_select
+            // 
+            this.pb3_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb3_5_select.Location = new System.Drawing.Point(561, 374);
+            this.pb3_5_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb3_5_select.Name = "pb3_5_select";
+            this.pb3_5_select.Size = new System.Drawing.Size(123, 76);
+            this.pb3_5_select.TabIndex = 57;
+            this.pb3_5_select.TabStop = false;
+            this.pb3_5_select.Visible = false;
+            // 
+            // pb2_5
+            // 
+            this.pb2_5.Location = new System.Drawing.Point(416, 374);
+            this.pb2_5.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_5.Name = "pb2_5";
+            this.pb2_5.Size = new System.Drawing.Size(119, 71);
+            this.pb2_5.TabIndex = 53;
+            this.pb2_5.TabStop = false;
+            this.pb2_5.Click += new System.EventHandler(this.pb2_5_Click);
+            // 
+            // pb2_5_select
+            // 
+            this.pb2_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb2_5_select.Location = new System.Drawing.Point(414, 372);
+            this.pb2_5_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb2_5_select.Name = "pb2_5_select";
+            this.pb2_5_select.Size = new System.Drawing.Size(123, 76);
+            this.pb2_5_select.TabIndex = 55;
+            this.pb2_5_select.TabStop = false;
+            this.pb2_5_select.Visible = false;
+            // 
+            // pb1_5
+            // 
+            this.pb1_5.Location = new System.Drawing.Point(271, 374);
+            this.pb1_5.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_5.Name = "pb1_5";
+            this.pb1_5.Size = new System.Drawing.Size(119, 71);
+            this.pb1_5.TabIndex = 52;
+            this.pb1_5.TabStop = false;
+            this.pb1_5.Click += new System.EventHandler(this.pb1_5_Click);
+            // 
+            // pb1_5_select
+            // 
+            this.pb1_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pb1_5_select.Location = new System.Drawing.Point(269, 372);
+            this.pb1_5_select.Margin = new System.Windows.Forms.Padding(2);
+            this.pb1_5_select.Name = "pb1_5_select";
+            this.pb1_5_select.Size = new System.Drawing.Size(123, 76);
+            this.pb1_5_select.TabIndex = 54;
+            this.pb1_5_select.TabStop = false;
+            this.pb1_5_select.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(80, 421);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 388);
+            this.ClientSize = new System.Drawing.Size(712, 476);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pb3_5);
+            this.Controls.Add(this.pb3_5_select);
+            this.Controls.Add(this.pb2_5);
+            this.Controls.Add(this.pb2_5_select);
+            this.Controls.Add(this.pb1_5);
+            this.Controls.Add(this.pb1_5_select);
             this.Controls.Add(this.txtCheat);
             this.Controls.Add(this.lblCurIndex);
             this.Controls.Add(this.btnCheat);
@@ -518,6 +611,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb3_2_select)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_1_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_5_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_5_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_5_select)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,6 +659,13 @@
         private System.Windows.Forms.Button btnCheat;
         private System.Windows.Forms.Label lblCurIndex;
         private System.Windows.Forms.RichTextBox txtCheat;
+        private System.Windows.Forms.PictureBox pb3_5;
+        private System.Windows.Forms.PictureBox pb3_5_select;
+        private System.Windows.Forms.PictureBox pb2_5;
+        private System.Windows.Forms.PictureBox pb2_5_select;
+        private System.Windows.Forms.PictureBox pb1_5;
+        private System.Windows.Forms.PictureBox pb1_5_select;
+        private System.Windows.Forms.Button button1;
     }
 }
 

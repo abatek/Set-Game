@@ -110,7 +110,7 @@ namespace SetServer
                     {
                         if (isSet(dealtCards[i], dealtCards[j], dealtCards[k]))
                         {
-                            str = ((i + 1).ToString() + " " + (j + 1).ToString() + " "+ (k + 1).ToString()) + "\n";
+                            str += ((i + 1).ToString() + " " + (j + 1).ToString() + " "+ (k + 1).ToString()) + "\n";
                             
                         }
 

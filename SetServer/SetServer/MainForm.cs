@@ -17,7 +17,7 @@ namespace SetServer
         public List<PictureBox> pBoxes = new List<PictureBox>();
         public List<PictureBox> pBoxesSelect = new List<PictureBox>();
         public Bitmap[] DrawAreas = new Bitmap[12];
-
+        public bool cardsAdded = false;
 
 
         public MainForm()
@@ -36,6 +36,9 @@ namespace SetServer
             pBoxes.Add(pb1_4);
             pBoxes.Add(pb2_4);
             pBoxes.Add(pb3_4);
+            pBoxes.Add(pb1_5);
+            pBoxes.Add(pb2_5);
+            pBoxes.Add(pb3_5);
 
             pBoxesSelect.Add(pb1_1_select);
             pBoxesSelect.Add(pb_2_1_select);
@@ -49,6 +52,9 @@ namespace SetServer
             pBoxesSelect.Add(pb1_4_select);
             pBoxesSelect.Add(pb2_4_select);
             pBoxesSelect.Add(pb3_4_select);
+            pBoxesSelect.Add(pb1_5_select);
+            pBoxesSelect.Add(pb2_5_select);
+            pBoxesSelect.Add(pb3_5_select);
 
             for (int i = 0; i < 12; ++i)
             {
@@ -95,18 +101,23 @@ namespace SetServer
 
         }
 
-        #region select picturebox
+        public void noSetFound() {
+            MessageBox.Show("No sets found, add more cards");
+            cardsAdded = true;
+            cardsOnTable = 15;
+            for (int i = 0; i < 15; ++i)
+            {
+                pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
+                pBoxes[i].Enabled = true;
+            }
 
+            for (int i = 0; i < 3; ++i)
+            {
+                deck.dealtCards.Add(deck.deckOfCards[deck.curIndexInDeck]);
+                deck.curIndexInDeck++;
+            }
 
-
-
-
-
-        #endregion
-
-        private void btnStartGame_Click(object sender, EventArgs e)
-        {
-
+            refreshCards();
         }
 
         private void btnDeal_Click(object sender, EventArgs e)
@@ -115,8 +126,7 @@ namespace SetServer
             refreshCards();
             if (deck.checkForSets() == 0)
             {
-                MessageBox.Show("No sets found, add more cards");
-
+                noSetFound();
             }
             else
             {
@@ -133,13 +143,15 @@ namespace SetServer
 
         private void btnCheckForSets_Click(object sender, EventArgs e)
         {
-            deck.checkForSets();
+            Console.WriteLine(deck.checkForSets().ToString());
         }
+
+        private int cardsOnTable = 12;
 
         private void refreshCards()
         {
             CardDisplay cardDisplay = new CardDisplay();
-            for (int i = 0; i < 12; ++i)
+            for (int i = 0; i < cardsOnTable; ++i)
             {
 
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
@@ -331,6 +343,21 @@ namespace SetServer
             selectImage(12);
         }
 
+        private void pb1_5_Click(object sender, EventArgs e)
+        {
+            selectImage(13);
+        }
+
+        private void pb2_5_Click(object sender, EventArgs e)
+        {
+            selectImage(14);
+        }
+
+        private void pb3_5_Click(object sender, EventArgs e)
+        {
+            selectImage(15);
+        }
+
         private void btnSelectSet_Click(object sender, EventArgs e)
         {
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
@@ -339,7 +366,12 @@ namespace SetServer
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
                     MessageBox.Show("Set found");
-
+                    cardsOnTable = 12;
+                    for (int i = 12; i < 15; ++i)
+                    {
+                        pBoxes[i].Image = null;
+                        pBoxes[i].Enabled = false;
+                    }
                     deck.dealtCards[selectedPositions[0]] = deck.deckOfCards[deck.curIndexInDeck];
                     deck.curIndexInDeck++;
                     deck.dealtCards[selectedPositions[1]] = deck.deckOfCards[deck.curIndexInDeck];
@@ -348,6 +380,11 @@ namespace SetServer
                     deck.curIndexInDeck++;
                     refreshCards();
 
+                    if (deck.checkForSets() == 0)
+                    {
+                        noSetFound();
+                    }
+
                     numCardsSelected = 0;
                     selectedCards.Clear();
                     btnSelectSet.Enabled = false;
@@ -355,10 +392,13 @@ namespace SetServer
                     txtCheat.Clear();
                     txtCheat.Text = deck.cheat();
 
-                    for (int i = 0; i < 12; ++i)
+                    for (int i = 0; i < cardsOnTable; ++i)
                     {
                         pBoxesSelect[i].Visible = false;
                     }
+
+                    
+
                 }
 
                 else
@@ -381,7 +421,10 @@ namespace SetServer
             Console.WriteLine(selectedPositions[2].ToString());
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);
