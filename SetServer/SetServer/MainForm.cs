@@ -17,8 +17,6 @@ namespace SetServer
         public List<PictureBox> pBoxes = new List<PictureBox>();
         public List<PictureBox> pBoxesSelect = new List<PictureBox>();
         public Bitmap[] DrawAreas = new Bitmap[12];
-        public bool cardsAdded = false;
-
 
         public MainForm()
         {
@@ -95,9 +93,6 @@ namespace SetServer
             }
 
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
-            
-            
-
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -124,12 +119,20 @@ namespace SetServer
         }
 
         public void noSetFound() {
-            //cards have (are going to be) added
-            cardsAdded = true;
-            deck.cardsOnTable = deck.cardsOnTable + 3;
 
+            if (deck.cardsShown < 15)
+            {
+                if (deck.deckOfCards.Count > 12)
+                {
+                    deck.cardsShown += 3;
+                }
+            }
+            else
+            {
+                deck.moveToEnd();
+            }
             //enable and make visible extra picture boxes
-            for (int i = 0; i < deck.cardsOnTable; ++i)
+            for (int i = 0; i < deck.cardsShown; ++i)
             {
                 pBoxes[i].Visible = true;
                 pBoxesSelect[i].Visible = false;
@@ -139,19 +142,11 @@ namespace SetServer
             //inform player
             MessageBox.Show("No sets found, adding more cards");
 
-            //add extra cards to dealt cards list
-            for (int i = 0; i < 3; ++i)
-            {
-                deck.dealtCards.Add(deck.deckOfCards[deck.curIndexInDeck]);
-                deck.curIndexInDeck++;
-            }
-
             refreshCards();
         }
 
         private void btnDeal_Click(object sender, EventArgs e)
         {
-            deck.dealCards();
             refreshCards();
             if (deck.checkForSets() == 0)
             {
@@ -160,7 +155,7 @@ namespace SetServer
             } 
             else
             {
-                for (int i = 0; i < deck.cardsOnTable; ++i)
+                for (int i = 0; i < 12; ++i)
                 {
                     pBoxes[i].Enabled = true;
                     btnCheckForSets.Enabled = true;
@@ -176,22 +171,19 @@ namespace SetServer
             Console.WriteLine(deck.checkForSets().ToString());
         }
 
-        
-
         private void refreshCards()
         {
             CardDisplay cardDisplay = new CardDisplay();
             //draw cards on table
-            for (int i = 0; i < deck.cardsOnTable; ++i)
+            for (int i = 0; i < deck.cardsShown; ++i)
             {
-
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
-                cardDisplay.drawCard(deck.dealtCards[i], g);
+                cardDisplay.drawCard(deck.deckOfCards[i], g);
                 g.Dispose();
                 pBoxes[i].Refresh();
             }
-            //make sure all boxes are visible
-            for (int i = deck.cardsOnTable; i < 21; ++i) {
+            //make sure all unneeded boxes are invisible
+            for (int i = deck.cardsShown; i < 21; ++i) {
                 pBoxes[i].Visible = false;
             }
 
@@ -207,7 +199,7 @@ namespace SetServer
             if (!pBoxesSelect[position - 1].Visible && numCardsSelected < 3)
             {
                 pBoxesSelect[position - 1].Visible = true;
-                selectedCards.Add(deck.dealtCards[position - 1]);
+                selectedCards.Add(deck.deckOfCards[position - 1]);
                 selectedPositions[numCardsSelected] = position - 1;
                 numCardsSelected++;
                 if (numCardsSelected == 3)
@@ -223,7 +215,7 @@ namespace SetServer
             else
             {
                 pBoxesSelect[position - 1].Visible = false;
-                selectedCards.Remove(deck.dealtCards[position - 1]);
+                selectedCards.Remove(deck.deckOfCards[position - 1]);
                 numCardsSelected--;
                 btnSelectSet.Enabled = false;
             }
@@ -312,82 +304,59 @@ namespace SetServer
         {
             lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
 
-            if (deck.curIndexInDeck >= 69) {
-                endGame();
-            }
-
-
             if (selectedCards.Count == 3)
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
-                    if (cardsAdded) //if the cards dealt has expanded past 12 cards
+                    //remove the cards in the set taken   
+                    for (int i = 0; i < 3; ++i)
                     {
-                        //remove the cards in the set taken   
-                        for (int i = 0; i < 3; ++i)
-                        {
-                            deck.dealtCards.Remove(deck.dealtCards[selectedPositions[i]]);
-                        }
+                        deck.deckOfCards.RemoveAt(selectedPositions[i]);
+                    }
 
-                        //make extra row of cards not visible
-                        for (int i = deck.cardsOnTable - 3; i < deck.cardsOnTable; ++i)
-                        {
-                            pBoxes[i].Visible = false;
-                            pBoxesSelect[i].Visible = false;
-                        }
+                    
 
-
-                        //remove cards from table
-                        deck.cardsOnTable -= 3;
-
-                        //if you have returned to standard 12 cards no cards have been added
-                        if (deck.cardsOnTable == 12) {
-                            cardsAdded = false;
-                        }
+                    if (deck.deckOfCards.Count == 0)
+                    {
+                        endGame();
                     }
                     else
                     {
-                        //add new cards in positions where cards used to be
-                        if (!isEndGame)
+                        //remove cards from table
+                        if (deck.cardsShown > 12 || deck.deckOfCards.Count <= deck.cardsShown)
                         {
-                            for (int i = 0; i < 3; ++i)
+                            //make extra row of cards not visible
+                            for (int i = deck.cardsShown - 3; i < deck.cardsShown; ++i)
                             {
-                                deck.dealtCards[selectedPositions[i]] = deck.deckOfCards[deck.curIndexInDeck];
-                                deck.curIndexInDeck++;
+                                pBoxes[i].Visible = false;
+                                pBoxesSelect[i].Visible = false;
                             }
+                            deck.cardsShown -= 3;
+
                         }
-                        else {
-                            for (int i = 0; i < 3; ++i) {
-                                deck.dealtCards.Remove(deck.dealtCards[selectedPositions[i]]);
-                            }
+
+                        //update cards on table
+                        refreshCards();
+
+                        for (int i = 0; i < deck.cardsShown; ++i)
+                        {
+                            pBoxesSelect[i].Visible = false;
                         }
-                    }
-                    
-                    //update cards on table
-                    refreshCards();
 
-                    //if no sets exist on the table 
-                    while (deck.checkForSets() == 0)
-                    {
-                        noSetFound();
-                    }
+                        //if no sets exist on the table 
+                        while (deck.checkForSets() == 0)
+                        {
+                            noSetFound();
+                        }
 
-                    numCardsSelected = 0;
-                    selectedCards.Clear();
-                    btnSelectSet.Enabled = false;
+                        numCardsSelected = 0;
+                        selectedCards.Clear();
+                        btnSelectSet.Enabled = false;
 
-                    txtCheat.Clear();
-                    txtCheat.Text = deck.cheat();
-
-                    for (int i = 0; i < deck.cardsOnTable; ++i)
-                    {
-                        pBoxesSelect[i].Visible = false;
-                    }
-
-                    
-
+                        txtCheat.Clear();
+                        txtCheat.Text = deck.cheat();
+                        }
                 }
-
                 else
                     MessageBox.Show("Not a set");
             }
@@ -399,22 +368,17 @@ namespace SetServer
 
         private void endGame()
         {
-            deck.cardsOnTable = 81 - deck.curIndexInDeck;
-
-            if (deck.cardsOnTable == 0) {
-                if (deck.serverSets > deck.clientSets)
-                {
-                    MessageBox.Show("Server Wins");
-                }
-                else if (deck.serverSets < deck.clientSets)
-                {
-                    MessageBox.Show("Client Wins");
-                }
-                else
-                {
-                    MessageBox.Show("Tie");
-                }
-
+            if (deck.serverSets > deck.clientSets)
+            {
+                MessageBox.Show("Server Wins");
+            }
+            else if (deck.serverSets < deck.clientSets)
+            {
+                MessageBox.Show("Client Wins");
+            }
+            else
+            {
+                MessageBox.Show("Tie");
             }
         }
 

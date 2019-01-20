@@ -20,10 +20,11 @@ namespace SetServer
         }
 
         public List<Card> deckOfCards = new List<Card>();
-        public List<Card> dealtCards = new List<Card>();
-        public int cardsOnTable = 12;
         public int serverSets = 0;
         public int clientSets = 0;
+
+        public int cardsShown = 12;
+
 
         public void generateDeck()
         {
@@ -65,32 +66,35 @@ namespace SetServer
             }
         }
 
-        public int curIndexInDeck = 0;
-        
-        public void dealCards()
+
+        public void moveToEnd()
         {
-            
-            while (curIndexInDeck < cardsOnTable)
+            Card[] cardsToMove = { deckOfCards[12], deckOfCards[13], deckOfCards[14] };
+            for (int i = 15; i < deckOfCards.Count; ++i)
             {
-                dealtCards.Add(deckOfCards[curIndexInDeck]);
-                ++curIndexInDeck;
+                deckOfCards[i-3] = deckOfCards[i];
             }
 
+            for (int i = 0; i < 3; ++i)
+            {
+                deckOfCards[i + deckOfCards.Count - 3] = cardsToMove[i];
+            }
         }
+
+        public int curIndexInDeck = 0;
 
         public int checkForSets()
         {
-            int cardsDealt = dealtCards.Count();
             List<string> sets = new List<string>();
             int numOfSets = 0;
 
-            for (int i = 0; i < cardsDealt - 2; ++i)
+            for (int i = 0; i < cardsShown - 2; ++i)
             {
-                for (int j = i + 1; j < cardsDealt - 1; ++j)
+                for (int j = i + 1; j < cardsShown - 1; ++j)
                 {
-                    for (int k = j + 1; k < cardsDealt; ++k)
+                    for (int k = j + 1; k < cardsShown; ++k)
                     {
-                        if (isSet(dealtCards[i], dealtCards[j], dealtCards[k])){
+                        if (isSet(deckOfCards[i], deckOfCards[j], deckOfCards[k])){
                             numOfSets++;
                         }
                         
@@ -101,17 +105,16 @@ namespace SetServer
         }
 
         public string cheat() {
-            int cardsDealt = dealtCards.Count();
             string str = "";
             List<string> sets = new List<string>();
 
-            for (int i = 0; i < cardsDealt - 2; ++i)
+            for (int i = 0; i < cardsShown - 2; ++i)
             {
-                for (int j = i + 1; j < cardsDealt - 1; ++j)
+                for (int j = i + 1; j < cardsShown - 1; ++j)
                 {
-                    for (int k = j + 1; k < cardsDealt; ++k)
+                    for (int k = j + 1; k < cardsShown; ++k)
                     {
-                        if (isSet(dealtCards[i], dealtCards[j], dealtCards[k]))
+                        if (isSet(deckOfCards[i], deckOfCards[j], deckOfCards[k]))
                         {
                             str += ((i + 1).ToString() + " " + (j + 1).ToString() + " "+ (k + 1).ToString()) + "\n";
                             
