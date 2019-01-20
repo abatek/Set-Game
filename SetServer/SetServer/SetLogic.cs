@@ -85,7 +85,6 @@ namespace SetServer
 
         public int checkForSets()
         {
-            List<string> sets = new List<string>();
             int numOfSets = 0;
 
             for (int i = 0; i < cardsShown - 2; ++i)

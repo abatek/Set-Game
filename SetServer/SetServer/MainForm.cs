@@ -14,9 +14,14 @@ namespace SetServer
     {
         private Threading server = new Threading();
 
+        SetLogic deck = new SetLogic();
+
         public List<PictureBox> pBoxes = new List<PictureBox>();
         public List<PictureBox> pBoxesSelect = new List<PictureBox>();
         public Bitmap[] DrawAreas = new Bitmap[12];
+
+        private int numCardsSelected = 0;
+        private List<Card> selectedCards = new List<Card>();
 
         public MainForm()
         {
@@ -43,8 +48,6 @@ namespace SetServer
             pBoxes.Add(pb1_7);
             pBoxes.Add(pb2_7);
             pBoxes.Add(pb3_7);
-
-
 
             pBoxesSelect.Add(pb1_1_select);
             pBoxesSelect.Add(pb_2_1_select);
@@ -106,26 +109,33 @@ namespace SetServer
             server.Connect();
         }
 
-        SetLogic deck = new SetLogic();
 
         private void btnGenerateDeck_Click(object sender, EventArgs e)
         {
             deck.generateDeck();
-            deck.shuffleDeck();
             Console.WriteLine("Done generating");
             btnDeal.Enabled = true;
             Console.WriteLine(deck.deckOfCards.Count());
+            //foreach(Card c in deck.deckOfCards)
+            //{
+            //    c.showFeatures();
+            //}
+            deck.shuffleDeck();
 
         }
 
         public void noSetFound() {
 
+            if (deck.deckOfCards.Count <= 12)
+            {
+                Console.WriteLine("No sets in last 12");
+                endGame();
+                return;
+            }
+
             if (deck.cardsShown < 15)
             {
-                if (deck.deckOfCards.Count > 12)
-                {
-                    deck.cardsShown += 3;
-                }
+                deck.cardsShown += 3;
             }
             else
             {
@@ -143,6 +153,11 @@ namespace SetServer
             MessageBox.Show("No sets found, adding more cards");
 
             refreshCards();
+
+            if (deck.checkForSets() == 0)
+            {
+                noSetFound();
+            }
         }
 
         private void btnDeal_Click(object sender, EventArgs e)
@@ -189,34 +204,30 @@ namespace SetServer
 
         }
 
-        List<Card> selectedCards = new List<Card>();
-        private int numCardsSelected = 0;
-        private int[] selectedPositions = new int[3];
 
         private void selectImage(int position)
         {
-            
+            if (selectedCards.Count >= 3 && !pBoxesSelect[position - 1].Visible)
+            {
+                MessageBox.Show("Too many cards selected. Select at most 3.");
+                return;
+            }
+
             if (!pBoxesSelect[position - 1].Visible && numCardsSelected < 3)
             {
                 pBoxesSelect[position - 1].Visible = true;
                 selectedCards.Add(deck.deckOfCards[position - 1]);
-                selectedPositions[numCardsSelected] = position - 1;
-                numCardsSelected++;
-                if (numCardsSelected == 3)
+                //deck.deckOfCards[position - 1].showFeatures();
+                if (selectedCards.Count == 3)
                 {
                     btnSelectSet.Enabled = true;
                     btnSelectSet.Select();
                 }
             }
-            else if (numCardsSelected >= 3 && !pBoxesSelect[position - 1].Visible)
-            {
-                MessageBox.Show("Too many cards selected. Select at most 3.");
-            }
             else
             {
                 pBoxesSelect[position - 1].Visible = false;
                 selectedCards.Remove(deck.deckOfCards[position - 1]);
-                numCardsSelected--;
                 btnSelectSet.Enabled = false;
             }
         }
@@ -308,13 +319,11 @@ namespace SetServer
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
-                    //remove the cards in the set taken   
-                    for (int i = 0; i < 3; ++i)
-                    {
-                        deck.deckOfCards.RemoveAt(selectedPositions[i]);
-                    }
 
-                    
+                    if (deck.deckOfCards.Count  == 12)
+                    {
+                        Console.WriteLine("We're in the endgame now");
+                    }
 
                     if (deck.deckOfCards.Count == 0)
                     {
@@ -335,6 +344,19 @@ namespace SetServer
 
                         }
 
+                        //remove the cards in the set taken 
+                        deck.deckOfCards.RemoveAll((Card c) => {
+                            if (selectedCards.Contains(c))
+                            {
+                                Console.WriteLine("Removed: {0}",c.toString());
+                                c.showFeatures();
+                                return true;
+                            }
+                            return false;
+                        });
+
+                        selectedCards.Clear();
+
                         //update cards on table
                         refreshCards();
 
@@ -344,13 +366,12 @@ namespace SetServer
                         }
 
                         //if no sets exist on the table 
-                        while (deck.checkForSets() == 0)
+                        if (deck.checkForSets() == 0)
                         {
                             noSetFound();
                         }
 
                         numCardsSelected = 0;
-                        selectedCards.Clear();
                         btnSelectSet.Enabled = false;
 
                         txtCheat.Clear();
@@ -390,9 +411,9 @@ namespace SetServer
 
         private void btnPosSelected_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(selectedPositions[0].ToString());
-            Console.WriteLine(selectedPositions[1].ToString());
-            Console.WriteLine(selectedPositions[2].ToString());
+            Console.WriteLine(selectedCards[0].ToString());
+            Console.WriteLine(selectedCards[1].ToString());
+            Console.WriteLine(selectedCards[2].ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
