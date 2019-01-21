@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SetClient;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SetServer
+namespace SetClient
 {
     public class CardDisplay
     {
@@ -16,13 +17,13 @@ namespace SetServer
         public const int pbHeight = 71;
         public static int shapeWidth = 25;
         public static int shapeHeight = pbHeight - 20;
-        public int x = pbWidth/2 - shapeWidth/2;
+        public int x = pbWidth / 2 - shapeWidth / 2;
         public int y = 10;
         public static int thick = 2;
-        
-        public void drawCard (Card card, Graphics g)
+
+        public void drawCard(Card card, Graphics g)
         {
-            
+
             int colour = card.Colour;
             int symbol = card.Symbol;
             int number = card.Number;
@@ -48,7 +49,8 @@ namespace SetServer
                 Shape shape2 = new Shape(colour, symbol, shading, x + rightOffset, y, g);
                 Shape shape3 = new Shape(colour, symbol, shading, x - leftOffset, y, g);
             }
-            
+
+
         }
 
         public class Shape
@@ -165,10 +167,11 @@ namespace SetServer
                         g.FillPolygon(p2, trianglePoints);
                     }
                 }
-                
+
             }
 
-           
+
         }
-    } 
+    }
 }
+

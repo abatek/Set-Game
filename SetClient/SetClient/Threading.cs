@@ -51,9 +51,21 @@ namespace SetClient
                         char c = Convert.ToChar(bb[i]);
                         if (c.Equals('\n')) // newline character signals end of message
                         {
-                            //AddToListBox.UpdateListBox(output);
-                            Console.WriteLine("Message: " + output);
-                            output = "";
+                            if (output.Substring(0, 1) != "*")
+                            {
+                                SetLogic test = new SetLogic();
+
+                                List<Card> cards = test.convertToCards(output);
+                                foreach (Card card in cards)
+                                {
+                                    card.showFeatures();
+                                }
+
+                            }
+                            else
+                            {
+                                Console.WriteLine(output);
+                            }
                         }
                         else {
                             output += c;

@@ -163,6 +163,14 @@ namespace SetServer
         private void btnDeal_Click(object sender, EventArgs e)
         {
             refreshCards();
+            Threading sendCard = new Threading();
+            string send = "";
+            for (int i = 0; i < 12; ++i) {
+                send += deck.deckOfCards[i].toString() + ",";
+            }
+
+            sendCard.WriteToClient(send);
+            
             if (deck.checkForSets() == 0)
             {
                 while(deck.checkForSets() == 0)
@@ -194,6 +202,7 @@ namespace SetServer
             {
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
                 cardDisplay.drawCard(deck.deckOfCards[i], g);
+
                 g.Dispose();
                 pBoxes[i].Refresh();
             }
