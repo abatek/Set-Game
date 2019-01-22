@@ -15,6 +15,7 @@ namespace SetClient
         public static TcpClient TCP_clnt = new TcpClient();
         public string host;
         public int port = 8001;
+        public List<Card> dealtCards = new List<Card>();
 
         public void Connect() {
             try
@@ -44,6 +45,7 @@ namespace SetClient
 
                 while (true) {
                     string output = "";
+                    string[] cardsAsStrings = new string[12];
 
                     int k = stm.Read(bb, 0, 100); // number of characters in 100 byte segment
                     for (int i = 0; i < k; ++i)
@@ -53,14 +55,8 @@ namespace SetClient
                         {
                             if (output.Substring(0, 1) != "*")
                             {
-                                SetLogic test = new SetLogic();
-
-                                List<Card> cards = test.convertToCards(output);
-                                foreach (Card card in cards)
-                                {
-                                    card.showFeatures();
-                                }
-
+                                SetLogic convert = new SetLogic();
+                                dealtCards = convert.convertToCards(output);
                             }
                             else
                             {

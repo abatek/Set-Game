@@ -100,7 +100,7 @@ namespace SetServer
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            server.WriteToClient(txtSend.Text);
+            server.WriteToClientConsole(txtSend.Text);
         }
 
         private void txtConnect_Click(object sender, EventArgs e)
@@ -163,13 +163,17 @@ namespace SetServer
         private void btnDeal_Click(object sender, EventArgs e)
         {
             refreshCards();
-            Threading sendCard = new Threading();
             string send = "";
+
             for (int i = 0; i < 12; ++i) {
-                send += deck.deckOfCards[i].toString() + ",";
+                if (i < 11)
+                    send += deck.deckOfCards[i].toString() + ",";
+                else
+                    send += deck.deckOfCards[i].toString();
             }
 
-            sendCard.WriteToClient(send);
+            
+            server.WriteToClient(send);
             
             if (deck.checkForSets() == 0)
             {
@@ -379,6 +383,18 @@ namespace SetServer
                         {
                             noSetFound();
                         }
+
+                        //send to client
+                        string send = "";
+                        for (int i = 0; i < 12; ++i)
+                        {
+                            if (i < 11)
+                                send += deck.deckOfCards[i].toString() + ",";
+                            else
+                                send += deck.deckOfCards[i].toString();
+                        }
+
+                        server.WriteToClient(send);
 
                         numCardsSelected = 0;
                         btnSelectSet.Enabled = false;

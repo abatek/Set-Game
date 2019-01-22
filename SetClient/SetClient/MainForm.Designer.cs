@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pb3_7 = new System.Windows.Forms.PictureBox();
             this.pb3_7_select = new System.Windows.Forms.PictureBox();
             this.pb2_7 = new System.Windows.Forms.PictureBox();
@@ -82,6 +83,7 @@
             this.pb_2_1_select = new System.Windows.Forms.PictureBox();
             this.pb1_1 = new System.Windows.Forms.PictureBox();
             this.pb1_1_select = new System.Windows.Forms.PictureBox();
+            this.cardUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).BeginInit();
@@ -264,7 +266,6 @@
             this.pb3_5.Size = new System.Drawing.Size(238, 137);
             this.pb3_5.TabIndex = 110;
             this.pb3_5.TabStop = false;
-            //this.pb3_5.Click += new System.EventHandler(this.pb3_5_Click);
             // 
             // pb3_5_select
             // 
@@ -285,7 +286,6 @@
             this.pb2_5.Size = new System.Drawing.Size(238, 137);
             this.pb2_5.TabIndex = 107;
             this.pb2_5.TabStop = false;
-            //this.pb2_5.Click += new System.EventHandler(this.pb2_5_Click);
             // 
             // pb2_5_select
             // 
@@ -306,7 +306,6 @@
             this.pb1_5.Size = new System.Drawing.Size(238, 137);
             this.pb1_5.TabIndex = 106;
             this.pb1_5.TabStop = false;
-            //this.pb1_5.Click += new System.EventHandler(this.pb1_5_Click);
             // 
             // pb1_5_select
             // 
@@ -362,7 +361,6 @@
             // 
             // btnDeal
             // 
-            this.btnDeal.Enabled = false;
             this.btnDeal.Location = new System.Drawing.Point(35, 536);
             this.btnDeal.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeal.Name = "btnDeal";
@@ -370,6 +368,7 @@
             this.btnDeal.TabIndex = 101;
             this.btnDeal.Text = "Deal Cards";
             this.btnDeal.UseVisualStyleBackColor = true;
+            this.btnDeal.Click += new System.EventHandler(this.btnDeal_Click);
             // 
             // pb3_4
             // 
@@ -379,7 +378,6 @@
             this.pb3_4.Size = new System.Drawing.Size(238, 137);
             this.pb3_4.TabIndex = 99;
             this.pb3_4.TabStop = false;
-            //this.pb3_4.Click += new System.EventHandler(this.pb3_4_Click);
             // 
             // pb3_4_select
             // 
@@ -400,7 +398,6 @@
             this.pb3_3.Size = new System.Drawing.Size(238, 137);
             this.pb3_3.TabIndex = 97;
             this.pb3_3.TabStop = false;
-            //this.pb3_3.Click += new System.EventHandler(this.pb3_3_Click);
             // 
             // pb3_3_select
             // 
@@ -421,7 +418,6 @@
             this.pb3_2.Size = new System.Drawing.Size(238, 137);
             this.pb3_2.TabIndex = 95;
             this.pb3_2.TabStop = false;
-            //this.pb3_2.Click += new System.EventHandler(this.pb3_2_Click);
             // 
             // pb3_2_select
             // 
@@ -442,7 +438,6 @@
             this.pb3_1.Size = new System.Drawing.Size(238, 137);
             this.pb3_1.TabIndex = 93;
             this.pb3_1.TabStop = false;
-            //this.pb3_1.Click += new System.EventHandler(this.pb3_1_Click);
             // 
             // pb3_1_select
             // 
@@ -463,7 +458,6 @@
             this.pb2_4.Size = new System.Drawing.Size(238, 137);
             this.pb2_4.TabIndex = 90;
             this.pb2_4.TabStop = false;
-            //this.pb2_4.Click += new System.EventHandler(this.pb2_4_Click);
             // 
             // pb2_4_select
             // 
@@ -484,7 +478,6 @@
             this.pb1_4.Size = new System.Drawing.Size(238, 137);
             this.pb1_4.TabIndex = 89;
             this.pb1_4.TabStop = false;
-            //this.pb1_4.Click += new System.EventHandler(this.pb1_4_Click);
             // 
             // pb1_4_select
             // 
@@ -505,7 +498,6 @@
             this.pb2_3.Size = new System.Drawing.Size(238, 137);
             this.pb2_3.TabIndex = 86;
             this.pb2_3.TabStop = false;
-            //this.pb2_3.Click += new System.EventHandler(this.pb2_3_Click);
             // 
             // pb2_3_select
             // 
@@ -526,7 +518,6 @@
             this.pb1_3.Size = new System.Drawing.Size(238, 137);
             this.pb1_3.TabIndex = 85;
             this.pb1_3.TabStop = false;
-            //this.pb1_3.Click += new System.EventHandler(this.pb1_3_Click);
             // 
             // pb1_3_select
             // 
@@ -547,7 +538,6 @@
             this.pb2_2.Size = new System.Drawing.Size(238, 137);
             this.pb2_2.TabIndex = 82;
             this.pb2_2.TabStop = false;
-            //this.pb2_2.Click += new System.EventHandler(this.pb2_2_Click);
             // 
             // pb2_2_select
             // 
@@ -568,7 +558,6 @@
             this.pb1_2.Size = new System.Drawing.Size(238, 137);
             this.pb1_2.TabIndex = 81;
             this.pb1_2.TabStop = false;
-            //this.pb1_2.Click += new System.EventHandler(this.pb1_2_Click);
             // 
             // pb1_2_select
             // 
@@ -649,7 +638,6 @@
             this.pb2_1.Size = new System.Drawing.Size(238, 137);
             this.pb2_1.TabIndex = 76;
             this.pb2_1.TabStop = false;
-            //this.pb2_1.Click += new System.EventHandler(this.pb2_1_Click);
             // 
             // pb_2_1_select
             // 
@@ -670,7 +658,6 @@
             this.pb1_1.Size = new System.Drawing.Size(238, 137);
             this.pb1_1.TabIndex = 75;
             this.pb1_1.TabStop = false;
-            //this.pb1_1.Click += new System.EventHandler(this.pb1_1_Click);
             // 
             // pb1_1_select
             // 
@@ -682,6 +669,11 @@
             this.pb1_1_select.TabIndex = 79;
             this.pb1_1_select.TabStop = false;
             this.pb1_1_select.Visible = false;
+            // 
+            // cardUpdate
+            // 
+            this.cardUpdate.Interval = 10;
+            this.cardUpdate.Tick += new System.EventHandler(this.cardUpdate_Tick);
             // 
             // MainForm
             // 
@@ -848,6 +840,7 @@
         private System.Windows.Forms.PictureBox pb_2_1_select;
         private System.Windows.Forms.PictureBox pb1_1;
         private System.Windows.Forms.PictureBox pb1_1_select;
+        private System.Windows.Forms.Timer cardUpdate;
     }
 }
 

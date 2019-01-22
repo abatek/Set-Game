@@ -76,7 +76,8 @@ namespace SetClient
             }
         }
 
-        void AddToListBox_AddItem(string strItem) {
+        void AddToListBox_AddItem(string strItem)
+        {
             lbReceive.Items.Add(strItem);
         }
 
@@ -136,123 +137,138 @@ namespace SetClient
         private void txtConnect_Click_1(object sender, EventArgs e)
         {
             Console.WriteLine("Attempting to load");
-                        client.Connect();
+            client.Connect();
         }
-        
-        //private void refreshCards()
-        //{
-        //    CardDisplay cardDisplay = new CardDisplay();
-        //    //draw cards on table
-        //    for (int i = 0; i < cardsShown; ++i)
-        //    {
-        //        Graphics g = Graphics.FromImage(pBoxes[i].Image);
-        //        cardDisplay.drawCard(deckOfCards[i], g);
-        //        g.Dispose();
-        //        pBoxes[i].Refresh();
-        //    }
-        //    //make sure all unneeded boxes are invisible
-        //    for (int i = cardsShown; i < 21; ++i)
-        //    {
-        //        pBoxes[i].Visible = false;
-        //    }
 
-        //}
-        /*
-        private void pb1_1_Click(object sender, EventArgs e)
+        public void refreshCards()
         {
-            selectImage(1);
+            CardDisplay cardDisplay = new CardDisplay();
+            //draw cards on table
+            for (int i = 0; i < 12; ++i)
+            {
+                Graphics g = Graphics.FromImage(pBoxes[i].Image);
+                cardDisplay.drawCard(client.dealtCards[i], g);
+                g.Dispose();
+                pBoxes[i].Refresh();
+            }
+            //make sure all unneeded boxes are invisible
+            for (int i = 12; i < 21; ++i)
+            {
+                pBoxes[i].Visible = false;
+            }
+
+            //}
+            /*
+            private void pb1_1_Click(object sender, EventArgs e)
+            {
+                selectImage(1);
+            }
+
+            private void pb2_1_Click(object sender, EventArgs e)
+            {
+                selectImage(2);
+            }
+
+            private void pb3_1_Click(object sender, EventArgs e)
+            {
+                selectImage(3);
+            }
+
+            private void pb3_2_Click(object sender, EventArgs e)
+            {
+                selectImage(4);
+            }
+
+            private void pb2_2_Click(object sender, EventArgs e)
+            {
+                selectImage(5);
+            }
+
+            private void pb1_2_Click(object sender, EventArgs e)
+            {
+                selectImage(6);
+            }
+
+            private void pb1_3_Click(object sender, EventArgs e)
+            {
+                selectImage(7);
+            }
+
+            private void pb2_3_Click(object sender, EventArgs e)
+            {
+                selectImage(8);
+            }
+
+            private void pb3_3_Click(object sender, EventArgs e)
+            {
+                selectImage(9);
+            }
+
+            private void pb3_4_Click(object sender, EventArgs e)
+            {
+                selectImage(10);
+            }
+
+            private void pb3_5_Click(object sender, EventArgs e)
+            {
+                selectImage(11);
+            }
+
+            private void pb2_4_Click(object sender, EventArgs e)
+            {
+                selectImage(12);
+            }
+
+            private void pb2_5_Click(object sender, EventArgs e)
+            {
+                selectImage(13);
+            }
+
+            private void pb1_4_Click(object sender, EventArgs e)
+            {
+                selectImage(14);
+            }
+
+            private void pb1_5_Click(object sender, EventArgs e)
+            {
+                selectImage(15);
+            }*/
         }
 
-        private void pb2_1_Click(object sender, EventArgs e)
+        //use AddToListBox.UpdateListBox(string) to add to listbox anywhere from in code
+
+        //SECTION ALLOWS INTERACTION WITH LISTBOX
+        public delegate void AddToListBoxDelegate(string strAdd);
+
+        public static class AddToListBox
         {
-            selectImage(2);
+            public static Form MainForm;
+
+            public static event AddToListBoxDelegate AddItem;
+
+            public static void UpdateListBox(string strItem)
+            {
+                ThreadItemAdd(strItem);
+            }
+
+            public static void ThreadItemAdd(string strItem)
+            {
+                if (MainForm != null && MainForm.InvokeRequired)
+                    MainForm.Invoke(new AddToListBoxDelegate(ThreadItemAdd), new object[] { strItem });
+                else
+                    AddItem(strItem);
+            }
         }
 
-        private void pb3_1_Click(object sender, EventArgs e)
+        private void btnDeal_Click(object sender, EventArgs e)
         {
-            selectImage(3);
+            refreshCards();
+            cardUpdate.Enabled = true;
         }
 
-        private void pb3_2_Click(object sender, EventArgs e)
+        private void cardUpdate_Tick(object sender, EventArgs e)
         {
-            selectImage(4);
-        }
-
-        private void pb2_2_Click(object sender, EventArgs e)
-        {
-            selectImage(5);
-        }
-
-        private void pb1_2_Click(object sender, EventArgs e)
-        {
-            selectImage(6);
-        }
-
-        private void pb1_3_Click(object sender, EventArgs e)
-        {
-            selectImage(7);
-        }
-
-        private void pb2_3_Click(object sender, EventArgs e)
-        {
-            selectImage(8);
-        }
-
-        private void pb3_3_Click(object sender, EventArgs e)
-        {
-            selectImage(9);
-        }
-
-        private void pb3_4_Click(object sender, EventArgs e)
-        {
-            selectImage(10);
-        }
-
-        private void pb3_5_Click(object sender, EventArgs e)
-        {
-            selectImage(11);
-        }
-
-        private void pb2_4_Click(object sender, EventArgs e)
-        {
-            selectImage(12);
-        }
-
-        private void pb2_5_Click(object sender, EventArgs e)
-        {
-            selectImage(13);
-        }
-
-        private void pb1_4_Click(object sender, EventArgs e)
-        {
-            selectImage(14);
-        }
-
-        private void pb1_5_Click(object sender, EventArgs e)
-        {
-            selectImage(15);
-        }*/
-    }
-
-    //use AddToListBox.UpdateListBox(string) to add to listbox anywhere from in code
-
-    //SECTION ALLOWS INTERACTION WITH LISTBOX
-    public delegate void AddToListBoxDelegate(string strAdd);
-
-    public static class AddToListBox{
-        public static Form MainForm;
-
-        public static event AddToListBoxDelegate AddItem;
-
-        public static void UpdateListBox(string strItem) {
-            ThreadItemAdd(strItem);
-        }
-
-        public static void ThreadItemAdd(string strItem) {
-            if (MainForm != null && MainForm.InvokeRequired)
-                MainForm.Invoke(new AddToListBoxDelegate(ThreadItemAdd), new object[] { strItem });
-            else
-                AddItem(strItem);
+            refreshCards();
         }
     }
 }

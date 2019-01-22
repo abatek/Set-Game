@@ -80,7 +80,7 @@ namespace SetServer
                 }
             });
         }
-        public void WriteToClient(string text)
+        public void WriteToClientConsole(string text)
         {
             ASCIIEncoding msg = new ASCIIEncoding();
             s.Send(msg.GetBytes("*" + text + "\n"));
@@ -91,6 +91,18 @@ namespace SetServer
             //client sends cards and positions
             //server will check if set, if yes send back total server sets, total client sets, updated deck
         }
+        public void WriteToClient(string text)
+        {
+            ASCIIEncoding msg = new ASCIIEncoding();
+            s.Send(msg.GetBytes(text + "\n"));
+
+            //what to send: the dealt cards
+            //when to send: original deal, everytime set is found
+            //how to interpret: server sets, client sets, updated deck
+            //client sends cards and positions
+            //server will check if set, if yes send back total server sets, total client sets, updated deck
+        }
+
 
     }
 }
