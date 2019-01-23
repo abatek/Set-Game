@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,18 +84,19 @@ namespace SetServer
         {
         }
 
+        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < 21; ++i)
             {
                 Graphics g = Graphics.FromImage(pBoxes[i].Image);
-                g.Clear(Color.White);
                 g.Dispose();
             }
             for (int i = 12; i < 21; ++i) {
                 pBoxes[i].Visible = false;
             }
-
+            lblIP.Text = Threading.GetLocalIPAddress();
             lblStatus.Text = "Waiting to connect.";
         }
 
@@ -360,6 +363,9 @@ namespace SetServer
             lblServerSets.Text = deck.serverSets.ToString();
             lblClientSets.Text = deck.clientSets.ToString();
 
+            server.WriteToClient("~"+ deck.serverSets.ToString() + " "+ deck.clientSets.ToString());
+            server.WriteToClientConsole ("~" + deck.serverSets.ToString() + " " + deck.clientSets.ToString());
+
             //remove cards from table
             if (deck.cardsShown > 12 || deck.deckOfCards.Count <= deck.cardsShown)
             {
@@ -426,14 +432,17 @@ namespace SetServer
         {
             if (deck.serverSets > deck.clientSets)
             {
+                server.WriteToClient("#Server Wins");
                 MessageBox.Show("Server Wins");
             }
             else if (deck.serverSets < deck.clientSets)
             {
+                server.WriteToClient("#Client Wins");
                 MessageBox.Show("Client Wins");
             }
             else
             {
+                server.WriteToClient("#Tie");
                 MessageBox.Show("Tie");
             }
         }

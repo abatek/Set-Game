@@ -9,7 +9,7 @@ namespace SetServer
     class Threading
     {
         public Socket s;
-        public string ip = "127.0.0.1";
+        public string ip = GetLocalIPAddress();
         public int port = 8001;
         public Thread ThreadRead;
         public int[] p = new int[3];
@@ -44,6 +44,19 @@ namespace SetServer
             {
                 Console.WriteLine("Error..." + e.StackTrace);
             }
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         public Thread ReadFromClient()

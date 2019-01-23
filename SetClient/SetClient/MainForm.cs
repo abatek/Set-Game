@@ -77,6 +77,7 @@ namespace SetClient
                 pBoxes[i].Image = new Bitmap(pBoxes[i].Size.Width, pBoxes[i].Size.Height);
                 pBoxes[i].Enabled = false;
             }
+
         }
 
         void AddToListBox_AddItem(string strItem)
@@ -142,8 +143,9 @@ namespace SetClient
         {
             Console.WriteLine("Attempting to load");
             lblStatus.Text = "Attempting to connect";
-            client.Connect();
+            client.Connect(txtIP.Text);
             btnConnect.Enabled = false;
+            txtIP.Enabled = false;
             lblStatus.Text = "Connected. Waiting for game to begin.";
         }
 
@@ -202,6 +204,8 @@ namespace SetClient
             for (int i = 0; i < cardsDealt; i++) {
                 pBoxes[i].Enabled = true;
             }
+            lblServerSets.Text = client.threadServerScore.ToString();
+            lblClientSets.Text = client.threadClientScore.ToString();
         }
 
         private void pb1_1_Click(object sender, EventArgs e)
@@ -332,6 +336,12 @@ namespace SetClient
             }
         }
 
+        private void isEndGame_Tick(object sender, EventArgs e)
+        {
+            if (client.endGameString != null) {
+                MessageBox.Show(client.endGameString);
+            }
+        }
     }
 }
 

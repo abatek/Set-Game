@@ -77,6 +77,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.gameStarted = new System.Windows.Forms.Timer(this.components);
+            this.lblClientSets = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblServerSets = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.isEndGame = new System.Windows.Forms.Timer(this.components);
+            this.txtIP = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).BeginInit();
@@ -243,7 +250,7 @@
             // 
             // pb3_5
             // 
-            this.pb3_5.Location = new System.Drawing.Point(452, 369);
+            this.pb3_5.Location = new System.Drawing.Point(510, 367);
             this.pb3_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5.Name = "pb3_5";
             this.pb3_5.Size = new System.Drawing.Size(119, 71);
@@ -254,7 +261,7 @@
             // pb3_5_select
             // 
             this.pb3_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_5_select.Location = new System.Drawing.Point(450, 367);
+            this.pb3_5_select.Location = new System.Drawing.Point(508, 365);
             this.pb3_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5_select.Name = "pb3_5_select";
             this.pb3_5_select.Size = new System.Drawing.Size(123, 76);
@@ -264,7 +271,7 @@
             // 
             // pb2_5
             // 
-            this.pb2_5.Location = new System.Drawing.Point(306, 367);
+            this.pb2_5.Location = new System.Drawing.Point(364, 365);
             this.pb2_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5.Name = "pb2_5";
             this.pb2_5.Size = new System.Drawing.Size(119, 71);
@@ -275,7 +282,7 @@
             // pb2_5_select
             // 
             this.pb2_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_5_select.Location = new System.Drawing.Point(304, 365);
+            this.pb2_5_select.Location = new System.Drawing.Point(362, 363);
             this.pb2_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5_select.Name = "pb2_5_select";
             this.pb2_5_select.Size = new System.Drawing.Size(123, 76);
@@ -285,7 +292,7 @@
             // 
             // pb1_5
             // 
-            this.pb1_5.Location = new System.Drawing.Point(160, 367);
+            this.pb1_5.Location = new System.Drawing.Point(218, 365);
             this.pb1_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5.Name = "pb1_5";
             this.pb1_5.Size = new System.Drawing.Size(119, 71);
@@ -296,7 +303,7 @@
             // pb1_5_select
             // 
             this.pb1_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_5_select.Location = new System.Drawing.Point(158, 365);
+            this.pb1_5_select.Location = new System.Drawing.Point(216, 363);
             this.pb1_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5_select.Name = "pb1_5_select";
             this.pb1_5_select.Size = new System.Drawing.Size(123, 76);
@@ -306,7 +313,7 @@
             // 
             // pb3_4
             // 
-            this.pb3_4.Location = new System.Drawing.Point(450, 280);
+            this.pb3_4.Location = new System.Drawing.Point(508, 278);
             this.pb3_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4.Name = "pb3_4";
             this.pb3_4.Size = new System.Drawing.Size(119, 71);
@@ -317,7 +324,7 @@
             // pb3_4_select
             // 
             this.pb3_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_4_select.Location = new System.Drawing.Point(448, 278);
+            this.pb3_4_select.Location = new System.Drawing.Point(506, 276);
             this.pb3_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4_select.Name = "pb3_4_select";
             this.pb3_4_select.Size = new System.Drawing.Size(123, 76);
@@ -327,7 +334,7 @@
             // 
             // pb3_3
             // 
-            this.pb3_3.Location = new System.Drawing.Point(448, 191);
+            this.pb3_3.Location = new System.Drawing.Point(506, 189);
             this.pb3_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3.Name = "pb3_3";
             this.pb3_3.Size = new System.Drawing.Size(119, 71);
@@ -338,7 +345,7 @@
             // pb3_3_select
             // 
             this.pb3_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_3_select.Location = new System.Drawing.Point(446, 189);
+            this.pb3_3_select.Location = new System.Drawing.Point(504, 187);
             this.pb3_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3_select.Name = "pb3_3_select";
             this.pb3_3_select.Size = new System.Drawing.Size(123, 76);
@@ -348,7 +355,7 @@
             // 
             // pb3_2
             // 
-            this.pb3_2.Location = new System.Drawing.Point(448, 100);
+            this.pb3_2.Location = new System.Drawing.Point(506, 98);
             this.pb3_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2.Name = "pb3_2";
             this.pb3_2.Size = new System.Drawing.Size(119, 71);
@@ -359,7 +366,7 @@
             // pb3_2_select
             // 
             this.pb3_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_2_select.Location = new System.Drawing.Point(446, 98);
+            this.pb3_2_select.Location = new System.Drawing.Point(504, 96);
             this.pb3_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2_select.Name = "pb3_2_select";
             this.pb3_2_select.Size = new System.Drawing.Size(123, 76);
@@ -369,7 +376,7 @@
             // 
             // pb3_1
             // 
-            this.pb3_1.Location = new System.Drawing.Point(448, 9);
+            this.pb3_1.Location = new System.Drawing.Point(506, 7);
             this.pb3_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1.Name = "pb3_1";
             this.pb3_1.Size = new System.Drawing.Size(119, 71);
@@ -380,7 +387,7 @@
             // pb3_1_select
             // 
             this.pb3_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_1_select.Location = new System.Drawing.Point(446, 7);
+            this.pb3_1_select.Location = new System.Drawing.Point(504, 5);
             this.pb3_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1_select.Name = "pb3_1_select";
             this.pb3_1_select.Size = new System.Drawing.Size(123, 76);
@@ -390,7 +397,7 @@
             // 
             // pb2_4
             // 
-            this.pb2_4.Location = new System.Drawing.Point(304, 278);
+            this.pb2_4.Location = new System.Drawing.Point(362, 276);
             this.pb2_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4.Name = "pb2_4";
             this.pb2_4.Size = new System.Drawing.Size(119, 71);
@@ -401,7 +408,7 @@
             // pb2_4_select
             // 
             this.pb2_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_4_select.Location = new System.Drawing.Point(302, 276);
+            this.pb2_4_select.Location = new System.Drawing.Point(360, 274);
             this.pb2_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4_select.Name = "pb2_4_select";
             this.pb2_4_select.Size = new System.Drawing.Size(123, 76);
@@ -411,7 +418,7 @@
             // 
             // pb1_4
             // 
-            this.pb1_4.Location = new System.Drawing.Point(158, 278);
+            this.pb1_4.Location = new System.Drawing.Point(216, 276);
             this.pb1_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4.Name = "pb1_4";
             this.pb1_4.Size = new System.Drawing.Size(119, 71);
@@ -422,7 +429,7 @@
             // pb1_4_select
             // 
             this.pb1_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_4_select.Location = new System.Drawing.Point(156, 276);
+            this.pb1_4_select.Location = new System.Drawing.Point(214, 274);
             this.pb1_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4_select.Name = "pb1_4_select";
             this.pb1_4_select.Size = new System.Drawing.Size(123, 76);
@@ -432,7 +439,7 @@
             // 
             // pb2_3
             // 
-            this.pb2_3.Location = new System.Drawing.Point(302, 189);
+            this.pb2_3.Location = new System.Drawing.Point(360, 187);
             this.pb2_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3.Name = "pb2_3";
             this.pb2_3.Size = new System.Drawing.Size(119, 71);
@@ -443,7 +450,7 @@
             // pb2_3_select
             // 
             this.pb2_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_3_select.Location = new System.Drawing.Point(300, 187);
+            this.pb2_3_select.Location = new System.Drawing.Point(358, 185);
             this.pb2_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3_select.Name = "pb2_3_select";
             this.pb2_3_select.Size = new System.Drawing.Size(123, 76);
@@ -453,7 +460,7 @@
             // 
             // pb1_3
             // 
-            this.pb1_3.Location = new System.Drawing.Point(156, 189);
+            this.pb1_3.Location = new System.Drawing.Point(214, 187);
             this.pb1_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3.Name = "pb1_3";
             this.pb1_3.Size = new System.Drawing.Size(119, 71);
@@ -464,7 +471,7 @@
             // pb1_3_select
             // 
             this.pb1_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_3_select.Location = new System.Drawing.Point(154, 187);
+            this.pb1_3_select.Location = new System.Drawing.Point(212, 185);
             this.pb1_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3_select.Name = "pb1_3_select";
             this.pb1_3_select.Size = new System.Drawing.Size(123, 76);
@@ -474,7 +481,7 @@
             // 
             // pb2_2
             // 
-            this.pb2_2.Location = new System.Drawing.Point(302, 98);
+            this.pb2_2.Location = new System.Drawing.Point(360, 96);
             this.pb2_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2.Name = "pb2_2";
             this.pb2_2.Size = new System.Drawing.Size(119, 71);
@@ -485,7 +492,7 @@
             // pb2_2_select
             // 
             this.pb2_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_2_select.Location = new System.Drawing.Point(300, 96);
+            this.pb2_2_select.Location = new System.Drawing.Point(358, 94);
             this.pb2_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2_select.Name = "pb2_2_select";
             this.pb2_2_select.Size = new System.Drawing.Size(123, 76);
@@ -495,7 +502,7 @@
             // 
             // pb1_2
             // 
-            this.pb1_2.Location = new System.Drawing.Point(156, 98);
+            this.pb1_2.Location = new System.Drawing.Point(214, 96);
             this.pb1_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2.Name = "pb1_2";
             this.pb1_2.Size = new System.Drawing.Size(119, 71);
@@ -506,7 +513,7 @@
             // pb1_2_select
             // 
             this.pb1_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_2_select.Location = new System.Drawing.Point(154, 96);
+            this.pb1_2_select.Location = new System.Drawing.Point(212, 94);
             this.pb1_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2_select.Name = "pb1_2_select";
             this.pb1_2_select.Size = new System.Drawing.Size(123, 76);
@@ -517,7 +524,7 @@
             // btnSelectSet
             // 
             this.btnSelectSet.Enabled = false;
-            this.btnSelectSet.Location = new System.Drawing.Point(12, 52);
+            this.btnSelectSet.Location = new System.Drawing.Point(44, 96);
             this.btnSelectSet.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectSet.Name = "btnSelectSet";
             this.btnSelectSet.Size = new System.Drawing.Size(84, 38);
@@ -528,7 +535,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 10);
+            this.btnConnect.Location = new System.Drawing.Point(44, 12);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(84, 37);
             this.btnConnect.TabIndex = 74;
@@ -538,7 +545,7 @@
             // 
             // pb2_1
             // 
-            this.pb2_1.Location = new System.Drawing.Point(302, 7);
+            this.pb2_1.Location = new System.Drawing.Point(360, 5);
             this.pb2_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_1.Name = "pb2_1";
             this.pb2_1.Size = new System.Drawing.Size(119, 71);
@@ -549,7 +556,7 @@
             // pb_2_1_select
             // 
             this.pb_2_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb_2_1_select.Location = new System.Drawing.Point(300, 5);
+            this.pb_2_1_select.Location = new System.Drawing.Point(358, 3);
             this.pb_2_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb_2_1_select.Name = "pb_2_1_select";
             this.pb_2_1_select.Size = new System.Drawing.Size(123, 76);
@@ -559,7 +566,7 @@
             // 
             // pb1_1
             // 
-            this.pb1_1.Location = new System.Drawing.Point(156, 7);
+            this.pb1_1.Location = new System.Drawing.Point(214, 5);
             this.pb1_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1.Name = "pb1_1";
             this.pb1_1.Size = new System.Drawing.Size(119, 71);
@@ -570,7 +577,7 @@
             // pb1_1_select
             // 
             this.pb1_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_1_select.Location = new System.Drawing.Point(154, 5);
+            this.pb1_1_select.Location = new System.Drawing.Point(212, 3);
             this.pb1_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1_select.Name = "pb1_1_select";
             this.pb1_1_select.Size = new System.Drawing.Size(123, 76);
@@ -586,7 +593,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 99);
+            this.label2.Location = new System.Drawing.Point(44, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 125;
@@ -595,7 +602,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(61, 99);
+            this.lblStatus.Location = new System.Drawing.Point(93, 145);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(35, 13);
             this.lblStatus.TabIndex = 126;
@@ -607,11 +614,73 @@
             this.gameStarted.Interval = 10;
             this.gameStarted.Tick += new System.EventHandler(this.gameStarted_Tick);
             // 
+            // lblClientSets
+            // 
+            this.lblClientSets.AutoSize = true;
+            this.lblClientSets.Location = new System.Drawing.Point(115, 180);
+            this.lblClientSets.Name = "lblClientSets";
+            this.lblClientSets.Size = new System.Drawing.Size(13, 13);
+            this.lblClientSets.TabIndex = 130;
+            this.lblClientSets.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 129;
+            this.label4.Text = "Client Sets:";
+            // 
+            // lblServerSets
+            // 
+            this.lblServerSets.AutoSize = true;
+            this.lblServerSets.Location = new System.Drawing.Point(115, 167);
+            this.lblServerSets.Name = "lblServerSets";
+            this.lblServerSets.Size = new System.Drawing.Size(13, 13);
+            this.lblServerSets.TabIndex = 128;
+            this.lblServerSets.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 127;
+            this.label3.Text = "Server Sets:";
+            // 
+            // isEndGame
+            // 
+            this.isEndGame.Tick += new System.EventHandler(this.isEndGame_Tick);
+            // 
+            // txtIP
+            // 
+            this.txtIP.Location = new System.Drawing.Point(64, 61);
+            this.txtIP.Name = "txtIP";
+            this.txtIP.Size = new System.Drawing.Size(100, 20);
+            this.txtIP.TabIndex = 131;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 132;
+            this.label1.Text = "Server IP:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 451);
+            this.ClientSize = new System.Drawing.Size(643, 451);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtIP);
+            this.Controls.Add(this.lblClientSets);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblServerSets);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pb3_7);
@@ -758,6 +827,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Timer gameStarted;
+        private System.Windows.Forms.Label lblClientSets;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblServerSets;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer isEndGame;
+        private System.Windows.Forms.TextBox txtIP;
+        private System.Windows.Forms.Label label1;
     }
 }
 

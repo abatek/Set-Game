@@ -16,14 +16,15 @@ namespace SetClient
         public string host;
         public int port = 8001;
         public List<Card> dealtCards = new List<Card>();
+        public int threadServerScore = 0;
+        public int threadClientScore = 0;
+        public string endGameString = null;
 
-        public void Connect() {
+        public void Connect(string ip) {
             try
             {
-                host = "127.0.0.1";
-
                 Console.Write("Attempting to connect...");
-                TCP_clnt.Connect(host, port);
+                TCP_clnt.Connect(ip, port);
                 Console.WriteLine("Connected to {0}", host);
 
                 Thread ThreadRead = ReadFromServer();
@@ -45,7 +46,7 @@ namespace SetClient
 
                 while (true) {
                     string output = "";
-                    string[] cardsAsStrings = new string[12];
+                    string[] rawScores = new string[2];
 
                     int k = stm.Read(bb, 0, 100); // number of characters in 100 byte segment
                     for (int i = 0; i < k; ++i)
@@ -53,14 +54,27 @@ namespace SetClient
                         char c = Convert.ToChar(bb[i]);
                         if (c.Equals('\n')) // newline character signals end of message
                         {
-                            if (output.Substring(0, 1) != "*")
+                            if (output.Substring(0, 1) == "*")
                             {
-                                SetLogic convert = new SetLogic();
-                                dealtCards = convert.convertToCards(output);
+                                Console.WriteLine(output);
+
+                            }
+                            else if (output.Substring(0, 1) == "~")
+                            {
+                                output = output.Substring(1);
+                                rawScores = output.Split(' ');
+                                threadServerScore = Convert.ToInt32(rawScores[0]);
+                                threadClientScore = Convert.ToInt32(rawScores[1]);
+                            }
+                            else if (output.Substring(0, 1) == "#")
+                            {
+                                output = output.Substring(1);
+                                endGameString = output;
                             }
                             else
                             {
-                                Console.WriteLine(output);
+                                SetLogic convert = new SetLogic();
+                                dealtCards = convert.convertToCards(output);
                             }
                         }
                         else {
