@@ -14,7 +14,7 @@ namespace SetServer
     {
         private Threading server = new Threading();
 
-        SetLogic deck = new SetLogic();
+        public SetLogic deck = new SetLogic();
 
         public List<PictureBox> pBoxes = new List<PictureBox>();
         public List<PictureBox> pBoxesSelect = new List<PictureBox>();
@@ -80,7 +80,6 @@ namespace SetServer
 
         void AddToListBox_AddItem(string strItem)
         {
-            lbReceive.Items.Add(strItem);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -95,32 +94,26 @@ namespace SetServer
                 pBoxes[i].Visible = false;
             }
 
-            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
+            lblStatus.Text = "Waiting to connect.";
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            server.WriteToClientConsole(txtSend.Text);
         }
 
         private void txtConnect_Click(object sender, EventArgs e)
         {
-
+            lblStatus.Text = "Attempting to connect";
             server.Connect();
+            lblStatus.Text = "Connected. Waiting for game to begin.";
+            btnDeal.Enabled = true;
+            btnConnect.Enabled = false;
         }
 
 
         private void btnGenerateDeck_Click(object sender, EventArgs e)
         {
-            deck.generateDeck();
-            Console.WriteLine("Done generating");
-            btnDeal.Enabled = true;
-            Console.WriteLine(deck.deckOfCards.Count());
-            //foreach(Card c in deck.deckOfCards)
-            //{
-            //    c.showFeatures();
-            //}
-            deck.shuffleDeck();
+            
 
         }
 
@@ -150,7 +143,7 @@ namespace SetServer
             }
 
             //inform player
-            MessageBox.Show("No sets found, adding more cards");
+            lblStatus.Text = "No sets found, adding more cards";
 
             refreshCards();
 
@@ -162,6 +155,16 @@ namespace SetServer
 
         private void btnDeal_Click(object sender, EventArgs e)
         {
+            deck.generateDeck();
+            Console.WriteLine("Done generating");
+            btnDeal.Enabled = true;
+            Console.WriteLine(deck.deckOfCards.Count());
+            deck.shuffleDeck();
+            clientUpdate.Enabled = true;
+
+            
+            btnDeal.Enabled = false;
+
             refreshCards();
             string send = "";
 
@@ -185,12 +188,10 @@ namespace SetServer
                 for (int i = 0; i < 12; ++i)
                 {
                     pBoxes[i].Enabled = true;
-                    btnCheckForSets.Enabled = true;
-                    btnCheat.Enabled = true;
                 }
             }
+            lblStatus.Text = "Game started!";
             txtCheat.Text = deck.cheat();
-            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
         }
 
         private void btnCheckForSets_Click(object sender, EventArgs e)
@@ -222,7 +223,7 @@ namespace SetServer
         {
             if (selectedCards.Count >= 3 && !pBoxesSelect[position - 1].Visible)
             {
-                MessageBox.Show("Too many cards selected. Select at most 3.");
+                lblStatus.Text = "Too many cards selected. Select at most 3.";
                 return;
             }
 
@@ -326,14 +327,13 @@ namespace SetServer
 
         private void btnSelectSet_Click(object sender, EventArgs e)
         {
-            lblCurIndex.Text = "Current Card: " + deck.curIndexInDeck.ToString();
 
             if (selectedCards.Count == 3)
             {
                 if (deck.isSet(selectedCards[0], selectedCards[1], selectedCards[2]))
                 {
 
-                    if (deck.deckOfCards.Count  == 12)
+                    if (deck.deckOfCards.Count == 12)
                     {
                         Console.WriteLine("We're in the endgame now");
                     }
@@ -344,70 +344,80 @@ namespace SetServer
                     }
                     else
                     {
-                        //remove cards from table
-                        if (deck.cardsShown > 12 || deck.deckOfCards.Count <= deck.cardsShown)
-                        {
-                            //make extra row of cards not visible
-                            for (int i = deck.cardsShown - 3; i < deck.cardsShown; ++i)
-                            {
-                                pBoxes[i].Visible = false;
-                                pBoxesSelect[i].Visible = false;
-                            }
-                            deck.cardsShown -= 3;
-
-                        }
-
-                        //remove the cards in the set taken 
-                        deck.deckOfCards.RemoveAll((Card c) => {
-                            if (selectedCards.Contains(c))
-                            {
-                                Console.WriteLine("Removed: {0}",c.toString());
-                                c.showFeatures();
-                                return true;
-                            }
-                            return false;
-                        });
-
-                        selectedCards.Clear();
-
-                        //update cards on table
-                        refreshCards();
-
-                        for (int i = 0; i < deck.cardsShown; ++i)
-                        {
-                            pBoxesSelect[i].Visible = false;
-                        }
-
-                        //if no sets exist on the table 
-                        if (deck.checkForSets() == 0)
-                        {
-                            noSetFound();
-                        }
-
-                        //send to client
-                        string send = "";
-                        for (int i = 0; i < 12; ++i)
-                        {
-                            if (i < 11)
-                                send += deck.deckOfCards[i].toString() + ",";
-                            else
-                                send += deck.deckOfCards[i].toString();
-                        }
-
-                        server.WriteToClient(send);
-
-                        numCardsSelected = 0;
-                        btnSelectSet.Enabled = false;
-
-                        txtCheat.Clear();
-                        txtCheat.Text = deck.cheat();
-                        }
+                        deck.serverSets++;
+                        setFound();
+                    }
                 }
                 else
-                    MessageBox.Show("Not a set");
+                    lblStatus.Text = "Not a set";
             }
             else
-                MessageBox.Show("Not enough cards selected");
+                lblStatus.Text = "Not enough cards selected";
+        }
+
+        public void setFound() {
+            //update scores
+            lblServerSets.Text = deck.serverSets.ToString();
+            lblClientSets.Text = deck.clientSets.ToString();
+
+            //remove cards from table
+            if (deck.cardsShown > 12 || deck.deckOfCards.Count <= deck.cardsShown)
+            {
+                //make extra row of cards not visible
+                for (int i = deck.cardsShown - 3; i < deck.cardsShown; ++i)
+                {
+                    pBoxes[i].Visible = false;
+                    pBoxesSelect[i].Visible = false;
+                }
+                deck.cardsShown -= 3;
+
+            }
+
+            //remove the cards in the set taken 
+            deck.deckOfCards.RemoveAll((Card c) => {
+                if (selectedCards.Contains(c))
+                {
+                    //Console.WriteLine("Removed: {0}", c.toString());
+                    //c.showFeatures();
+                    return true;
+                }
+                return false;
+            });
+
+            selectedCards.Clear();
+
+            //update cards on table
+            refreshCards();
+
+            for (int i = 0; i < deck.cardsShown; ++i)
+            {
+                pBoxesSelect[i].Visible = false;
+            }
+
+            //if no sets exist on the table 
+            if (deck.checkForSets() == 0)
+            {
+                noSetFound();
+            }
+
+            //send to client
+            string send = "";
+            for (int i = 0; i < deck.cardsShown; ++i)
+            {
+                if (i < deck.cardsShown - 1)
+                    send += deck.deckOfCards[i].toString() + ",";
+                else
+                    send += deck.deckOfCards[i].toString();
+            }
+
+            server.WriteToClient(send);
+
+            numCardsSelected = 0;
+            btnSelectSet.Enabled = false;
+
+            txtCheat.Clear();
+            txtCheat.Text = deck.cheat();
+            
         }
 
         public bool isEndGame = false;
@@ -476,8 +486,34 @@ namespace SetServer
         {
             selectImage(21);
         }
-
         
+        public void updateClient(int a, int b, int c) {
+            Console.WriteLine("Client set found");
+            selectedCards.Clear();
+            selectedCards.Add(deck.deckOfCards[a]);
+            selectedCards.Add(deck.deckOfCards[b]);
+            selectedCards.Add(deck.deckOfCards[c]);
+            deck.clientSets++;
+            setFound();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            updateClient(0, 1, 2);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (server.readyToUpdate) {
+                updateClient(server.p[0], server.p[1], server.p[2]);
+                server.readyToUpdate = false;
+            }
+        }
+
+        private void clientCheck_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public delegate void AddToListBoxDelegate(string strAdd);

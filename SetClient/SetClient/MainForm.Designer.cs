@@ -41,18 +41,12 @@
             this.pb2_6_select = new System.Windows.Forms.PictureBox();
             this.pb1_6 = new System.Windows.Forms.PictureBox();
             this.pb1_6_select = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pb3_5 = new System.Windows.Forms.PictureBox();
             this.pb3_5_select = new System.Windows.Forms.PictureBox();
             this.pb2_5 = new System.Windows.Forms.PictureBox();
             this.pb2_5_select = new System.Windows.Forms.PictureBox();
             this.pb1_5 = new System.Windows.Forms.PictureBox();
             this.pb1_5_select = new System.Windows.Forms.PictureBox();
-            this.txtCheat = new System.Windows.Forms.RichTextBox();
-            this.lblCurIndex = new System.Windows.Forms.Label();
-            this.btnCheat = new System.Windows.Forms.Button();
-            this.btnCheckForSets = new System.Windows.Forms.Button();
-            this.btnDeal = new System.Windows.Forms.Button();
             this.pb3_4 = new System.Windows.Forms.PictureBox();
             this.pb3_4_select = new System.Windows.Forms.PictureBox();
             this.pb3_3 = new System.Windows.Forms.PictureBox();
@@ -74,16 +68,15 @@
             this.pb1_2 = new System.Windows.Forms.PictureBox();
             this.pb1_2_select = new System.Windows.Forms.PictureBox();
             this.btnSelectSet = new System.Windows.Forms.Button();
-            this.btnGenerateDeck = new System.Windows.Forms.Button();
-            this.txtConnect = new System.Windows.Forms.Button();
-            this.lbReceive = new System.Windows.Forms.ListBox();
-            this.txtSend = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.pb2_1 = new System.Windows.Forms.PictureBox();
             this.pb_2_1_select = new System.Windows.Forms.PictureBox();
             this.pb1_1 = new System.Windows.Forms.PictureBox();
             this.pb1_1_select = new System.Windows.Forms.PictureBox();
             this.cardUpdate = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.gameStarted = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).BeginInit();
@@ -130,442 +123,393 @@
             // 
             // pb3_7
             // 
-            this.pb3_7.Location = new System.Drawing.Point(1117, 1054);
-            this.pb3_7.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_7.Location = new System.Drawing.Point(558, 548);
+            this.pb3_7.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_7.Name = "pb3_7";
-            this.pb3_7.Size = new System.Drawing.Size(238, 137);
+            this.pb3_7.Size = new System.Drawing.Size(119, 71);
             this.pb3_7.TabIndex = 123;
             this.pb3_7.TabStop = false;
             // 
             // pb3_7_select
             // 
             this.pb3_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_7_select.Location = new System.Drawing.Point(1113, 1050);
-            this.pb3_7_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_7_select.Location = new System.Drawing.Point(556, 546);
+            this.pb3_7_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_7_select.Name = "pb3_7_select";
-            this.pb3_7_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_7_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_7_select.TabIndex = 124;
             this.pb3_7_select.TabStop = false;
             this.pb3_7_select.Visible = false;
             // 
             // pb2_7
             // 
-            this.pb2_7.Location = new System.Drawing.Point(823, 1050);
-            this.pb2_7.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_7.Location = new System.Drawing.Point(412, 546);
+            this.pb2_7.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_7.Name = "pb2_7";
-            this.pb2_7.Size = new System.Drawing.Size(238, 137);
+            this.pb2_7.Size = new System.Drawing.Size(119, 71);
             this.pb2_7.TabIndex = 120;
             this.pb2_7.TabStop = false;
             // 
             // pb2_7_select
             // 
             this.pb2_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_7_select.Location = new System.Drawing.Point(819, 1046);
-            this.pb2_7_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_7_select.Location = new System.Drawing.Point(410, 544);
+            this.pb2_7_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_7_select.Name = "pb2_7_select";
-            this.pb2_7_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_7_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_7_select.TabIndex = 122;
             this.pb2_7_select.TabStop = false;
             this.pb2_7_select.Visible = false;
             // 
             // pb1_7
             // 
-            this.pb1_7.Location = new System.Drawing.Point(533, 1050);
-            this.pb1_7.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_7.Location = new System.Drawing.Point(266, 546);
+            this.pb1_7.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_7.Name = "pb1_7";
-            this.pb1_7.Size = new System.Drawing.Size(238, 137);
+            this.pb1_7.Size = new System.Drawing.Size(119, 71);
             this.pb1_7.TabIndex = 119;
             this.pb1_7.TabStop = false;
             // 
             // pb1_7_select
             // 
             this.pb1_7_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_7_select.Location = new System.Drawing.Point(529, 1046);
-            this.pb1_7_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_7_select.Location = new System.Drawing.Point(264, 544);
+            this.pb1_7_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_7_select.Name = "pb1_7_select";
-            this.pb1_7_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_7_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_7_select.TabIndex = 121;
             this.pb1_7_select.TabStop = false;
             this.pb1_7_select.Visible = false;
             // 
             // pb3_6
             // 
-            this.pb3_6.Location = new System.Drawing.Point(1117, 882);
-            this.pb3_6.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_6.Location = new System.Drawing.Point(558, 459);
+            this.pb3_6.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_6.Name = "pb3_6";
-            this.pb3_6.Size = new System.Drawing.Size(238, 137);
+            this.pb3_6.Size = new System.Drawing.Size(119, 71);
             this.pb3_6.TabIndex = 117;
             this.pb3_6.TabStop = false;
             // 
             // pb3_6_select
             // 
             this.pb3_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_6_select.Location = new System.Drawing.Point(1113, 879);
-            this.pb3_6_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_6_select.Location = new System.Drawing.Point(556, 457);
+            this.pb3_6_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_6_select.Name = "pb3_6_select";
-            this.pb3_6_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_6_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_6_select.TabIndex = 118;
             this.pb3_6_select.TabStop = false;
             this.pb3_6_select.Visible = false;
             // 
             // pb2_6
             // 
-            this.pb2_6.Location = new System.Drawing.Point(823, 879);
-            this.pb2_6.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_6.Location = new System.Drawing.Point(412, 457);
+            this.pb2_6.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_6.Name = "pb2_6";
-            this.pb2_6.Size = new System.Drawing.Size(238, 137);
+            this.pb2_6.Size = new System.Drawing.Size(119, 71);
             this.pb2_6.TabIndex = 114;
             this.pb2_6.TabStop = false;
             // 
             // pb2_6_select
             // 
             this.pb2_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_6_select.Location = new System.Drawing.Point(819, 875);
-            this.pb2_6_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_6_select.Location = new System.Drawing.Point(410, 455);
+            this.pb2_6_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_6_select.Name = "pb2_6_select";
-            this.pb2_6_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_6_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_6_select.TabIndex = 116;
             this.pb2_6_select.TabStop = false;
             this.pb2_6_select.Visible = false;
             // 
             // pb1_6
             // 
-            this.pb1_6.Location = new System.Drawing.Point(533, 879);
-            this.pb1_6.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_6.Location = new System.Drawing.Point(266, 457);
+            this.pb1_6.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_6.Name = "pb1_6";
-            this.pb1_6.Size = new System.Drawing.Size(238, 137);
+            this.pb1_6.Size = new System.Drawing.Size(119, 71);
             this.pb1_6.TabIndex = 113;
             this.pb1_6.TabStop = false;
             // 
             // pb1_6_select
             // 
             this.pb1_6_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_6_select.Location = new System.Drawing.Point(529, 875);
-            this.pb1_6_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_6_select.Location = new System.Drawing.Point(264, 455);
+            this.pb1_6_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_6_select.Name = "pb1_6_select";
-            this.pb1_6_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_6_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_6_select.TabIndex = 115;
             this.pb1_6_select.TabStop = false;
             this.pb1_6_select.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(151, 802);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 44);
-            this.button1.TabIndex = 112;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // pb3_5
             // 
-            this.pb3_5.Location = new System.Drawing.Point(1117, 715);
-            this.pb3_5.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_5.Location = new System.Drawing.Point(452, 369);
+            this.pb3_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5.Name = "pb3_5";
-            this.pb3_5.Size = new System.Drawing.Size(238, 137);
+            this.pb3_5.Size = new System.Drawing.Size(119, 71);
             this.pb3_5.TabIndex = 110;
             this.pb3_5.TabStop = false;
+            this.pb3_5.Click += new System.EventHandler(this.pb3_5_Click);
             // 
             // pb3_5_select
             // 
             this.pb3_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_5_select.Location = new System.Drawing.Point(1113, 711);
-            this.pb3_5_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_5_select.Location = new System.Drawing.Point(450, 367);
+            this.pb3_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5_select.Name = "pb3_5_select";
-            this.pb3_5_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_5_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_5_select.TabIndex = 111;
             this.pb3_5_select.TabStop = false;
             this.pb3_5_select.Visible = false;
             // 
             // pb2_5
             // 
-            this.pb2_5.Location = new System.Drawing.Point(823, 711);
-            this.pb2_5.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_5.Location = new System.Drawing.Point(306, 367);
+            this.pb2_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5.Name = "pb2_5";
-            this.pb2_5.Size = new System.Drawing.Size(238, 137);
+            this.pb2_5.Size = new System.Drawing.Size(119, 71);
             this.pb2_5.TabIndex = 107;
             this.pb2_5.TabStop = false;
+            this.pb2_5.Click += new System.EventHandler(this.pb2_5_Click);
             // 
             // pb2_5_select
             // 
             this.pb2_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_5_select.Location = new System.Drawing.Point(819, 707);
-            this.pb2_5_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_5_select.Location = new System.Drawing.Point(304, 365);
+            this.pb2_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5_select.Name = "pb2_5_select";
-            this.pb2_5_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_5_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_5_select.TabIndex = 109;
             this.pb2_5_select.TabStop = false;
             this.pb2_5_select.Visible = false;
             // 
             // pb1_5
             // 
-            this.pb1_5.Location = new System.Drawing.Point(533, 711);
-            this.pb1_5.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_5.Location = new System.Drawing.Point(160, 367);
+            this.pb1_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5.Name = "pb1_5";
-            this.pb1_5.Size = new System.Drawing.Size(238, 137);
+            this.pb1_5.Size = new System.Drawing.Size(119, 71);
             this.pb1_5.TabIndex = 106;
             this.pb1_5.TabStop = false;
+            this.pb1_5.Click += new System.EventHandler(this.pb1_5_Click);
             // 
             // pb1_5_select
             // 
             this.pb1_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_5_select.Location = new System.Drawing.Point(529, 707);
-            this.pb1_5_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_5_select.Location = new System.Drawing.Point(158, 365);
+            this.pb1_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5_select.Name = "pb1_5_select";
-            this.pb1_5_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_5_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_5_select.TabIndex = 108;
             this.pb1_5_select.TabStop = false;
             this.pb1_5_select.Visible = false;
             // 
-            // txtCheat
-            // 
-            this.txtCheat.Location = new System.Drawing.Point(247, 479);
-            this.txtCheat.Margin = new System.Windows.Forms.Padding(6);
-            this.txtCheat.Name = "txtCheat";
-            this.txtCheat.Size = new System.Drawing.Size(196, 181);
-            this.txtCheat.TabIndex = 105;
-            this.txtCheat.Text = "";
-            // 
-            // lblCurIndex
-            // 
-            this.lblCurIndex.AutoSize = true;
-            this.lblCurIndex.Location = new System.Drawing.Point(273, 227);
-            this.lblCurIndex.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblCurIndex.Name = "lblCurIndex";
-            this.lblCurIndex.Size = new System.Drawing.Size(70, 25);
-            this.lblCurIndex.TabIndex = 104;
-            this.lblCurIndex.Text = "label1";
-            // 
-            // btnCheat
-            // 
-            this.btnCheat.Enabled = false;
-            this.btnCheat.Location = new System.Drawing.Point(237, 146);
-            this.btnCheat.Margin = new System.Windows.Forms.Padding(6);
-            this.btnCheat.Name = "btnCheat";
-            this.btnCheat.Size = new System.Drawing.Size(150, 44);
-            this.btnCheat.TabIndex = 103;
-            this.btnCheat.Text = "Cheat";
-            this.btnCheat.UseVisualStyleBackColor = true;
-            // 
-            // btnCheckForSets
-            // 
-            this.btnCheckForSets.Enabled = false;
-            this.btnCheckForSets.Location = new System.Drawing.Point(35, 617);
-            this.btnCheckForSets.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCheckForSets.Name = "btnCheckForSets";
-            this.btnCheckForSets.Size = new System.Drawing.Size(168, 73);
-            this.btnCheckForSets.TabIndex = 102;
-            this.btnCheckForSets.Text = "Check for Sets";
-            this.btnCheckForSets.UseVisualStyleBackColor = true;
-            // 
-            // btnDeal
-            // 
-            this.btnDeal.Location = new System.Drawing.Point(35, 536);
-            this.btnDeal.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeal.Name = "btnDeal";
-            this.btnDeal.Size = new System.Drawing.Size(168, 73);
-            this.btnDeal.TabIndex = 101;
-            this.btnDeal.Text = "Deal Cards";
-            this.btnDeal.UseVisualStyleBackColor = true;
-            this.btnDeal.Click += new System.EventHandler(this.btnDeal_Click);
-            // 
             // pb3_4
             // 
-            this.pb3_4.Location = new System.Drawing.Point(1113, 544);
-            this.pb3_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_4.Location = new System.Drawing.Point(450, 280);
+            this.pb3_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4.Name = "pb3_4";
-            this.pb3_4.Size = new System.Drawing.Size(238, 137);
+            this.pb3_4.Size = new System.Drawing.Size(119, 71);
             this.pb3_4.TabIndex = 99;
             this.pb3_4.TabStop = false;
+            this.pb3_4.Click += new System.EventHandler(this.pb3_4_Click);
             // 
             // pb3_4_select
             // 
             this.pb3_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_4_select.Location = new System.Drawing.Point(1109, 540);
-            this.pb3_4_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_4_select.Location = new System.Drawing.Point(448, 278);
+            this.pb3_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4_select.Name = "pb3_4_select";
-            this.pb3_4_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_4_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_4_select.TabIndex = 100;
             this.pb3_4_select.TabStop = false;
             this.pb3_4_select.Visible = false;
             // 
             // pb3_3
             // 
-            this.pb3_3.Location = new System.Drawing.Point(1109, 373);
-            this.pb3_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_3.Location = new System.Drawing.Point(448, 191);
+            this.pb3_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3.Name = "pb3_3";
-            this.pb3_3.Size = new System.Drawing.Size(238, 137);
+            this.pb3_3.Size = new System.Drawing.Size(119, 71);
             this.pb3_3.TabIndex = 97;
             this.pb3_3.TabStop = false;
+            this.pb3_3.Click += new System.EventHandler(this.pb3_3_Click);
             // 
             // pb3_3_select
             // 
             this.pb3_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_3_select.Location = new System.Drawing.Point(1105, 369);
-            this.pb3_3_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_3_select.Location = new System.Drawing.Point(446, 189);
+            this.pb3_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3_select.Name = "pb3_3_select";
-            this.pb3_3_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_3_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_3_select.TabIndex = 98;
             this.pb3_3_select.TabStop = false;
             this.pb3_3_select.Visible = false;
             // 
             // pb3_2
             // 
-            this.pb3_2.Location = new System.Drawing.Point(1109, 198);
-            this.pb3_2.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_2.Location = new System.Drawing.Point(448, 100);
+            this.pb3_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2.Name = "pb3_2";
-            this.pb3_2.Size = new System.Drawing.Size(238, 137);
+            this.pb3_2.Size = new System.Drawing.Size(119, 71);
             this.pb3_2.TabIndex = 95;
             this.pb3_2.TabStop = false;
+            this.pb3_2.Click += new System.EventHandler(this.pb3_2_Click);
             // 
             // pb3_2_select
             // 
             this.pb3_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_2_select.Location = new System.Drawing.Point(1105, 194);
-            this.pb3_2_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_2_select.Location = new System.Drawing.Point(446, 98);
+            this.pb3_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2_select.Name = "pb3_2_select";
-            this.pb3_2_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_2_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_2_select.TabIndex = 96;
             this.pb3_2_select.TabStop = false;
             this.pb3_2_select.Visible = false;
             // 
             // pb3_1
             // 
-            this.pb3_1.Location = new System.Drawing.Point(1109, 23);
-            this.pb3_1.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_1.Location = new System.Drawing.Point(448, 9);
+            this.pb3_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1.Name = "pb3_1";
-            this.pb3_1.Size = new System.Drawing.Size(238, 137);
+            this.pb3_1.Size = new System.Drawing.Size(119, 71);
             this.pb3_1.TabIndex = 93;
             this.pb3_1.TabStop = false;
+            this.pb3_1.Click += new System.EventHandler(this.pb3_1_Click);
             // 
             // pb3_1_select
             // 
             this.pb3_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_1_select.Location = new System.Drawing.Point(1105, 19);
-            this.pb3_1_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb3_1_select.Location = new System.Drawing.Point(446, 7);
+            this.pb3_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1_select.Name = "pb3_1_select";
-            this.pb3_1_select.Size = new System.Drawing.Size(246, 146);
+            this.pb3_1_select.Size = new System.Drawing.Size(123, 76);
             this.pb3_1_select.TabIndex = 94;
             this.pb3_1_select.TabStop = false;
             this.pb3_1_select.Visible = false;
             // 
             // pb2_4
             // 
-            this.pb2_4.Location = new System.Drawing.Point(819, 540);
-            this.pb2_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_4.Location = new System.Drawing.Point(304, 278);
+            this.pb2_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4.Name = "pb2_4";
-            this.pb2_4.Size = new System.Drawing.Size(238, 137);
+            this.pb2_4.Size = new System.Drawing.Size(119, 71);
             this.pb2_4.TabIndex = 90;
             this.pb2_4.TabStop = false;
+            this.pb2_4.Click += new System.EventHandler(this.pb2_4_Click);
             // 
             // pb2_4_select
             // 
             this.pb2_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_4_select.Location = new System.Drawing.Point(815, 536);
-            this.pb2_4_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_4_select.Location = new System.Drawing.Point(302, 276);
+            this.pb2_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4_select.Name = "pb2_4_select";
-            this.pb2_4_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_4_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_4_select.TabIndex = 92;
             this.pb2_4_select.TabStop = false;
             this.pb2_4_select.Visible = false;
             // 
             // pb1_4
             // 
-            this.pb1_4.Location = new System.Drawing.Point(529, 540);
-            this.pb1_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_4.Location = new System.Drawing.Point(158, 278);
+            this.pb1_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4.Name = "pb1_4";
-            this.pb1_4.Size = new System.Drawing.Size(238, 137);
+            this.pb1_4.Size = new System.Drawing.Size(119, 71);
             this.pb1_4.TabIndex = 89;
             this.pb1_4.TabStop = false;
+            this.pb1_4.Click += new System.EventHandler(this.pb1_4_Click);
             // 
             // pb1_4_select
             // 
             this.pb1_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_4_select.Location = new System.Drawing.Point(525, 536);
-            this.pb1_4_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_4_select.Location = new System.Drawing.Point(156, 276);
+            this.pb1_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4_select.Name = "pb1_4_select";
-            this.pb1_4_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_4_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_4_select.TabIndex = 91;
             this.pb1_4_select.TabStop = false;
             this.pb1_4_select.Visible = false;
             // 
             // pb2_3
             // 
-            this.pb2_3.Location = new System.Drawing.Point(815, 369);
-            this.pb2_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_3.Location = new System.Drawing.Point(302, 189);
+            this.pb2_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3.Name = "pb2_3";
-            this.pb2_3.Size = new System.Drawing.Size(238, 137);
+            this.pb2_3.Size = new System.Drawing.Size(119, 71);
             this.pb2_3.TabIndex = 86;
             this.pb2_3.TabStop = false;
+            this.pb2_3.Click += new System.EventHandler(this.pb2_3_Click);
             // 
             // pb2_3_select
             // 
             this.pb2_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_3_select.Location = new System.Drawing.Point(811, 365);
-            this.pb2_3_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_3_select.Location = new System.Drawing.Point(300, 187);
+            this.pb2_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3_select.Name = "pb2_3_select";
-            this.pb2_3_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_3_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_3_select.TabIndex = 88;
             this.pb2_3_select.TabStop = false;
             this.pb2_3_select.Visible = false;
             // 
             // pb1_3
             // 
-            this.pb1_3.Location = new System.Drawing.Point(525, 369);
-            this.pb1_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_3.Location = new System.Drawing.Point(156, 189);
+            this.pb1_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3.Name = "pb1_3";
-            this.pb1_3.Size = new System.Drawing.Size(238, 137);
+            this.pb1_3.Size = new System.Drawing.Size(119, 71);
             this.pb1_3.TabIndex = 85;
             this.pb1_3.TabStop = false;
+            this.pb1_3.Click += new System.EventHandler(this.pb1_3_Click);
             // 
             // pb1_3_select
             // 
             this.pb1_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_3_select.Location = new System.Drawing.Point(521, 365);
-            this.pb1_3_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_3_select.Location = new System.Drawing.Point(154, 187);
+            this.pb1_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3_select.Name = "pb1_3_select";
-            this.pb1_3_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_3_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_3_select.TabIndex = 87;
             this.pb1_3_select.TabStop = false;
             this.pb1_3_select.Visible = false;
             // 
             // pb2_2
             // 
-            this.pb2_2.Location = new System.Drawing.Point(815, 194);
-            this.pb2_2.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_2.Location = new System.Drawing.Point(302, 98);
+            this.pb2_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2.Name = "pb2_2";
-            this.pb2_2.Size = new System.Drawing.Size(238, 137);
+            this.pb2_2.Size = new System.Drawing.Size(119, 71);
             this.pb2_2.TabIndex = 82;
             this.pb2_2.TabStop = false;
+            this.pb2_2.Click += new System.EventHandler(this.pb2_2_Click);
             // 
             // pb2_2_select
             // 
             this.pb2_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_2_select.Location = new System.Drawing.Point(811, 190);
-            this.pb2_2_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_2_select.Location = new System.Drawing.Point(300, 96);
+            this.pb2_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2_select.Name = "pb2_2_select";
-            this.pb2_2_select.Size = new System.Drawing.Size(246, 146);
+            this.pb2_2_select.Size = new System.Drawing.Size(123, 76);
             this.pb2_2_select.TabIndex = 84;
             this.pb2_2_select.TabStop = false;
             this.pb2_2_select.Visible = false;
             // 
             // pb1_2
             // 
-            this.pb1_2.Location = new System.Drawing.Point(525, 194);
-            this.pb1_2.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_2.Location = new System.Drawing.Point(156, 98);
+            this.pb1_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2.Name = "pb1_2";
-            this.pb1_2.Size = new System.Drawing.Size(238, 137);
+            this.pb1_2.Size = new System.Drawing.Size(119, 71);
             this.pb1_2.TabIndex = 81;
             this.pb1_2.TabStop = false;
+            this.pb1_2.Click += new System.EventHandler(this.pb1_2_Click);
             // 
             // pb1_2_select
             // 
             this.pb1_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_2_select.Location = new System.Drawing.Point(521, 190);
-            this.pb1_2_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_2_select.Location = new System.Drawing.Point(154, 96);
+            this.pb1_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2_select.Name = "pb1_2_select";
-            this.pb1_2_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_2_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_2_select.TabIndex = 83;
             this.pb1_2_select.TabStop = false;
             this.pb1_2_select.Visible = false;
@@ -573,99 +517,63 @@
             // btnSelectSet
             // 
             this.btnSelectSet.Enabled = false;
-            this.btnSelectSet.Location = new System.Drawing.Point(279, 294);
-            this.btnSelectSet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelectSet.Location = new System.Drawing.Point(12, 52);
+            this.btnSelectSet.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectSet.Name = "btnSelectSet";
-            this.btnSelectSet.Size = new System.Drawing.Size(168, 73);
+            this.btnSelectSet.Size = new System.Drawing.Size(84, 38);
             this.btnSelectSet.TabIndex = 78;
             this.btnSelectSet.Text = "Select Set";
             this.btnSelectSet.UseVisualStyleBackColor = true;
+            this.btnSelectSet.Click += new System.EventHandler(this.btnSelectSet_Click);
             // 
-            // btnGenerateDeck
+            // btnConnect
             // 
-            this.btnGenerateDeck.Location = new System.Drawing.Point(35, 459);
-            this.btnGenerateDeck.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGenerateDeck.Name = "btnGenerateDeck";
-            this.btnGenerateDeck.Size = new System.Drawing.Size(168, 73);
-            this.btnGenerateDeck.TabIndex = 77;
-            this.btnGenerateDeck.Text = "Generate Deck";
-            this.btnGenerateDeck.UseVisualStyleBackColor = true;
-            // 
-            // txtConnect
-            // 
-            this.txtConnect.Location = new System.Drawing.Point(237, 90);
-            this.txtConnect.Margin = new System.Windows.Forms.Padding(6);
-            this.txtConnect.Name = "txtConnect";
-            this.txtConnect.Size = new System.Drawing.Size(150, 44);
-            this.txtConnect.TabIndex = 74;
-            this.txtConnect.Text = "Connect";
-            this.txtConnect.UseVisualStyleBackColor = true;
-            this.txtConnect.Click += new System.EventHandler(this.txtConnect_Click_1);
-            // 
-            // lbReceive
-            // 
-            this.lbReceive.FormattingEnabled = true;
-            this.lbReceive.ItemHeight = 25;
-            this.lbReceive.Location = new System.Drawing.Point(15, 90);
-            this.lbReceive.Margin = new System.Windows.Forms.Padding(6);
-            this.lbReceive.Name = "lbReceive";
-            this.lbReceive.Size = new System.Drawing.Size(206, 329);
-            this.lbReceive.TabIndex = 73;
-            // 
-            // txtSend
-            // 
-            this.txtSend.Location = new System.Drawing.Point(177, 19);
-            this.txtSend.Margin = new System.Windows.Forms.Padding(6);
-            this.txtSend.Name = "txtSend";
-            this.txtSend.Size = new System.Drawing.Size(196, 31);
-            this.txtSend.TabIndex = 72;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(15, 15);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(6);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(150, 44);
-            this.btnSend.TabIndex = 71;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnConnect.Location = new System.Drawing.Point(12, 10);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(84, 37);
+            this.btnConnect.TabIndex = 74;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.txtConnect_Click_1);
             // 
             // pb2_1
             // 
-            this.pb2_1.Location = new System.Drawing.Point(815, 19);
-            this.pb2_1.Margin = new System.Windows.Forms.Padding(4);
+            this.pb2_1.Location = new System.Drawing.Point(302, 7);
+            this.pb2_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_1.Name = "pb2_1";
-            this.pb2_1.Size = new System.Drawing.Size(238, 137);
+            this.pb2_1.Size = new System.Drawing.Size(119, 71);
             this.pb2_1.TabIndex = 76;
             this.pb2_1.TabStop = false;
+            this.pb2_1.Click += new System.EventHandler(this.pb2_1_Click);
             // 
             // pb_2_1_select
             // 
             this.pb_2_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb_2_1_select.Location = new System.Drawing.Point(811, 15);
-            this.pb_2_1_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_2_1_select.Location = new System.Drawing.Point(300, 5);
+            this.pb_2_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb_2_1_select.Name = "pb_2_1_select";
-            this.pb_2_1_select.Size = new System.Drawing.Size(246, 146);
+            this.pb_2_1_select.Size = new System.Drawing.Size(123, 76);
             this.pb_2_1_select.TabIndex = 80;
             this.pb_2_1_select.TabStop = false;
             this.pb_2_1_select.Visible = false;
             // 
             // pb1_1
             // 
-            this.pb1_1.Location = new System.Drawing.Point(525, 19);
-            this.pb1_1.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_1.Location = new System.Drawing.Point(156, 7);
+            this.pb1_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1.Name = "pb1_1";
-            this.pb1_1.Size = new System.Drawing.Size(238, 137);
+            this.pb1_1.Size = new System.Drawing.Size(119, 71);
             this.pb1_1.TabIndex = 75;
             this.pb1_1.TabStop = false;
+            this.pb1_1.Click += new System.EventHandler(this.pb1_1_Click);
             // 
             // pb1_1_select
             // 
             this.pb1_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_1_select.Location = new System.Drawing.Point(521, 15);
-            this.pb1_1_select.Margin = new System.Windows.Forms.Padding(4);
+            this.pb1_1_select.Location = new System.Drawing.Point(154, 5);
+            this.pb1_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1_select.Name = "pb1_1_select";
-            this.pb1_1_select.Size = new System.Drawing.Size(246, 146);
+            this.pb1_1_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_1_select.TabIndex = 79;
             this.pb1_1_select.TabStop = false;
             this.pb1_1_select.Visible = false;
@@ -675,11 +583,37 @@
             this.cardUpdate.Interval = 10;
             this.cardUpdate.Tick += new System.EventHandler(this.cardUpdate_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 125;
+            this.label2.Text = "Status: ";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(61, 99);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 126;
+            this.lblStatus.Text = "label3";
+            // 
+            // gameStarted
+            // 
+            this.gameStarted.Enabled = true;
+            this.gameStarted.Interval = 10;
+            this.gameStarted.Tick += new System.EventHandler(this.gameStarted_Tick);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1417, 1229);
+            this.ClientSize = new System.Drawing.Size(595, 451);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pb3_7);
             this.Controls.Add(this.pb3_7_select);
             this.Controls.Add(this.pb2_7);
@@ -692,18 +626,12 @@
             this.Controls.Add(this.pb2_6_select);
             this.Controls.Add(this.pb1_6);
             this.Controls.Add(this.pb1_6_select);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pb3_5);
             this.Controls.Add(this.pb3_5_select);
             this.Controls.Add(this.pb2_5);
             this.Controls.Add(this.pb2_5_select);
             this.Controls.Add(this.pb1_5);
             this.Controls.Add(this.pb1_5_select);
-            this.Controls.Add(this.txtCheat);
-            this.Controls.Add(this.lblCurIndex);
-            this.Controls.Add(this.btnCheat);
-            this.Controls.Add(this.btnCheckForSets);
-            this.Controls.Add(this.btnDeal);
             this.Controls.Add(this.pb3_4);
             this.Controls.Add(this.pb3_4_select);
             this.Controls.Add(this.pb3_3);
@@ -725,18 +653,14 @@
             this.Controls.Add(this.pb1_2);
             this.Controls.Add(this.pb1_2_select);
             this.Controls.Add(this.btnSelectSet);
-            this.Controls.Add(this.btnGenerateDeck);
-            this.Controls.Add(this.txtConnect);
-            this.Controls.Add(this.lbReceive);
-            this.Controls.Add(this.txtSend);
-            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.pb2_1);
             this.Controls.Add(this.pb_2_1_select);
             this.Controls.Add(this.pb1_1);
             this.Controls.Add(this.pb1_1_select);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "Client";
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3_7_select)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_7)).EndInit();
@@ -798,18 +722,12 @@
         private System.Windows.Forms.PictureBox pb2_6_select;
         private System.Windows.Forms.PictureBox pb1_6;
         private System.Windows.Forms.PictureBox pb1_6_select;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pb3_5;
         private System.Windows.Forms.PictureBox pb3_5_select;
         private System.Windows.Forms.PictureBox pb2_5;
         private System.Windows.Forms.PictureBox pb2_5_select;
         private System.Windows.Forms.PictureBox pb1_5;
         private System.Windows.Forms.PictureBox pb1_5_select;
-        private System.Windows.Forms.RichTextBox txtCheat;
-        private System.Windows.Forms.Label lblCurIndex;
-        private System.Windows.Forms.Button btnCheat;
-        private System.Windows.Forms.Button btnCheckForSets;
-        private System.Windows.Forms.Button btnDeal;
         private System.Windows.Forms.PictureBox pb3_4;
         private System.Windows.Forms.PictureBox pb3_4_select;
         private System.Windows.Forms.PictureBox pb3_3;
@@ -831,16 +749,15 @@
         private System.Windows.Forms.PictureBox pb1_2;
         private System.Windows.Forms.PictureBox pb1_2_select;
         private System.Windows.Forms.Button btnSelectSet;
-        private System.Windows.Forms.Button btnGenerateDeck;
-        private System.Windows.Forms.Button txtConnect;
-        public System.Windows.Forms.ListBox lbReceive;
-        public System.Windows.Forms.TextBox txtSend;
-        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.PictureBox pb2_1;
         private System.Windows.Forms.PictureBox pb_2_1_select;
         private System.Windows.Forms.PictureBox pb1_1;
         private System.Windows.Forms.PictureBox pb1_1_select;
         private System.Windows.Forms.Timer cardUpdate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Timer gameStarted;
     }
 }
 

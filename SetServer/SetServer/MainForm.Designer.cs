@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbReceive = new System.Windows.Forms.ListBox();
-            this.txtSend = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.txtConnect = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.pb1_1 = new System.Windows.Forms.PictureBox();
             this.pb2_1 = new System.Windows.Forms.PictureBox();
-            this.btnGenerateDeck = new System.Windows.Forms.Button();
             this.btnSelectSet = new System.Windows.Forms.Button();
             this.pb1_1_select = new System.Windows.Forms.PictureBox();
             this.pb_2_1_select = new System.Windows.Forms.PictureBox();
@@ -59,9 +56,6 @@
             this.pb3_1 = new System.Windows.Forms.PictureBox();
             this.pb3_1_select = new System.Windows.Forms.PictureBox();
             this.btnDeal = new System.Windows.Forms.Button();
-            this.btnCheckForSets = new System.Windows.Forms.Button();
-            this.btnCheat = new System.Windows.Forms.Button();
-            this.lblCurIndex = new System.Windows.Forms.Label();
             this.txtCheat = new System.Windows.Forms.RichTextBox();
             this.pb3_5 = new System.Windows.Forms.PictureBox();
             this.pb3_5_select = new System.Windows.Forms.PictureBox();
@@ -69,7 +63,6 @@
             this.pb2_5_select = new System.Windows.Forms.PictureBox();
             this.pb1_5 = new System.Windows.Forms.PictureBox();
             this.pb1_5_select = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pb3_6 = new System.Windows.Forms.PictureBox();
             this.pb3_6_select = new System.Windows.Forms.PictureBox();
             this.pb2_6 = new System.Windows.Forms.PictureBox();
@@ -82,6 +75,13 @@
             this.pb2_7_select = new System.Windows.Forms.PictureBox();
             this.pb1_7 = new System.Windows.Forms.PictureBox();
             this.pb1_7_select = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.clientUpdate = new System.Windows.Forms.Timer(this.components);
+            this.lblServerSets = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblClientSets = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_1_select)).BeginInit();
@@ -126,44 +126,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb1_7_select)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbReceive
+            // btnConnect
             // 
-            this.lbReceive.FormattingEnabled = true;
-            this.lbReceive.Location = new System.Drawing.Point(12, 51);
-            this.lbReceive.Name = "lbReceive";
-            this.lbReceive.Size = new System.Drawing.Size(105, 173);
-            this.lbReceive.TabIndex = 5;
-            // 
-            // txtSend
-            // 
-            this.txtSend.Location = new System.Drawing.Point(93, 14);
-            this.txtSend.Name = "txtSend";
-            this.txtSend.Size = new System.Drawing.Size(100, 20);
-            this.txtSend.TabIndex = 4;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(12, 12);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.TabIndex = 3;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // txtConnect
-            // 
-            this.txtConnect.Location = new System.Drawing.Point(123, 51);
-            this.txtConnect.Name = "txtConnect";
-            this.txtConnect.Size = new System.Drawing.Size(75, 23);
-            this.txtConnect.TabIndex = 6;
-            this.txtConnect.Text = "Connect";
-            this.txtConnect.UseVisualStyleBackColor = true;
-            this.txtConnect.Click += new System.EventHandler(this.txtConnect_Click);
+            this.btnConnect.Location = new System.Drawing.Point(16, 12);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(84, 37);
+            this.btnConnect.TabIndex = 6;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.txtConnect_Click);
             // 
             // pb1_1
             // 
-            this.pb1_1.Location = new System.Drawing.Point(267, 14);
+            this.pb1_1.Location = new System.Drawing.Point(169, 11);
             this.pb1_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1.Name = "pb1_1";
             this.pb1_1.Size = new System.Drawing.Size(119, 71);
@@ -173,7 +148,7 @@
             // 
             // pb2_1
             // 
-            this.pb2_1.Location = new System.Drawing.Point(412, 14);
+            this.pb2_1.Location = new System.Drawing.Point(314, 11);
             this.pb2_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_1.Name = "pb2_1";
             this.pb2_1.Size = new System.Drawing.Size(119, 71);
@@ -181,21 +156,10 @@
             this.pb2_1.TabStop = false;
             this.pb2_1.Click += new System.EventHandler(this.pb2_1_Click);
             // 
-            // btnGenerateDeck
-            // 
-            this.btnGenerateDeck.Location = new System.Drawing.Point(22, 243);
-            this.btnGenerateDeck.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGenerateDeck.Name = "btnGenerateDeck";
-            this.btnGenerateDeck.Size = new System.Drawing.Size(84, 38);
-            this.btnGenerateDeck.TabIndex = 19;
-            this.btnGenerateDeck.Text = "Generate Deck";
-            this.btnGenerateDeck.UseVisualStyleBackColor = true;
-            this.btnGenerateDeck.Click += new System.EventHandler(this.btnGenerateDeck_Click);
-            // 
             // btnSelectSet
             // 
             this.btnSelectSet.Enabled = false;
-            this.btnSelectSet.Location = new System.Drawing.Point(144, 157);
+            this.btnSelectSet.Location = new System.Drawing.Point(16, 96);
             this.btnSelectSet.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectSet.Name = "btnSelectSet";
             this.btnSelectSet.Size = new System.Drawing.Size(84, 38);
@@ -207,7 +171,7 @@
             // pb1_1_select
             // 
             this.pb1_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_1_select.Location = new System.Drawing.Point(265, 12);
+            this.pb1_1_select.Location = new System.Drawing.Point(167, 9);
             this.pb1_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_1_select.Name = "pb1_1_select";
             this.pb1_1_select.Size = new System.Drawing.Size(123, 76);
@@ -218,7 +182,7 @@
             // pb_2_1_select
             // 
             this.pb_2_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb_2_1_select.Location = new System.Drawing.Point(410, 12);
+            this.pb_2_1_select.Location = new System.Drawing.Point(312, 9);
             this.pb_2_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb_2_1_select.Name = "pb_2_1_select";
             this.pb_2_1_select.Size = new System.Drawing.Size(123, 76);
@@ -228,7 +192,7 @@
             // 
             // pb2_2
             // 
-            this.pb2_2.Location = new System.Drawing.Point(412, 105);
+            this.pb2_2.Location = new System.Drawing.Point(314, 102);
             this.pb2_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2.Name = "pb2_2";
             this.pb2_2.Size = new System.Drawing.Size(119, 71);
@@ -239,7 +203,7 @@
             // pb2_2_select
             // 
             this.pb2_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_2_select.Location = new System.Drawing.Point(410, 103);
+            this.pb2_2_select.Location = new System.Drawing.Point(312, 100);
             this.pb2_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_2_select.Name = "pb2_2_select";
             this.pb2_2_select.Size = new System.Drawing.Size(123, 76);
@@ -249,7 +213,7 @@
             // 
             // pb1_2
             // 
-            this.pb1_2.Location = new System.Drawing.Point(267, 105);
+            this.pb1_2.Location = new System.Drawing.Point(169, 102);
             this.pb1_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2.Name = "pb1_2";
             this.pb1_2.Size = new System.Drawing.Size(119, 71);
@@ -260,7 +224,7 @@
             // pb1_2_select
             // 
             this.pb1_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_2_select.Location = new System.Drawing.Point(265, 103);
+            this.pb1_2_select.Location = new System.Drawing.Point(167, 100);
             this.pb1_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_2_select.Name = "pb1_2_select";
             this.pb1_2_select.Size = new System.Drawing.Size(123, 76);
@@ -270,7 +234,7 @@
             // 
             // pb2_3
             // 
-            this.pb2_3.Location = new System.Drawing.Point(412, 196);
+            this.pb2_3.Location = new System.Drawing.Point(314, 193);
             this.pb2_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3.Name = "pb2_3";
             this.pb2_3.Size = new System.Drawing.Size(119, 71);
@@ -281,7 +245,7 @@
             // pb2_3_select
             // 
             this.pb2_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_3_select.Location = new System.Drawing.Point(410, 194);
+            this.pb2_3_select.Location = new System.Drawing.Point(312, 191);
             this.pb2_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_3_select.Name = "pb2_3_select";
             this.pb2_3_select.Size = new System.Drawing.Size(123, 76);
@@ -291,7 +255,7 @@
             // 
             // pb1_3
             // 
-            this.pb1_3.Location = new System.Drawing.Point(267, 196);
+            this.pb1_3.Location = new System.Drawing.Point(169, 193);
             this.pb1_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3.Name = "pb1_3";
             this.pb1_3.Size = new System.Drawing.Size(119, 71);
@@ -302,7 +266,7 @@
             // pb1_3_select
             // 
             this.pb1_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_3_select.Location = new System.Drawing.Point(265, 194);
+            this.pb1_3_select.Location = new System.Drawing.Point(167, 191);
             this.pb1_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_3_select.Name = "pb1_3_select";
             this.pb1_3_select.Size = new System.Drawing.Size(123, 76);
@@ -312,7 +276,7 @@
             // 
             // pb2_4
             // 
-            this.pb2_4.Location = new System.Drawing.Point(414, 285);
+            this.pb2_4.Location = new System.Drawing.Point(316, 282);
             this.pb2_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4.Name = "pb2_4";
             this.pb2_4.Size = new System.Drawing.Size(119, 71);
@@ -323,7 +287,7 @@
             // pb2_4_select
             // 
             this.pb2_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_4_select.Location = new System.Drawing.Point(412, 283);
+            this.pb2_4_select.Location = new System.Drawing.Point(314, 280);
             this.pb2_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_4_select.Name = "pb2_4_select";
             this.pb2_4_select.Size = new System.Drawing.Size(123, 76);
@@ -333,7 +297,7 @@
             // 
             // pb1_4
             // 
-            this.pb1_4.Location = new System.Drawing.Point(269, 285);
+            this.pb1_4.Location = new System.Drawing.Point(171, 282);
             this.pb1_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4.Name = "pb1_4";
             this.pb1_4.Size = new System.Drawing.Size(119, 71);
@@ -344,7 +308,7 @@
             // pb1_4_select
             // 
             this.pb1_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_4_select.Location = new System.Drawing.Point(267, 283);
+            this.pb1_4_select.Location = new System.Drawing.Point(169, 280);
             this.pb1_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_4_select.Name = "pb1_4_select";
             this.pb1_4_select.Size = new System.Drawing.Size(123, 76);
@@ -354,7 +318,7 @@
             // 
             // pb3_4
             // 
-            this.pb3_4.Location = new System.Drawing.Point(561, 287);
+            this.pb3_4.Location = new System.Drawing.Point(463, 284);
             this.pb3_4.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4.Name = "pb3_4";
             this.pb3_4.Size = new System.Drawing.Size(119, 71);
@@ -365,7 +329,7 @@
             // pb3_4_select
             // 
             this.pb3_4_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_4_select.Location = new System.Drawing.Point(559, 285);
+            this.pb3_4_select.Location = new System.Drawing.Point(461, 282);
             this.pb3_4_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_4_select.Name = "pb3_4_select";
             this.pb3_4_select.Size = new System.Drawing.Size(123, 76);
@@ -375,7 +339,7 @@
             // 
             // pb3_3
             // 
-            this.pb3_3.Location = new System.Drawing.Point(559, 198);
+            this.pb3_3.Location = new System.Drawing.Point(461, 195);
             this.pb3_3.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3.Name = "pb3_3";
             this.pb3_3.Size = new System.Drawing.Size(119, 71);
@@ -386,7 +350,7 @@
             // pb3_3_select
             // 
             this.pb3_3_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_3_select.Location = new System.Drawing.Point(557, 196);
+            this.pb3_3_select.Location = new System.Drawing.Point(459, 193);
             this.pb3_3_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_3_select.Name = "pb3_3_select";
             this.pb3_3_select.Size = new System.Drawing.Size(123, 76);
@@ -396,7 +360,7 @@
             // 
             // pb3_2
             // 
-            this.pb3_2.Location = new System.Drawing.Point(559, 107);
+            this.pb3_2.Location = new System.Drawing.Point(461, 104);
             this.pb3_2.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2.Name = "pb3_2";
             this.pb3_2.Size = new System.Drawing.Size(119, 71);
@@ -407,7 +371,7 @@
             // pb3_2_select
             // 
             this.pb3_2_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_2_select.Location = new System.Drawing.Point(557, 105);
+            this.pb3_2_select.Location = new System.Drawing.Point(459, 102);
             this.pb3_2_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_2_select.Name = "pb3_2_select";
             this.pb3_2_select.Size = new System.Drawing.Size(123, 76);
@@ -417,7 +381,7 @@
             // 
             // pb3_1
             // 
-            this.pb3_1.Location = new System.Drawing.Point(559, 16);
+            this.pb3_1.Location = new System.Drawing.Point(461, 13);
             this.pb3_1.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1.Name = "pb3_1";
             this.pb3_1.Size = new System.Drawing.Size(119, 71);
@@ -428,7 +392,7 @@
             // pb3_1_select
             // 
             this.pb3_1_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_1_select.Location = new System.Drawing.Point(557, 14);
+            this.pb3_1_select.Location = new System.Drawing.Point(459, 11);
             this.pb3_1_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_1_select.Name = "pb3_1_select";
             this.pb3_1_select.Size = new System.Drawing.Size(123, 76);
@@ -439,50 +403,18 @@
             // btnDeal
             // 
             this.btnDeal.Enabled = false;
-            this.btnDeal.Location = new System.Drawing.Point(22, 283);
+            this.btnDeal.Location = new System.Drawing.Point(16, 54);
             this.btnDeal.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeal.Name = "btnDeal";
             this.btnDeal.Size = new System.Drawing.Size(84, 38);
             this.btnDeal.TabIndex = 47;
-            this.btnDeal.Text = "Deal Cards";
+            this.btnDeal.Text = "Start Game";
             this.btnDeal.UseVisualStyleBackColor = true;
             this.btnDeal.Click += new System.EventHandler(this.btnDeal_Click);
             // 
-            // btnCheckForSets
-            // 
-            this.btnCheckForSets.Enabled = false;
-            this.btnCheckForSets.Location = new System.Drawing.Point(22, 325);
-            this.btnCheckForSets.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCheckForSets.Name = "btnCheckForSets";
-            this.btnCheckForSets.Size = new System.Drawing.Size(84, 38);
-            this.btnCheckForSets.TabIndex = 48;
-            this.btnCheckForSets.Text = "Check for Sets";
-            this.btnCheckForSets.UseVisualStyleBackColor = true;
-            this.btnCheckForSets.Click += new System.EventHandler(this.btnCheckForSets_Click);
-            // 
-            // btnCheat
-            // 
-            this.btnCheat.Enabled = false;
-            this.btnCheat.Location = new System.Drawing.Point(123, 80);
-            this.btnCheat.Name = "btnCheat";
-            this.btnCheat.Size = new System.Drawing.Size(75, 23);
-            this.btnCheat.TabIndex = 49;
-            this.btnCheat.Text = "Cheat";
-            this.btnCheat.UseVisualStyleBackColor = true;
-            this.btnCheat.Click += new System.EventHandler(this.btnCheat_Click);
-            // 
-            // lblCurIndex
-            // 
-            this.lblCurIndex.AutoSize = true;
-            this.lblCurIndex.Location = new System.Drawing.Point(141, 122);
-            this.lblCurIndex.Name = "lblCurIndex";
-            this.lblCurIndex.Size = new System.Drawing.Size(35, 13);
-            this.lblCurIndex.TabIndex = 50;
-            this.lblCurIndex.Text = "label1";
-            // 
             // txtCheat
             // 
-            this.txtCheat.Location = new System.Drawing.Point(128, 253);
+            this.txtCheat.Location = new System.Drawing.Point(12, 162);
             this.txtCheat.Name = "txtCheat";
             this.txtCheat.Size = new System.Drawing.Size(100, 96);
             this.txtCheat.TabIndex = 51;
@@ -490,7 +422,7 @@
             // 
             // pb3_5
             // 
-            this.pb3_5.Location = new System.Drawing.Point(563, 376);
+            this.pb3_5.Location = new System.Drawing.Point(465, 373);
             this.pb3_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5.Name = "pb3_5";
             this.pb3_5.Size = new System.Drawing.Size(119, 71);
@@ -501,7 +433,7 @@
             // pb3_5_select
             // 
             this.pb3_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb3_5_select.Location = new System.Drawing.Point(561, 374);
+            this.pb3_5_select.Location = new System.Drawing.Point(463, 371);
             this.pb3_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb3_5_select.Name = "pb3_5_select";
             this.pb3_5_select.Size = new System.Drawing.Size(123, 76);
@@ -511,7 +443,7 @@
             // 
             // pb2_5
             // 
-            this.pb2_5.Location = new System.Drawing.Point(416, 374);
+            this.pb2_5.Location = new System.Drawing.Point(318, 371);
             this.pb2_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5.Name = "pb2_5";
             this.pb2_5.Size = new System.Drawing.Size(119, 71);
@@ -522,7 +454,7 @@
             // pb2_5_select
             // 
             this.pb2_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb2_5_select.Location = new System.Drawing.Point(414, 372);
+            this.pb2_5_select.Location = new System.Drawing.Point(316, 369);
             this.pb2_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb2_5_select.Name = "pb2_5_select";
             this.pb2_5_select.Size = new System.Drawing.Size(123, 76);
@@ -532,7 +464,7 @@
             // 
             // pb1_5
             // 
-            this.pb1_5.Location = new System.Drawing.Point(271, 374);
+            this.pb1_5.Location = new System.Drawing.Point(173, 371);
             this.pb1_5.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5.Name = "pb1_5";
             this.pb1_5.Size = new System.Drawing.Size(119, 71);
@@ -543,23 +475,13 @@
             // pb1_5_select
             // 
             this.pb1_5_select.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pb1_5_select.Location = new System.Drawing.Point(269, 372);
+            this.pb1_5_select.Location = new System.Drawing.Point(171, 369);
             this.pb1_5_select.Margin = new System.Windows.Forms.Padding(2);
             this.pb1_5_select.Name = "pb1_5_select";
             this.pb1_5_select.Size = new System.Drawing.Size(123, 76);
             this.pb1_5_select.TabIndex = 54;
             this.pb1_5_select.TabStop = false;
             this.pb1_5_select.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 421);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pb3_6
             // 
@@ -687,11 +609,75 @@
             this.pb1_7_select.TabStop = false;
             this.pb1_7_select.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "Status: ";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(62, 146);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 73;
+            this.lblStatus.Text = "label3";
+            // 
+            // clientUpdate
+            // 
+            this.clientUpdate.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblServerSets
+            // 
+            this.lblServerSets.AutoSize = true;
+            this.lblServerSets.Location = new System.Drawing.Point(84, 309);
+            this.lblServerSets.Name = "lblServerSets";
+            this.lblServerSets.Size = new System.Drawing.Size(13, 13);
+            this.lblServerSets.TabIndex = 75;
+            this.lblServerSets.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 309);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "Server Sets:";
+            // 
+            // lblClientSets
+            // 
+            this.lblClientSets.AutoSize = true;
+            this.lblClientSets.Location = new System.Drawing.Point(84, 322);
+            this.lblClientSets.Name = "lblClientSets";
+            this.lblClientSets.Size = new System.Drawing.Size(13, 13);
+            this.lblClientSets.TabIndex = 77;
+            this.lblClientSets.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 322);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 76;
+            this.label4.Text = "Client Sets:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 649);
+            this.ClientSize = new System.Drawing.Size(606, 455);
+            this.Controls.Add(this.lblClientSets);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblServerSets);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pb3_7);
             this.Controls.Add(this.pb3_7_select);
             this.Controls.Add(this.pb2_7);
@@ -704,7 +690,6 @@
             this.Controls.Add(this.pb2_6_select);
             this.Controls.Add(this.pb1_6);
             this.Controls.Add(this.pb1_6_select);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pb3_5);
             this.Controls.Add(this.pb3_5_select);
             this.Controls.Add(this.pb2_5);
@@ -712,9 +697,6 @@
             this.Controls.Add(this.pb1_5);
             this.Controls.Add(this.pb1_5_select);
             this.Controls.Add(this.txtCheat);
-            this.Controls.Add(this.lblCurIndex);
-            this.Controls.Add(this.btnCheat);
-            this.Controls.Add(this.btnCheckForSets);
             this.Controls.Add(this.btnDeal);
             this.Controls.Add(this.pb3_4);
             this.Controls.Add(this.pb3_4_select);
@@ -737,11 +719,7 @@
             this.Controls.Add(this.pb1_2);
             this.Controls.Add(this.pb1_2_select);
             this.Controls.Add(this.btnSelectSet);
-            this.Controls.Add(this.btnGenerateDeck);
-            this.Controls.Add(this.txtConnect);
-            this.Controls.Add(this.lbReceive);
-            this.Controls.Add(this.txtSend);
-            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.pb2_1);
             this.Controls.Add(this.pb_2_1_select);
             this.Controls.Add(this.pb1_1);
@@ -797,14 +775,9 @@
         }
 
         #endregion
-
-        public System.Windows.Forms.ListBox lbReceive;
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Button txtConnect;
-        public System.Windows.Forms.TextBox txtSend;
+        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.PictureBox pb1_1;
         private System.Windows.Forms.PictureBox pb2_1;
-        private System.Windows.Forms.Button btnGenerateDeck;
         private System.Windows.Forms.Button btnSelectSet;
         private System.Windows.Forms.PictureBox pb1_1_select;
         private System.Windows.Forms.PictureBox pb_2_1_select;
@@ -829,9 +802,6 @@
         private System.Windows.Forms.PictureBox pb3_1;
         private System.Windows.Forms.PictureBox pb3_1_select;
         private System.Windows.Forms.Button btnDeal;
-        private System.Windows.Forms.Button btnCheckForSets;
-        private System.Windows.Forms.Button btnCheat;
-        private System.Windows.Forms.Label lblCurIndex;
         private System.Windows.Forms.RichTextBox txtCheat;
         private System.Windows.Forms.PictureBox pb3_5;
         private System.Windows.Forms.PictureBox pb3_5_select;
@@ -839,7 +809,6 @@
         private System.Windows.Forms.PictureBox pb2_5_select;
         private System.Windows.Forms.PictureBox pb1_5;
         private System.Windows.Forms.PictureBox pb1_5_select;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pb3_6;
         private System.Windows.Forms.PictureBox pb3_6_select;
         private System.Windows.Forms.PictureBox pb2_6;
@@ -852,6 +821,13 @@
         private System.Windows.Forms.PictureBox pb2_7_select;
         private System.Windows.Forms.PictureBox pb1_7;
         private System.Windows.Forms.PictureBox pb1_7_select;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Timer clientUpdate;
+        private System.Windows.Forms.Label lblServerSets;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblClientSets;
+        private System.Windows.Forms.Label label4;
     }
 }
 

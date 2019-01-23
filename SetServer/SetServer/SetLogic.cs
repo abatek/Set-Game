@@ -26,6 +26,7 @@ namespace SetServer
         public int cardsShown = 12;
 
 
+
         public void generateDeck()
         {
             //i = colour
@@ -124,6 +125,8 @@ namespace SetServer
             }
             return str;
         }
+
+        
 
         public List<Card> convertToCards(string str)
         {

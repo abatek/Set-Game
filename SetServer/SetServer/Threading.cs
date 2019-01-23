@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SetServer
 {
@@ -15,8 +11,16 @@ namespace SetServer
         public Socket s;
         public string ip = "127.0.0.1";
         public int port = 8001;
+        public Thread ThreadRead;
+        public int[] p = new int[3];
 
-        public void Connect() {
+
+        public bool clientAlreadyFoundSet = false;
+
+        public bool readyToUpdate = false;
+
+        public void Connect()
+        {
             try
             {
                 IPAddress ipAd = IPAddress.Parse(ip);
@@ -30,7 +34,7 @@ namespace SetServer
                 s = listener.AcceptSocket();
                 Console.WriteLine("Connection accepted from {0}", s.RemoteEndPoint);
 
-                Thread ThreadRead = ReadFromClient();
+                ThreadRead = ReadFromClient();
                 ThreadRead.Start();
 
                 ASCIIEncoding msg = new ASCIIEncoding();
@@ -42,35 +46,40 @@ namespace SetServer
             }
         }
 
-        public Thread ReadFromClient() {
+        public Thread ReadFromClient()
+        {
             return new Thread(() =>
             {
                 byte[] bb = new byte[100];
-
                 while (true)
                 {
                     string output = "";
+                    bool loopedAlready = false;
 
                     int k = s.Receive(bb, 100, SocketFlags.None);
                     for (int i = 0; i < k; ++i)
                     {
                         char c = Convert.ToChar(bb[i]);
-                        if (c.Equals('\n'))
+                        if (c.Equals('\n') && !loopedAlready)
                         {
-                            //AddToListBox.UpdateListBox(output);
-                            Console.WriteLine("Message: " + output);
-                            SetLogic test = new SetLogic();
-
-                            List<Card> cards = test.convertToCards(output);
-                            foreach (Card card in cards)
+                            if (output.Substring(0, 1) == "*")
                             {
-                                card.showFeatures();
+                                Console.WriteLine(output);
                             }
+                            else
+                            {
+                                
+                                string[] rawPositions = output.Split(' ');
 
-                            bool checkedIsSet = test.isSet(cards[0], cards[1], cards[2]);
-                            Console.WriteLine("This is a set: {0}", checkedIsSet);
-                            WriteToClient("This is a set: " + Convert.ToString(checkedIsSet));
-                            output = "";
+                                for (int j = 0; j < 3; j++)
+                                {
+                                    p[j] = Convert.ToInt32(rawPositions[j]);
+                                }
+                                Console.WriteLine("Receieved cards from client");
+                                readyToUpdate = true;
+
+                                loopedAlready = true;
+                            }
                         }
                         else
                         {

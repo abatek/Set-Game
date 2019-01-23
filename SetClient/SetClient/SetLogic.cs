@@ -8,6 +8,9 @@ namespace SetClient
 {
     class SetLogic
     {
+        public int serverSets = 0;
+        public int clientSets = 0;
+
         public List<Card> convertToCards(string str)
         {
             List<Card> ret = new List<Card>();
@@ -25,7 +28,42 @@ namespace SetClient
             }
             return ret;
         }
+
+        public bool isSet(Card a, Card b, Card c)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (a.getFeatures()[i] == b.getFeatures()[i])
+                {
+                    if (a.getFeatures()[i] != c.getFeatures()[i])
+                    {
+                        return false;
+                    }
+                }
+                else if (a.getFeatures()[i] != b.getFeatures()[i])
+                {
+                    if (a.getFeatures()[i] != c.getFeatures()[i])
+                    {
+                        if (b.getFeatures()[i] == c.getFeatures()[i])
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
+
+    
 
     public class Card
     {
